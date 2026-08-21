@@ -1,39 +1,138 @@
-const audioMessage = document.querySelector('.audio-message');
-const players = document.querySelectorAll('[data-audio]');
+document.body.classList.add('motion-ready');
 
-function setPlaying(button, playing) {
-  button.classList.toggle('is-playing', playing);
-  button.setAttribute('aria-label', playing ? 'Pause audio' : 'Play audio');
+const formatTime = (seconds) => {
+  if (!Number.isFinite(seconds)) return '00:00';
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+};
+
+// Mobile navigation
+const menuButton = document.querySelector('[data-menu-toggle]');
+const menu = document.querySelector('[data-menu]');
+if (menuButton && menu) {
+  menuButton.addEventListener('click', () => {
+    const open = menu.classList.toggle('is-open');
+    menuButton.classList.toggle('is-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    menu.classList.remove('is-open');
+    menuButton.classList.remove('is-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open menu');
+    document.body.style.overflow = '';
+  }));
 }
 
-players.forEach((button) => {
-  const audio = document.getElementById(button.dataset.audio);
-  if (!audio) return;
+// Curtain opening. Browsers require a click before sound can begin.
+const opening = document.querySelector('[data-opening]');
+if (opening) {
+  const openButton = opening.querySelector('[data-curtain-open]');
+  const skipButton = opening.querySelector('[data-curtain-skip]');
+  const openingAudio = opening.querySelector('[data-opening-audio]');
+  const hasSeenOpening = sessionStorage.getItem('dey-opening-seen') === 'yes';
 
-  button.addEventListener('click', async () => {
-    if (!audio.currentSrc) {
-      if (audioMessage) audioMessage.textContent = 'Add your MP3 to assets/audio to bring this opening to life.';
-      return;
+  const openCurtain = (withSound) => {
+    sessionStorage.setItem('dey-opening-seen', 'yes');
+    if (withSound && openingAudio) {
+      openingAudio.play().catch(() => {
+        const fallback = openingAudio.dataset.fallback;
+        if (fallback && openingAudio.src !== fallback) {
+          openingAudio.src = fallback;
+          openingAudio.play().catch(() => {});
+        }
+      });
     }
-    document.querySelectorAll('audio').forEach((other) => {
-      if (other !== audio) other.pause();
-    });
-    players.forEach((otherButton) => {
-      if (otherButton !== button) setPlaying(otherButton, false);
-    });
-    try {
-      if (audio.paused) {
+    opening.classList.add('is-open');
+    document.body.classList.remove('has-opening');
+    window.setTimeout(() => opening.classList.add('is-gone'), 1500);
+  };
+
+  if (hasSeenOpening) {
+    opening.classList.add('is-open', 'is-gone');
+    document.body.classList.remove('has-opening');
+  } else {
+    document.body.style.overflow = 'hidden';
+    const releaseScroll = () => { document.body.style.overflow = ''; };
+    openButton?.addEventListener('click', () => { openCurtain(true); releaseScroll(); });
+    skipButton?.addEventListener('click', () => { openCurtain(false); releaseScroll(); });
+  }
+}
+
+// Custom audio players
+const players = [...document.querySelectorAll('[data-audio-player]')];
+const stopOtherPlayers = (current) => {
+  players.forEach((player) => {
+    if (player === current) return;
+    const audio = player.querySelector('audio');
+    audio?.pause();
+    player.classList.remove('is-playing');
+  });
+};
+
+players.forEach((player) => {
+  const audio = player.querySelector('audio');
+  const toggle = player.querySelector('.audio-toggle');
+  const track = player.querySelector('.audio-track');
+  const progress = track?.querySelector('i');
+  const time = player.querySelector('[data-time]');
+  if (!audio || !toggle) return;
+
+  const update = () => {
+    const ratio = audio.duration ? audio.currentTime / audio.duration : 0;
+    if (progress) progress.style.width = `${ratio * 100}%`;
+    if (time) time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+  };
+
+  toggle.addEventListener('click', async () => {
+    stopOtherPlayers(player);
+    if (audio.paused) {
+      try {
         await audio.play();
-        setPlaying(button, true);
-      } else {
-        audio.pause();
-        setPlaying(button, false);
+        player.classList.add('is-playing');
+        toggle.setAttribute('aria-label', 'Pause audio');
+      } catch {
+        player.classList.remove('is-playing');
       }
-    } catch {
-      if (audioMessage) audioMessage.textContent = 'Add your MP3 to assets/audio to bring this opening to life.';
+    } else {
+      audio.pause();
+      player.classList.remove('is-playing');
+      toggle.setAttribute('aria-label', 'Play audio');
     }
   });
-  audio.addEventListener('ended', () => setPlaying(button, false));
+
+  track?.addEventListener('click', (event) => {
+    if (!audio.duration) return;
+    const rect = track.getBoundingClientRect();
+    audio.currentTime = ((event.clientX - rect.left) / rect.width) * audio.duration;
+  });
+  audio.addEventListener('loadedmetadata', update);
+  audio.addEventListener('timeupdate', update);
+  audio.addEventListener('ended', () => {
+    player.classList.remove('is-playing');
+    toggle.setAttribute('aria-label', 'Play audio');
+  });
 });
 
-document.getElementById('year').textContent = new Date().getFullYear();
+// Gentle entrance animation
+const reveals = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+  reveals.forEach((element) => observer.observe(element));
+} else {
+  reveals.forEach((element) => element.classList.add('is-visible'));
+}
+
+document.querySelectorAll('[data-year]').forEach((year) => {
+  year.textContent = String(new Date().getFullYear());
+});

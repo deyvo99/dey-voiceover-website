@@ -1,10 +1,19 @@
-# Da Eun Yoon — Voice Artist Website
+# Da Eun Yoon — Voice Actor & Storyteller Website
 
-A handcrafted, static promotional website. There is no Squarespace template, database, build step, or paid website platform required.
+A handcrafted, multi-page promotional website. There is no Squarespace template, database, build step, or paid website platform required.
+
+## Pages
+
+- `index.html` — theatrical curtain opening, featured demos, published work and studio
+- `about.html` — childhood story, personal life, training and Esme’s corner
+- `commercial.html` — English and Korean commercial reels
+- `audiobook.html` — featured reel, six genre samples and published work
+- `animation.html` — English and Korean animation reels
+- `contact.html` — email-based inquiry page
 
 ## Add your voice
 
-Put your MP3 files in `assets/audio/` with the file names listed in [assets/README.md](assets/README.md). The players work immediately once those files are present.
+The previous Squarespace demos, photos and videos have been copied into `assets/`. The only missing recording is the new theatrical welcome. Record the text in `OPENING_SCRIPT.md` and save it as `assets/audio/opening-welcome.mp3`. Until then, the opening temporarily falls back to the commercial reel so visitors still hear Da Eun’s voice.
 
 ## Publish for free
 
@@ -18,4 +27,4 @@ The hosting can be free; keep your domain registration active so you retain the 
 
 ## Edit the words
 
-Everything visible lives in `index.html`. Colors and layout are in `styles.css`. The small audio-player behavior is in `script.js`.
+Each page has its own HTML file. Shared colors and layout are in `styles.css`; curtain, navigation, reveal and audio-player behavior are in `script.js`.

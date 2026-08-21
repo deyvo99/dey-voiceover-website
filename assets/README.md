@@ -1,10 +1,7 @@
 # Your media goes here
 
-Put your own audio files in `assets/audio/` using these names:
+The original Squarespace audio is already preserved in `assets/audio/`. Add the new welcome using this name:
 
-- `da-eun-hello.mp3` — a warm 30–60 second welcome for the opening player
-- `commercial-demo.mp3`
-- `animation-demo.mp3`
-- `audiobook-demo.mp3`
+- `opening-welcome.mp3` — the 20–25 second theatrical welcome in `OPENING_SCRIPT.md`
 
-The site is intentionally a dependency-free static site. You can host it free on GitHub Pages, Cloudflare Pages, or Netlify and point your existing domain to it. Audio does not autoplay because browsers block unexpected sound; the big opening player is the first meaningful interaction instead.
+The site is intentionally a dependency-free static site. You can host it free on GitHub Pages or Cloudflare Pages and point your existing domain to it. Browsers block unexpected sound, so the visitor presses the opening button; that gesture starts the voice and opens the curtain together.
