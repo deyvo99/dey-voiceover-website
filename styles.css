@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=IM+Fell+English:ital@0;1&display=swap");
+
 :root {
   --ink: #17231f;
   --cream: #fffaf1;
@@ -10,6 +12,9 @@
   --yellow: #ffd75e;
   --lavender: #9b84da;
   --plum: #50285f;
+  --story-plum: #2b0c35;
+  --story-gold: #e7bd62;
+  --story-cream: #fff0c2;
   --mint: #bee5d3;
   --line: rgba(23, 35, 31, .2);
   --display: "Fraunces", Georgia, serif;
@@ -52,18 +57,18 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 .motion-ready .delay-2 { transition-delay: .24s; }
 
 /* Header */
-.site-header { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; min-height: 78px; padding: .8rem max(4vw, 1.25rem); background: rgba(255, 250, 241, .96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+.site-header { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: .8rem max(4vw, 1.25rem); background: linear-gradient(90deg, rgba(29,5,36,.96), rgba(78,27,87,.9), rgba(29,5,36,.96)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center 42% / cover; border-bottom: 1px solid rgba(231,189,98,.7); color: var(--story-cream); box-shadow: 0 5px 20px rgba(32,7,39,.2); }
 .brand { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
-.brand span { font: 800 1.38rem/1 var(--display); letter-spacing: -.04em; }
-.brand small { margin-top: .35rem; font: 500 .55rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-.site-nav { display: flex; align-items: center; gap: clamp(.75rem, 1.8vw, 1.8rem); }
-.site-nav a { position: relative; padding: .45rem 0; text-decoration: none; font-size: .75rem; font-weight: 700; }
-.site-nav a:not(.nav-contact)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: var(--rose); transition: right .2s; }
-.site-nav a:hover::after, .site-nav a.active::after { right: 0; }
-.site-nav .nav-contact { padding: .55rem .8rem; border: 1px solid var(--ink); border-radius: 99px; }
-.site-nav .nav-contact.active { background: var(--ink); color: var(--cream); }
+.brand span { color: var(--story-cream); font: 400 1.55rem/1 "IM Fell English", Georgia, serif; letter-spacing: -.025em; }
+.brand small { margin-top: .35rem; color: var(--story-gold); font: 600 .5rem/1.25 "Cinzel", Georgia, serif; letter-spacing: .08em; text-transform: uppercase; }
+.site-nav { display: flex; align-items: center; gap: clamp(.35rem, 1vw, .85rem); }
+.site-nav a { position: relative; padding: .52rem .7rem; border: 1px solid transparent; border-radius: 3px; color: #f9ebc8; text-decoration: none; font: 400 .95rem/1 "IM Fell English", Georgia, serif; transition: color .2s, border-color .2s, background .2s, transform .2s; }
+.site-nav a:not(.nav-contact)::after { content: none; }
+.site-nav a:hover, .site-nav a.active { border-color: rgba(231,189,98,.58); background: rgba(255,238,185,.1); color: #ffe09a; transform: translateY(-1px); }
+.site-nav .nav-contact { padding: .58rem .85rem; border: 1px solid #d8ad54; border-radius: 3px; background: linear-gradient(145deg, #f3e3b9, #d5af6c 60%, #efd79e); color: #3a1c27; box-shadow: inset 0 0 0 2px rgba(255,246,218,.35), 0 4px 12px rgba(15,2,19,.22); }
+.site-nav .nav-contact:hover, .site-nav .nav-contact.active { border-color: #f0d184; background: linear-gradient(145deg, #fff0c6, #e1bc73 60%, #f4dfa9); color: #32123d; }
 .menu-toggle { display: none; width: 44px; height: 44px; border: 0; background: transparent; padding: 12px; }
-.menu-toggle span { display: block; height: 2px; margin: 6px 0; background: var(--ink); transition: transform .2s; }
+.menu-toggle span { display: block; height: 2px; margin: 6px 0; background: var(--story-gold); transition: transform .2s; }
 
 /* Opening curtain */
 .stage-opening { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: transparent; color: var(--cream); transition: visibility 0s .8s; }
@@ -189,10 +194,14 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 .project-note { background: var(--paper); }.brief-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }.brief-card { min-height: 260px; padding: 1.4rem; border: 1.5px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); }.brief-card:nth-child(1){background:var(--pink)}.brief-card:nth-child(2){background:var(--blue)}.brief-card:nth-child(3){background:var(--yellow)}.brief-card > span { font: 500 .65rem var(--mono); }.brief-card h3 { margin-top: 3.2rem; font-size: 2rem; }.brief-card p { font-size: .8rem; }.email-launch { display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-top: 4rem; }.email-launch p { font: italic 700 1.3rem var(--display); }.contact-final { position: relative; padding: 8rem 2rem; background: var(--blue); text-align: center; }.contact-final > span { font-size: 3rem; color: var(--rose); }.contact-final h2 { font-size: clamp(3.5rem, 7vw, 7rem); }.contact-final > a { font-weight: 700; }
 
 /* Footer */
-.site-footer { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 3rem; padding: 3.5rem max(5vw, 1.5rem) 2rem; background: var(--ink); color: var(--cream); }.footer-brand { color: var(--cream); }.footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem 1rem; }.footer-nav a { text-decoration: none; font-size: .72rem; }.footer-nav a:hover { color: var(--yellow); }.footer-contact a { font: 700 1rem var(--display); }.footer-contact p { margin: .6rem 0 0; font: 500 .6rem var(--mono); }.legal { grid-column: 1/-1; margin: 1rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,.2); font: 400 .52rem/1.5 var(--mono); text-transform: uppercase; }
+.site-footer { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 2.5rem 3rem; padding: 3.5rem max(5vw, 1.5rem) 2rem; background: linear-gradient(rgba(27,5,34,.93), rgba(15,2,20,.98)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center 66% / cover; border-top: 1px solid rgba(231,189,98,.72); color: var(--story-cream); }.footer-brand { color: var(--story-cream); }.footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem 1rem; }.footer-nav a { color: #f7e8c4; text-decoration: none; font: 400 .94rem/1.25 "IM Fell English", Georgia, serif; }.footer-nav a:hover { color: var(--story-gold); }.footer-contact a { color: var(--story-cream); font: 400 1.15rem/1.2 "IM Fell English", Georgia, serif; }.footer-contact p { margin: .6rem 0 0; color: rgba(255,240,194,.76); font: 500 .6rem var(--mono); }.legal { grid-column: 1/-1; margin: .5rem 0 0; padding-top: 1rem; border-top: 1px solid rgba(231,189,98,.3); color: rgba(255,240,194,.62); font: 400 .52rem/1.5 var(--mono); text-transform: uppercase; }
+.ai-protection { grid-column: 1/-1; position: relative; margin-top: .25rem; padding: clamp(1.35rem, 3vw, 2.25rem); border: 1px solid rgba(228,184,87,.66); outline: 1px solid rgba(244,211,137,.25); outline-offset: 5px; background: radial-gradient(circle at 12% 10%, rgba(255,255,255,.44), transparent 30%), linear-gradient(145deg, rgba(255,244,212,.96), rgba(228,198,141,.93)); color: #34133c; box-shadow: inset 0 0 28px rgba(106,58,29,.12), 0 10px 26px rgba(11,1,14,.2); }
+.ai-protection::before { content: "❦"; position: absolute; left: 50%; top: -.72rem; padding: 0 .65rem; background: #391144; color: var(--story-gold); font: 400 1.2rem/1 "IM Fell English", Georgia, serif; transform: translateX(-50%); }
+.ai-protection > span { display: block; margin-bottom: .65rem; color: #6a2b70; font: 600 .58rem/1.2 "Cinzel", Georgia, serif; letter-spacing: .16em; text-transform: uppercase; }
+.ai-protection p { max-width: 1500px; margin: 0; font: 400 clamp(1rem, 1.45vw, 1.25rem)/1.55 "IM Fell English", Georgia, serif; }
 
 @media (max-width: 980px) {
-  .site-nav { gap: .85rem; }.site-nav a { font-size: .67rem; }
+  .site-nav { gap: .2rem; }.site-nav a { padding-inline: .45rem; font-size: .86rem; }
   .home-hero, .story-hero, .demo-hero, .contact-hero { grid-template-columns: 1fr; }
   .home-hero { padding-top: 4rem; }.hero-portrait { width: min(100%, 480px); }
   .world-cards { grid-template-columns: 1fr; max-width: 680px; margin: auto; }.world-card { min-height: 420px; }.world-audiobook { transform: none; }
@@ -205,9 +214,9 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 
 @media (max-width: 760px) {
   .section-pad { padding: 5rem 1.25rem; }
-  .site-header { min-height: 70px; backdrop-filter: none; }.brand span { font-size: 1.15rem; }.brand small { font-size: .46rem; }
+  .site-header { min-height: 72px; }.brand span { font-size: 1.2rem; }.brand small { max-width: 190px; font-size: .43rem; letter-spacing: .06em; }
   .menu-toggle { display: block; position: relative; z-index: 42; cursor: pointer; }
-  .site-nav { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .6rem; padding: 5rem 2rem; background: var(--yellow); transform: translateX(102%); transition: transform .35s ease; }.site-nav.is-open { transform: none; }.site-nav a { font: 700 2.1rem/1 var(--display); }.site-nav .nav-contact { margin-top: .8rem; padding: .7rem 1rem; }.menu-toggle.is-open span:first-child { transform: translateY(4px) rotate(45deg); }.menu-toggle.is-open span:last-child { transform: translateY(-4px) rotate(-45deg); }
+  .site-nav { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: .55rem; padding: 5rem 2rem; background: linear-gradient(rgba(34,6,42,.88), rgba(28,4,35,.96)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; transform: translateX(102%); transition: transform .35s ease; }.site-nav.is-open { transform: none; }.site-nav a { width: 100%; padding: .7rem .85rem; font: 400 2rem/1 "IM Fell English", Georgia, serif; }.site-nav .nav-contact { margin-top: .8rem; padding: .8rem 1rem; text-align: center; }.menu-toggle.is-open span:first-child { transform: translateY(4px) rotate(45deg); }.menu-toggle.is-open span:last-child { transform: translateY(-4px) rotate(-45deg); }
   .split-heading { grid-template-columns: 1fr; align-items: start; gap: 1rem; margin-bottom: 2.8rem; }.section-heading h2 { font-size: clamp(2.8rem, 14vw, 4.5rem); }
   .home-hero { min-height: auto; padding: 4rem 1.25rem; }.hero-copy h1 { font-size: clamp(3.4rem, 17vw, 5.2rem); }.hero-lead { font-size: .95rem; }.portrait-note { right: 0; }
   .promise-strip { justify-content: flex-start; }
@@ -228,7 +237,7 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .magic-circle { width: 250px; height: 250px; }
   .contact-collage { min-height: 470px; }.contact-pic { width: 46%; height: 40%; }.p4 { left: 25%; }.p5 { right: 0; }.collage-note { left: 30%; }
   .email-launch { flex-direction: column; }
-  .site-footer { grid-template-columns: 1fr; gap: 2rem; }.legal { grid-column: auto; }
+  .site-footer { grid-template-columns: 1fr; gap: 2rem; }.legal, .ai-protection { grid-column: auto; }.ai-protection { margin-top: .5rem; padding: 1.35rem; }.ai-protection p { font-size: .98rem; }
 }
 
 @media (max-width: 480px) {
