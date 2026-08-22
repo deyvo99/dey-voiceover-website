@@ -66,20 +66,27 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 .menu-toggle span { display: block; height: 2px; margin: 6px 0; background: var(--ink); transition: transform .2s; }
 
 /* Opening curtain */
-.stage-opening { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: transparent; color: var(--cream); transition: visibility 0s .92s; }
+.stage-opening { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: transparent; color: var(--cream); transition: visibility 0s .82s; }
 .stage-opening.is-gone { visibility: hidden; pointer-events: none; }
-.curtain { --wash-open: 0%; position: absolute; inset: -2vh -2vw; width: auto; background-image: linear-gradient(180deg, rgba(30,5,35,.08), rgba(12,1,19,.22)), url("assets/images/opening/enchanted-watercolor-curtain.jpg"); background-position: center; background-repeat: no-repeat; background-size: cover; box-shadow: inset 0 0 105px rgba(6,0,9,.34); will-change: -webkit-mask-image; }
-.curtain::after { content: ""; position: absolute; inset: 0; opacity: .38; background: radial-gradient(circle at 20% 30%, rgba(255,244,224,.23) 0 .7px, transparent 1.4px) 0 0/8px 9px, radial-gradient(circle at 68% 72%, rgba(20,2,24,.3) 0 .65px, transparent 1.35px) 2px 3px/11px 13px; mix-blend-mode: soft-light; }
-.curtain-left { -webkit-mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 var(--wash-open), rgba(0,0,0,.12) calc(var(--wash-open) + 2%), rgba(0,0,0,.42) calc(var(--wash-open) + 6%), rgba(0,0,0,.8) calc(var(--wash-open) + 11%), #000 calc(var(--wash-open) + 17%)); mask-image: radial-gradient(ellipse at 50% 50%, transparent 0 var(--wash-open), rgba(0,0,0,.12) calc(var(--wash-open) + 2%), rgba(0,0,0,.42) calc(var(--wash-open) + 6%), rgba(0,0,0,.8) calc(var(--wash-open) + 11%), #000 calc(var(--wash-open) + 17%)); }
-.stage-opening.is-open .curtain { animation: watercolorOpen .9s cubic-bezier(.52,.01,.16,1) forwards; }
-.stage-opening.is-open .curtain::after { animation: pigmentLift .78s ease-out forwards; }
+.watercolor-base, .watercolor-panel { position: absolute; inset: -2vh -2vw; background-image: linear-gradient(180deg, rgba(30,5,35,.08), rgba(12,1,19,.22)), url("assets/images/opening/enchanted-watercolor-curtain.jpg"); background-position: center; background-repeat: no-repeat; background-size: cover; box-shadow: inset 0 0 105px rgba(6,0,9,.34); }
+.watercolor-base { z-index: 0; transition: opacity .1s linear; }
+.watercolor-panel { z-index: 1; will-change: transform, opacity; transition: transform .78s cubic-bezier(.64,.02,.2,1), opacity .3s ease .42s; }
+.panel-top { clip-path: polygon(-2% -2%, 102% -2%, 50% 52%); }
+.panel-right { clip-path: polygon(102% -2%, 102% 102%, 48% 50%); }
+.panel-bottom { clip-path: polygon(-2% 102%, 102% 102%, 50% 48%); }
+.panel-left { clip-path: polygon(-2% -2%, 52% 50%, -2% 102%); }
+.stage-opening.is-open .watercolor-base { opacity: 0; }
+.stage-opening.is-open .panel-top { opacity: 0; transform: translateY(-70%) scale(1.025); }
+.stage-opening.is-open .panel-right { opacity: 0; transform: translateX(70%) scale(1.025); }
+.stage-opening.is-open .panel-bottom { opacity: 0; transform: translateY(70%) scale(1.025); }
+.stage-opening.is-open .panel-left { opacity: 0; transform: translateX(-70%) scale(1.025); }
 .opening-copy { position: relative; top: -3vh; z-index: 3; width: min(82%, 760px); padding: clamp(1.35rem, 2.8vw, 2.2rem) clamp(1.2rem, 4vw, 3.4rem) clamp(1.25rem, 2.6vw, 1.9rem); border: 1px solid rgba(229,181,77,.48); outline: 1px solid rgba(244,211,137,.25); outline-offset: 6px; background: radial-gradient(ellipse at 50% 15%, rgba(255,235,178,.08), transparent 58%), rgba(35,7,42,.12); color: #fff0c7; box-shadow: inset 0 0 35px rgba(246,211,130,.035), 0 12px 40px rgba(14,0,18,.12); text-align: center; text-shadow: 0 2px 16px rgba(12,0,18,.45); transition: opacity .24s ease, transform .24s ease; }
 .opening-copy::before, .opening-copy::after { position: absolute; left: 50%; padding: 0 .65rem; background: #4e1c59; color: #e7b94e; font: 400 1.35rem/1 "IM Fell English", Georgia, serif; transform: translateX(-50%); }
 .opening-copy::before { content: "❦"; top: -.72rem; }
 .opening-copy::after { content: "✦"; bottom: -.62rem; font-size: .8rem; }
 .stage-opening.is-open .opening-copy { opacity: 0; transform: scale(.97); pointer-events: none; }
 .stage-opening.is-open .opening-stars { opacity: 0; }
-.stage-opening.is-open .opening-stars i { animation: starDissolve .68s ease-out forwards; }
+.stage-opening.is-open .opening-stars i { animation: storybookSparkle .72s ease-out forwards; }
 .opening-eyebrow { margin: 0 0 .85rem; color: #f7dc98; font: 600 clamp(.6rem, .9vw, .76rem)/1.4 "Cinzel", serif; letter-spacing: .2em; text-transform: uppercase; }
 .opening-copy h1 { margin: 0; }
 .opening-name { display: block; color: #fff1be; font: 400 clamp(3.4rem, 6.7vw, 6.35rem)/.9 "IM Fell English", Georgia, serif; letter-spacing: -.035em; text-shadow: 0 3px 18px rgba(22,2,26,.55), 0 0 24px rgba(255,219,120,.12); }
@@ -99,14 +106,11 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 .opening-audio-stop { position: fixed; z-index: 110; top: max(5.8rem, 9vh); right: max(1rem,3vw); display: inline-flex; align-items: center; gap: .65rem; padding: .72rem 1rem; border: 1px solid #ddb956; border-radius: 99px; background: #32103d; color: #fff0bc; box-shadow: 0 7px 20px rgba(25,4,30,.28), inset 0 0 0 2px rgba(255,223,135,.08); font: 600 .62rem "Cinzel", serif; letter-spacing: .06em; cursor: pointer; animation: stopControlIn .28s ease both; }
 .opening-audio-stop[hidden] { display: none; }
 .opening-audio-stop span { color: #f4cf72; font-size: .58rem; }
-.opening-stars { transition: opacity .4s ease; }
+.opening-stars { position: absolute; inset: 0; z-index: 2; pointer-events: none; transition: opacity .58s ease; }
 .opening-stars i { position: absolute; font-style: normal; color: #f6d680; text-shadow: 0 0 18px rgba(255,220,123,.46); animation: twinkle 2.2s ease-in-out infinite alternate; }
-.opening-stars i:nth-child(1) { left: 12%; top: 17%; font-size: 2rem; }.opening-stars i:nth-child(2) { right: 16%; top: 24%; font-size: 3rem; animation-delay: .7s; }.opening-stars i:nth-child(3) { left: 18%; bottom: 13%; font-size: 4rem; animation-delay: 1.2s; }.opening-stars i:nth-child(4) { right: 12%; bottom: 16%; font-size: 1.6rem; }
+.opening-stars i:nth-child(1) { --spark-x: -38px; --spark-y: -28px; left: 12%; top: 17%; font-size: 2rem; }.opening-stars i:nth-child(2) { --spark-x: 42px; --spark-y: -24px; right: 16%; top: 24%; font-size: 3rem; animation-delay: .7s; }.opening-stars i:nth-child(3) { --spark-x: -34px; --spark-y: 32px; left: 18%; bottom: 13%; font-size: 4rem; animation-delay: 1.2s; }.opening-stars i:nth-child(4) { --spark-x: 38px; --spark-y: 30px; right: 12%; bottom: 16%; font-size: 1.6rem; }
 .opening-stars .opening-moon { right: 8%; top: 8%; color: #ffe5a1; font-size: clamp(3.2rem, 5vw, 5rem); line-height: 1; text-shadow: 0 0 22px rgba(255,221,126,.58); animation-delay: .35s; }
-@property --wash-open { syntax: "<percentage>"; inherits: false; initial-value: 0%; }
-@keyframes watercolorOpen { 0% { --wash-open: 0%; opacity: 1; } 92% { --wash-open: 126%; opacity: 1; } 100% { --wash-open: 138%; opacity: 0; } }
-@keyframes pigmentLift { 0% { opacity: .38; } 55% { opacity: .52; } 100% { opacity: 0; } }
-@keyframes starDissolve { to { opacity: 0; filter: blur(3px); transform: translateY(-10px) scale(1.35); } }
+@keyframes storybookSparkle { to { opacity: 0; transform: translate(var(--spark-x, 0), var(--spark-y, -20px)) scale(1.55) rotate(24deg); } }
 @keyframes twinkle { to { transform: scale(.55) rotate(20deg); opacity: .3; } }
 @keyframes stopControlIn { from { opacity: 0; transform: translateY(10px); } }
 
