@@ -35,7 +35,7 @@ if (opening) {
   const openingAudio = opening.querySelector('[data-opening-audio]');
   const stopButton = document.querySelector('[data-opening-stop]');
   const hasSeenOpening = sessionStorage.getItem('dey-opening-seen') === 'yes';
-  const revealDuration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 1180;
+  const revealDuration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 1520;
 
   const stopOpeningAudio = () => {
     if (openingAudio) {
