@@ -74,26 +74,29 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 .curtain-right { right: 0; transform-origin: right; box-shadow: inset 14px 0 26px rgba(7,0,10,.36), inset 0 0 95px rgba(6,0,9,.44); }
 .stage-opening.is-open .curtain-left { transform: translateX(-102%); }
 .stage-opening.is-open .curtain-right { transform: translateX(102%); }
-.opening-copy { position: relative; z-index: 3; width: min(88%, 900px); padding-top: 2rem; text-align: center; text-shadow: 0 2px 16px rgba(12,0,18,.45); transition: opacity .22s ease, transform .22s ease; }
+.opening-copy { position: relative; z-index: 3; width: min(88%, 900px); padding-top: 2rem; color: #fff0c7; text-align: center; text-shadow: 0 2px 16px rgba(12,0,18,.45); transition: opacity .22s ease, transform .22s ease; }
 .stage-opening.is-open .opening-copy { opacity: 0; transform: scale(.97); pointer-events: none; }
-.opening-eyebrow { margin: 0 0 1.1rem; color: #eee1d4; font: 600 clamp(.65rem, 1vw, .82rem)/1.4 "Cinzel", serif; letter-spacing: .2em; text-transform: uppercase; }
+.opening-eyebrow { margin: 0 0 1.1rem; color: #f7dc98; font: 600 clamp(.65rem, 1vw, .82rem)/1.4 "Cinzel", serif; letter-spacing: .2em; text-transform: uppercase; }
 .opening-copy h1 { font: 600 clamp(3.2rem, 7.2vw, 7rem)/.9 "Cormorant Garamond", Georgia, serif; letter-spacing: -.045em; }
-.opening-copy h1 em { display: inline-block; margin-top: .18em; color: #fff1e2; font-weight: 600; }
-.opening-intro { max-width: 670px; margin: 1.45rem auto 1.7rem; font-size: clamp(.9rem, 1.25vw, 1.03rem); line-height: 1.6; }
-.opening-button { position: relative; display: inline-flex; align-items: center; gap: 1rem; min-width: 310px; padding: .78rem 1.4rem; border: 1px solid rgba(246,226,199,.72); border-radius: 99px; background: linear-gradient(180deg, rgba(117,59,127,.96), rgba(60,20,71,.98)); color: #fff7ed; box-shadow: 0 12px 27px rgba(0,0,0,.31), inset 0 1px 0 rgba(255,255,255,.16), inset 0 -8px 18px rgba(20,3,25,.16); cursor: pointer; transition: transform .2s, box-shadow .2s, border-color .2s; }
-.opening-button:hover { transform: translateY(-3px); border-color: rgba(255,243,224,.94); box-shadow: 0 15px 32px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.2); }
-.opening-button > span:last-child { display: grid; text-align: left; font: 700 1.02rem/1.08 "Cormorant Garamond", Georgia, serif; letter-spacing: .015em; }
+.opening-copy h1 em { display: inline-block; margin-top: .18em; color: #ffe7a8; font-weight: 600; }
+.opening-intro { max-width: 630px; margin: 1.45rem auto 1.7rem; color: #ffe9ad; font-size: clamp(.92rem, 1.3vw, 1.08rem); line-height: 1.55; }
+.opening-button { position: relative; display: inline-flex; align-items: center; gap: 1rem; min-width: 300px; padding: .8rem 1.35rem; overflow: hidden; border: 1px solid #ffe4a0; border-radius: 4px; outline: 1px solid rgba(255,228,160,.55); outline-offset: 4px; background: linear-gradient(135deg,#f5d37e,#c18a31 55%,#f2cf74); color: #291330; box-shadow: 0 9px 24px rgba(0,0,0,.3), inset 0 0 0 2px rgba(255,248,220,.48); cursor: pointer; transition: transform .2s, box-shadow .2s; }
+.opening-button::before, .opening-button::after { content: ""; position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: #4a1d58; transform: translateY(-50%); }
+.opening-button::before { left: -8px; }.opening-button::after { right: -8px; }
+.opening-button:hover { transform: translateY(-3px); box-shadow: 0 13px 28px rgba(0,0,0,.36), inset 0 0 0 2px rgba(255,248,220,.58); }
+.opening-button > span:last-child { display: grid; text-align: left; font: 700 1.05rem/1.05 "Cormorant Garamond", Georgia, serif; letter-spacing: .02em; }
 .opening-button small { margin-bottom: .25rem; font: 600 .48rem/1 "Cinzel", serif; letter-spacing: .16em; text-transform: uppercase; }
-.play-glyph { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,239,216,.72); border-radius: 50%; background: rgba(28,6,34,.42); color: #fff0dc; padding: 0 0 1px 2px; }
+.play-glyph { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #2e1536; background: #4d1d5a; color: #ffe8a8; padding: 0 0 1px 2px; transform: rotate(45deg); }
 .opening-button .play-glyph { font-size: 0; }
-.opening-button .play-glyph::after { content: "▶"; font-size: .76rem; }
-.opening-skip { display: block; margin: 1.25rem auto 0; padding: .25rem 0; border: 0; border-bottom: 1px solid rgba(239,225,210,.58); background: transparent; color: #f5e9dd; font: 500 .66rem "Cinzel", serif; letter-spacing: .08em; cursor: pointer; }
+.opening-button .play-glyph::after { content: "▶"; font-size: .8rem; transform: rotate(-45deg); }
+.opening-skip { display: block; margin: 1.25rem auto 0; padding: .25rem 0; border: 0; border-bottom: 1px solid rgba(255,232,170,.72); background: transparent; color: #fff3cf; font: 500 .66rem "Cinzel", serif; letter-spacing: .08em; cursor: pointer; }
 .opening-skip:hover { color: white; border-color: white; }
 .opening-audio-stop { position: fixed; z-index: 110; right: max(1rem,3vw); bottom: max(1rem,3vw); display: inline-flex; align-items: center; gap: .65rem; padding: .72rem 1rem; border: 1px solid var(--ink); border-radius: 2px; background: var(--cream); color: var(--ink); box-shadow: 4px 5px 0 var(--ink); font: 600 .62rem "Cinzel", serif; letter-spacing: .06em; cursor: pointer; animation: stopControlIn .28s ease both; }
 .opening-audio-stop[hidden] { display: none; }
 .opening-audio-stop span { color: var(--plum); font-size: .58rem; }
-.opening-stars i { position: absolute; font-style: normal; color: #eadbca; animation: twinkle 2.2s ease-in-out infinite alternate; }
+.opening-stars i { position: absolute; font-style: normal; color: #f6d680; text-shadow: 0 0 18px rgba(255,220,123,.46); animation: twinkle 2.2s ease-in-out infinite alternate; }
 .opening-stars i:nth-child(1) { left: 12%; top: 17%; font-size: 2rem; }.opening-stars i:nth-child(2) { right: 16%; top: 24%; font-size: 3rem; animation-delay: .7s; }.opening-stars i:nth-child(3) { left: 18%; bottom: 13%; font-size: 4rem; animation-delay: 1.2s; }.opening-stars i:nth-child(4) { right: 12%; bottom: 16%; font-size: 1.6rem; }
+.opening-stars .opening-moon { right: 8%; top: 8%; color: #ffe5a1; font-size: clamp(3.2rem, 5vw, 5rem); line-height: 1; text-shadow: 0 0 22px rgba(255,221,126,.58); animation-delay: .35s; }
 @keyframes twinkle { to { transform: scale(.55) rotate(20deg); opacity: .3; } }
 @keyframes stopControlIn { from { opacity: 0; transform: translateY(10px); } }
 
