@@ -7,7 +7,7 @@
   <title>Da Eun Yoon | Voice Actor & Storyteller</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-home has-opening">
@@ -16,16 +16,18 @@
   <div class="stage-opening" data-opening aria-label="Website opening">
     <div class="curtain curtain-left" aria-hidden="true"></div>
     <div class="curtain curtain-right" aria-hidden="true"></div>
+    <div class="curtain-valance" aria-hidden="true"></div>
     <div class="opening-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>⋆</i><i>✦</i></div>
     <div class="opening-copy">
-      <p class="kicker light">A story is about to begin</p>
-      <h1>Welcome.<br><em>Come a little closer.</em></h1>
-      <p>Press play and let Da Eun open the curtain.</p>
-      <button class="opening-button" type="button" data-curtain-open><span class="play-glyph">▶</span><span>Begin the story</span></button>
-      <button class="opening-skip" type="button" data-curtain-skip>Enter without sound</button>
-      <audio data-opening-audio preload="auto" src="assets/audio/opening-welcome.mp3" data-fallback="assets/audio/commercial-english.mp3"></audio>
+      <p class="opening-eyebrow">Korean Female Voice Over Artist</p>
+      <h1>Hi, I’m Da Eun.<br><em>Welcome to my world of voices.</em></h1>
+      <p class="opening-intro">Every voice holds a story. Press play, hear mine, and let the curtain rise.</p>
+      <button class="opening-button" type="button" data-curtain-open><span class="play-glyph">▶</span><span><small>Press play</small>Hear my voice</span></button>
+      <button class="opening-skip" type="button" data-curtain-skip>Enter quietly <span>→</span></button>
+      <audio data-opening-audio preload="none" src="assets/audio/opening-welcome.mp3" data-fallback="assets/audio/commercial-english.mp3"></audio>
     </div>
   </div>
+  <button class="opening-audio-stop" type="button" data-opening-stop hidden><span>■</span> Stop voice &amp; enter site</button>
 
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Da Eun Yoon home"><span>Da Eun Yoon</span><small>Voice Actor · Storyteller</small></a>

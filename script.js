@@ -33,23 +33,48 @@ if (opening) {
   const openButton = opening.querySelector('[data-curtain-open]');
   const skipButton = opening.querySelector('[data-curtain-skip]');
   const openingAudio = opening.querySelector('[data-opening-audio]');
+  const stopButton = document.querySelector('[data-opening-stop]');
   const hasSeenOpening = sessionStorage.getItem('dey-opening-seen') === 'yes';
+  const revealDuration = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 20 : 900;
+
+  const stopOpeningAudio = () => {
+    if (openingAudio) {
+      openingAudio.pause();
+      openingAudio.currentTime = 0;
+    }
+    if (stopButton) stopButton.hidden = true;
+  };
+
+  const playOpeningAudio = async () => {
+    if (!openingAudio) return;
+    try {
+      await openingAudio.play();
+      if (stopButton) stopButton.hidden = false;
+    } catch {
+      const fallback = openingAudio.dataset.fallback;
+      if (!fallback) return;
+      openingAudio.src = fallback;
+      try {
+        await openingAudio.play();
+        if (stopButton) stopButton.hidden = false;
+      } catch {}
+    }
+  };
 
   const openCurtain = (withSound) => {
+    if (opening.classList.contains('is-open')) return;
     sessionStorage.setItem('dey-opening-seen', 'yes');
-    if (withSound && openingAudio) {
-      openingAudio.play().catch(() => {
-        const fallback = openingAudio.dataset.fallback;
-        if (fallback && openingAudio.src !== fallback) {
-          openingAudio.src = fallback;
-          openingAudio.play().catch(() => {});
-        }
-      });
-    }
+    if (withSound) playOpeningAudio();
+    else stopOpeningAudio();
     opening.classList.add('is-open');
     document.body.classList.remove('has-opening');
-    window.setTimeout(() => opening.classList.add('is-gone'), 1500);
+    window.setTimeout(() => opening.classList.add('is-gone'), revealDuration);
   };
+
+  stopButton?.addEventListener('click', stopOpeningAudio);
+  openingAudio?.addEventListener('ended', () => {
+    if (stopButton) stopButton.hidden = true;
+  });
 
   if (hasSeenOpening) {
     opening.classList.add('is-open', 'is-gone');
