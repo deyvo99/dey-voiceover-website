@@ -25,6 +25,23 @@ if (menuButton && menu) {
     menuButton.setAttribute('aria-label', 'Open menu');
     document.body.style.overflow = '';
   }));
+  menu.querySelectorAll('details').forEach((group) => {
+    group.addEventListener('toggle', () => {
+      if (!group.open) return;
+      menu.querySelectorAll('details').forEach((other) => {
+        if (other !== group) other.open = false;
+      });
+    });
+  });
+  document.addEventListener('click', (event) => {
+    if (menu.contains(event.target)) return;
+    menu.querySelectorAll('details[open]').forEach((group) => { group.open = false; });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    menu.querySelectorAll('details[open]').forEach((group) => { group.open = false; });
+    if (menu.classList.contains('is-open')) menuButton.click();
+  });
 }
 
 // Curtain opening. Browsers require a click before sound can begin.
