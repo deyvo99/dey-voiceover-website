@@ -136,17 +136,30 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 
 /* Home */
 .home-hero { min-height: calc(100vh - 78px); display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 5vw; padding: 5rem max(7vw, 2rem) 6rem; background: radial-gradient(circle at 12% 20%, rgba(255,215,94,.42), transparent 24%), radial-gradient(circle at 88% 15%, rgba(246,172,194,.4), transparent 23%), var(--cream); }
+.storybook-hero { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(90deg, rgba(255,248,225,.96), rgba(255,252,240,.92) 48%, rgba(246,232,211,.9)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; font-family: "IM Fell English", Georgia, serif; }
+.storybook-hero::before { content: ""; position: absolute; z-index: -1; inset: clamp(1rem, 2vw, 2rem); border: 1px solid rgba(91,45,74,.28); outline: 1px solid rgba(175,119,66,.18); outline-offset: 7px; pointer-events: none; }
+.storybook-hero::after { content: "❦"; position: absolute; z-index: -1; left: 50%; bottom: .6rem; padding: 0 1rem; background: #f8edd5; color: #7a3a58; font: 400 1.5rem/1 "IM Fell English", Georgia, serif; transform: translateX(-50%); }
 .hero-copy { position: relative; z-index: 2; }
-.hero-copy h1 { max-width: 770px; font-size: clamp(4rem, 7.5vw, 8rem); }
-.hero-lead { max-width: 570px; margin: 2rem 0; font-size: 1.08rem; }
+.hero-copy h1 { max-width: 780px; font-size: clamp(4rem, 7.2vw, 7.6rem); }
+.hero-greeting { display: block; color: #3b183e; font: 400 clamp(3.9rem, 7vw, 7.4rem)/.9 "IM Fell English", Georgia, serif; letter-spacing: -.045em; }
+.hero-copy h1 em { display: block; max-width: 720px; margin-top: .18em; color: #8c3f5d; font: italic 400 clamp(2.5rem, 4.8vw, 5rem)/.95 "IM Fell English", Georgia, serif; letter-spacing: -.025em; }
+.hero-lead { max-width: 590px; margin: 1.7rem 0 2rem; color: #4f3340; font: 400 1.12rem/1.55 "IM Fell English", Georgia, serif; }
 .hero-actions { display: flex; align-items: center; gap: 1.3rem; flex-wrap: wrap; }
-.hero-meta { margin-top: 2.5rem; font: 500 .62rem var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+.storybook-hero .primary { border-radius: 3px; border-color: #4f253f; outline: 1px solid rgba(79,37,63,.28); outline-offset: 4px; background: #4f253f; color: #fff2c9; box-shadow: 5px 6px 0 #c79b56; font-family: "Cinzel", Georgia, serif; }
+.storybook-hero .primary:hover { box-shadow: 7px 8px 0 #c79b56; }
+.storybook-hero .text-button { font-family: "IM Fell English", Georgia, serif; font-size: 1rem; }
+.hero-meta { margin-top: 2.5rem; color: #583a48; font: 600 .58rem "Cinzel", Georgia, serif; text-transform: uppercase; letter-spacing: .08em; }
 .status-dot { display: inline-block; width: 8px; height: 8px; margin-right: .45rem; border-radius: 50%; background: #39a667; box-shadow: 0 0 0 5px rgba(57,166,103,.13); }
-.hero-portrait { position: relative; width: min(100%, 520px); justify-self: center; padding: 2rem; }
-.portrait-frame { position: relative; z-index: 2; aspect-ratio: .82; overflow: hidden; border: 2px solid var(--ink); border-radius: 48% 48% 44% 44% / 38% 42% 55% 58%; box-shadow: 12px 13px 0 var(--blue); background: var(--blue); }
-.portrait-frame img { width: 100%; height: 100%; object-fit: cover; }
+.hero-portrait { position: relative; width: min(100%, 540px); justify-self: center; padding: 3.3rem 3rem 5.8rem; border: 1px solid #8c5c57; outline: 7px double rgba(124,72,74,.42); outline-offset: -1.5rem; background: radial-gradient(circle at 50% 34%, rgba(255,245,205,.28), transparent 35%), linear-gradient(rgba(42,8,48,.93), rgba(60,16,63,.95)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; box-shadow: 12px 14px 0 rgba(155,105,65,.38), 0 20px 48px rgba(50,20,39,.18); }
+.hero-portrait::before, .hero-portrait::after { content: "✦"; position: absolute; top: 1.05rem; color: #d9ac61; font-size: 1rem; }
+.hero-portrait::before { left: 1.15rem; }.hero-portrait::after { right: 1.15rem; }
+.portrait-frame { position: relative; z-index: 2; aspect-ratio: .84; overflow: hidden; border: 3px double #e0bc72; border-radius: 48% 48% 5px 5px / 36% 36% 5px 5px; box-shadow: 0 0 0 8px #32143a, 0 0 0 9px rgba(230,190,110,.55), 0 15px 35px rgba(8,0,12,.4); background: #32143a; }
+.portrait-frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,232,173,.08), transparent 45%, rgba(43,12,53,.2)), radial-gradient(circle at 50% 38%, transparent 54%, rgba(45,9,52,.38) 100%); box-shadow: inset 0 0 32px rgba(255,220,143,.16); pointer-events: none; }
+.portrait-frame img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.84) sepia(.08) contrast(.96); }
 .doodle { position: absolute; z-index: 4; font-family: var(--display); }.doodle-star { top: 3%; right: 0; color: var(--rose); font-size: 3.2rem; }.doodle-moon { left: 0; bottom: 12%; color: var(--lavender); font-size: 4rem; transform: rotate(-20deg); }
-.portrait-note { position: absolute; z-index: 5; right: -1rem; bottom: 7%; padding: .55rem .85rem; background: var(--yellow); border: 1px solid var(--ink); transform: rotate(-6deg); font: italic 700 .9rem var(--display); }
+.portrait-flourish { position: absolute; z-index: 4; left: 50%; color: #e2bd70; text-shadow: 0 2px 10px rgba(5,0,8,.5); transform: translateX(-50%); }.portrait-flourish-top { top: 1.4rem; font: 400 1.55rem/1 "IM Fell English", Georgia, serif; }.portrait-flourish-bottom { bottom: 4.55rem; font-size: .8rem; letter-spacing: .5rem; }
+.portrait-note { position: absolute; z-index: 5; right: 1.15rem; bottom: 4.1rem; padding: .48rem .8rem; border: 1px solid #4b2838; background: linear-gradient(145deg,#f2dfac,#cf9e58); color: #3e2031; transform: rotate(-4deg); font: italic 400 1rem "IM Fell English", Georgia, serif; box-shadow: 3px 4px 0 rgba(15,2,20,.32); }
+.portrait-caption { position: absolute; z-index: 4; left: 2.5rem; right: 2.5rem; bottom: 1.3rem; display: flex; align-items: center; justify-content: center; gap: .45rem; flex-wrap: wrap; color: #f5deb0; font: 400 .78rem/1.2 "IM Fell English", Georgia, serif; text-align: center; }.portrait-caption small { flex-basis: 100%; color: #d9ac61; font: 600 .48rem/1 "Cinzel", Georgia, serif; letter-spacing: .16em; text-transform: uppercase; }.portrait-caption i { color: #d9ac61; font-style: normal; }
 .voice-orbit { position: absolute; z-index: 1; inset: 18% -7% auto auto; width: 114%; height: 55%; border: 1px solid var(--ink); border-radius: 50%; transform: rotate(-13deg); }
 .voice-orbit span, .voice-orbit i { position: absolute; font: 500 .53rem var(--mono); font-style: normal; }.voice-orbit span:nth-child(1){left:4%;top:25%}.voice-orbit i:nth-child(2){left:14%;bottom:10%;color:var(--rose)}.voice-orbit span:nth-child(3){right:13%;top:2%}.voice-orbit i:nth-child(4){right:0;top:44%;color:var(--rose)}.voice-orbit span:nth-child(5){right:23%;bottom:1%}.voice-orbit i:nth-child(6){left:50%;top:-8%;color:var(--rose)}
 .promise-strip { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 3vw, 3rem); padding: 1rem 2rem; overflow: hidden; background: var(--ink); color: var(--cream); white-space: nowrap; font: 700 clamp(.72rem, 1.1vw, .95rem) var(--display); text-transform: uppercase; letter-spacing: .08em; }
@@ -173,6 +186,40 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 .equipment-list { list-style: none; padding: 0; margin: 2rem 0; border-top: 1px solid var(--ink); }.equipment-list li { display: grid; grid-template-columns: 110px 1fr; padding: .8rem 0; border-bottom: 1px solid var(--ink); font-weight: 600; }.equipment-list span { font: 500 .62rem var(--mono); text-transform: uppercase; }
 .studio-player { max-width: 500px; padding: 1rem; background: var(--cream); border: 1px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
 .finale-cta, .page-next { position: relative; padding: 8rem 2rem; overflow: hidden; background: var(--plum); color: var(--cream); text-align: center; }.finale-cta h2, .page-next h2 { font-size: clamp(3.5rem, 7vw, 7.4rem); }.finale-cta h2 em, .page-next h2 em { color: var(--yellow); }.finale-cta > p:not(.chapter-label), .page-next > p:not(.chapter-label) { max-width: 650px; margin: 1.5rem auto 2rem; }.finale-stars { color: var(--yellow); font-size: 2rem; margin-bottom: 1rem; }
+
+/* Home storybook chapter */
+.page-home main { background: #f8edd5; font-family: "IM Fell English", Georgia, serif; }
+.page-home main .chapter-label { color: #66394f; font-family: "Cinzel", Georgia, serif; }
+.story-notes { position: relative; background: linear-gradient(rgba(250,239,216,.94), rgba(255,248,228,.97)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; }
+.story-notes::before, .home-demos::before, .published-work::before { content: ""; position: absolute; inset: 1.25rem; border: 1px solid rgba(104,57,73,.18); pointer-events: none; }
+.story-note-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 1.15rem; max-width: 1320px; margin: 0 auto; }
+.story-note { position: relative; grid-column: span 2; min-height: 275px; padding: 1.45rem; border: 1px solid #765047; background: radial-gradient(circle at 10% 8%, rgba(255,255,255,.65), transparent 26%), linear-gradient(145deg, #fff8e5, #ead4aa); color: #3d2430; box-shadow: inset 0 0 25px rgba(105,65,38,.1), 5px 6px 0 rgba(87,43,63,.28); }
+.story-note:nth-child(2n) { transform: translateY(1.25rem); }.story-note:nth-child(3) { background: linear-gradient(145deg, #eadcbf, #f8eccf); }.story-note:nth-child(4) { background: linear-gradient(145deg, #f4dfc8, #e6c7ae); }
+.story-note::after { content: "❦"; position: absolute; right: 1rem; bottom: .7rem; color: #9b6659; font-size: 1.2rem; }
+.story-note > span { color: #8b4a59; font: 600 .5rem/1.3 "Cinzel", Georgia, serif; letter-spacing: .12em; }
+.story-note h3 { margin: 3.5rem 0 .8rem; color: #4b2147; font: 400 clamp(1.6rem, 2.2vw, 2.25rem)/.95 "IM Fell English", Georgia, serif; letter-spacing: -.025em; }
+.story-note p { margin: 0; font-size: .9rem; line-height: 1.45; }
+.home-demos { position: relative; background: linear-gradient(rgba(249,238,213,.94), rgba(244,226,198,.96)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; }
+.home-demos .section-heading h2, .story-notes .section-heading h2, .published-work .section-heading h2 { color: #48203f; font-family: "IM Fell English", Georgia, serif; font-weight: 400; }
+.home-demos .section-heading h2 em, .story-notes .section-heading h2 em, .published-work .section-heading h2 em { color: #99506a; font-weight: 400; }
+.page-home .world-card { min-height: 430px; border: 1px solid #5d3748; color: #422238; box-shadow: 7px 8px 0 rgba(68,29,59,.34), inset 0 0 28px rgba(94,53,39,.08); }
+.page-home .world-commercial { background: radial-gradient(circle at 8% 5%, rgba(255,255,255,.7), transparent 25%), linear-gradient(145deg, #f7e7bd, #e7bb9f); }
+.page-home .world-audiobook { background: linear-gradient(rgba(49,15,58,.9), rgba(39,8,47,.95)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; color: #fff0c2; }
+.page-home .world-animation { background: radial-gradient(circle at 90% 8%, rgba(255,255,255,.64), transparent 25%), linear-gradient(145deg, #e7d4c5, #c6b1cf); }
+.page-home .world-number, .page-home .card-link, .page-home .audio-info strong { font-family: "Cinzel", Georgia, serif; letter-spacing: .04em; }
+.page-home .world-icon { margin-top: 1.8rem; color: #a45e62; }.page-home .world-audiobook .world-icon { color: #e6bd67; }
+.page-home .world-card h3 { font-family: "IM Fell English", Georgia, serif; font-weight: 400; letter-spacing: -.035em; }
+.page-home .world-card > p:not(.world-icon) { font-size: 1rem; }
+.home-authors-teaser { position: relative; background: linear-gradient(rgba(42,8,49,.87), rgba(31,5,38,.94)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; }
+.home-authors-teaser::before { content: ""; position: absolute; inset: 1.25rem; border: 1px solid rgba(231,189,98,.32); pointer-events: none; }
+.author-letter { position: relative; padding: clamp(2rem, 4vw, 3.5rem); border: 1px solid #b78954; outline: 1px solid rgba(235,198,124,.34); outline-offset: -1rem; background: radial-gradient(circle at 10% 8%, rgba(255,255,255,.65), transparent 28%), linear-gradient(145deg, #fff5d9, #ddbd88); color: #46253b; box-shadow: 8px 10px 0 rgba(9,0,12,.3), inset 0 0 32px rgba(112,65,29,.12); transform: rotate(-.5deg); }
+.author-letter::after { content: "❦"; position: absolute; right: 1.5rem; bottom: 1rem; color: #8d4f5c; font-size: 1.5rem; }
+.author-letter h2 { font-family: "IM Fell English", Georgia, serif; font-size: clamp(2.8rem, 4.7vw, 5.1rem); font-weight: 400; }.author-letter h2 em { color: #93506a; font-weight: 400; }
+.home-authors-teaser .author-letter > p { max-width: 560px; margin: 1.35rem 0; }.letter-salutation { font-size: 1.25rem; font-style: italic; }.letter-signoff { font-style: italic; }.letter-signoff strong { font: 400 1.8rem/1 "IM Fell English", Georgia, serif; }
+.home-author-links { border-color: rgba(240,210,145,.55); }.home-author-links a { border-color: rgba(240,210,145,.45); font-family: "IM Fell English", Georgia, serif; }.home-author-links span { color: #e7bd62; font-family: "Cinzel", Georgia, serif; }.home-author-links strong { font-family: "IM Fell English", Georgia, serif; font-weight: 400; }.home-author-links i { color: #e7bd62; }
+.published-work { position: relative; background: linear-gradient(rgba(255,244,215,.95), rgba(239,216,175,.96)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; color: #432538; }
+.page-home .book-list { border-color: #79505d; }.page-home .book-row { border-color: #79505d; }.page-home .book-row strong { font-family: "IM Fell English", Georgia, serif; font-weight: 400; }.page-home .publisher-cloud { border: 1px solid rgba(99,54,70,.3); border-radius: 4px; background: rgba(255,250,233,.72); box-shadow: inset 0 0 22px rgba(88,49,31,.08); }
+.page-home .finale-cta { background: linear-gradient(rgba(43,9,50,.9), rgba(26,4,33,.96)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; }.page-home .finale-cta::before { content: ""; position: absolute; inset: 1.25rem; border: 1px solid rgba(231,189,98,.45); pointer-events: none; }.page-home .finale-cta h2 { font-family: "IM Fell English", Georgia, serif; font-weight: 400; }.page-home .finale-cta h2 em { font-weight: 400; }
 
 /* About */
 .story-hero { min-height: 720px; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 6vw; padding: 6rem max(7vw, 2rem); background: linear-gradient(135deg, var(--blue), #d5f1f4 65%, var(--yellow)); }
@@ -271,6 +318,7 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .scrapbook-grid { grid-template-columns: repeat(3, 1fr); }.scrap-e { grid-column: span 1; }
   .contact-collage { min-height: 620px; }
   .audio-benefits { grid-template-columns: 1fr 1fr; }
+  .story-note-grid { grid-template-columns: 1fr 1fr; }.story-note { grid-column: auto; }.story-note:nth-child(2n) { transform: none; }
 }
 
 @media (min-width: 761px) and (max-width: 980px) {
@@ -291,7 +339,7 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .menu-toggle { display: block; position: relative; z-index: 42; cursor: pointer; }
   .site-nav { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: .35rem; overflow-y: auto; padding: 6rem 2rem 3rem; background: linear-gradient(rgba(34,6,42,.88), rgba(28,4,35,.96)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center / cover; transform: translateX(102%); transition: transform .35s ease; }.site-nav.is-open { transform: none; }.site-nav > a, .site-nav summary { width: 100%; padding: .7rem .85rem; font: 400 1.85rem/1 "IM Fell English", Georgia, serif; }.site-nav summary { justify-content: space-between; }.nav-dropdown { position: static; width: 100%; min-width: 0; margin: .25rem 0 .55rem; padding: .25rem .65rem; border-color: rgba(231,189,98,.34); background: rgba(17,2,23,.3); box-shadow: none; transform: none; }.nav-dropdown a { padding: .65rem .75rem; font-size: 1.15rem; }.site-nav .nav-contact { margin-top: .8rem; padding: .8rem 1rem; text-align: center; }.menu-toggle.is-open span:first-child { transform: translateY(4px) rotate(45deg); }.menu-toggle.is-open span:last-child { transform: translateY(-4px) rotate(-45deg); }
   .split-heading { grid-template-columns: 1fr; align-items: start; gap: 1rem; margin-bottom: 2.8rem; }.section-heading h2 { font-size: clamp(2.8rem, 14vw, 4.5rem); }
-  .home-hero { min-height: auto; padding: 4rem 1.25rem; }.hero-copy h1 { font-size: clamp(3.4rem, 17vw, 5.2rem); }.hero-lead { font-size: .95rem; }.portrait-note { right: 0; }
+  .home-hero { min-height: auto; padding: 4rem 1.25rem; }.hero-copy h1 { font-size: clamp(3.4rem, 17vw, 5.2rem); }.hero-greeting { font-size: clamp(3.6rem, 15vw, 5.4rem); }.hero-copy h1 em { font-size: clamp(2.4rem, 10vw, 3.8rem); }.hero-lead { font-size: 1rem; }.hero-portrait { width: min(100%, 500px); padding: 3.1rem 2.35rem 6.3rem; }.portrait-note { right: .6rem; bottom: 4.8rem; }.portrait-caption { left: 1.8rem; right: 1.8rem; bottom: 1.4rem; }
   .promise-strip { justify-content: flex-start; }
   .publisher-cloud { border-radius: 20px; gap: 1.5rem; }.publisher-cloud img { max-width: 100px; max-height: 30px; }
   .studio-section { gap: 4rem; }.equipment-list li { grid-template-columns: 85px 1fr; }
@@ -315,6 +363,7 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .contact-collage { min-height: 470px; }.contact-pic { width: 46%; height: 40%; }.p4 { left: 25%; }.p5 { right: 0; }.collage-note { left: 30%; }
   .email-launch { flex-direction: column; }
   .site-footer { grid-template-columns: 1fr; gap: 2rem; }.legal, .ai-protection { grid-column: auto; }.ai-protection { margin-top: .5rem; padding: 1.35rem; }.ai-protection p { font-size: .98rem; }
+  .story-note-grid { grid-template-columns: 1fr; }.story-note { min-height: 230px; }.story-note h3 { margin-top: 2.8rem; }
 }
 
 @media (max-width: 480px) {
@@ -327,6 +376,7 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .audio-player { min-width: 0; }.audio-toggle { width: 49px; height: 49px; }.audio-info strong { font-size: .72rem; }
   .contact-collage { min-height: 380px; }.contact-pic { width: 43%; }.collage-note { left: 25%; top: 45%; font-size: .75rem; }
   .home-author-links a { grid-template-columns: 1fr auto; }.home-author-links span { grid-column: 1/-1; }.home-author-links strong { font-size: 1.35rem; }
+  .storybook-hero::before, .story-notes::before, .home-demos::before, .home-authors-teaser::before, .published-work::before, .page-home .finale-cta::before { inset: .65rem; }.hero-portrait { padding: 2.8rem 1.65rem 6.6rem; outline-offset: -1rem; }.portrait-note { right: .2rem; }.portrait-caption { left: 1rem; right: 1rem; }.page-home .world-card { min-height: 390px; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
