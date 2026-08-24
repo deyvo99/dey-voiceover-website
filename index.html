@@ -51,70 +51,39 @@
   </header>
 
   <main id="main">
-    <section class="home-hero storybook-hero">
+    <section class="home-hero storybook-hero compact-home">
       <div class="hero-copy reveal">
         <p class="chapter-label">Chapter One · Meet Da Eun</p>
         <h1><span class="hero-greeting">Hi, I’m Da Eun.</span><em>Can I voice your next story?</em></h1>
         <p class="hero-lead">A native Korean–English voice actor with a life shaped by four cities, many characters, and a deep love of stories.</p>
-        <div class="hero-actions"><a class="button primary" href="#featured-demos">Hear my demos <span>↓</span></a><a class="button text-button" href="about.html">Read my story <span>→</span></a></div>
+        <div class="hero-actions"><a class="button primary" href="#featured-demos">Hear my demos <span>→</span></a><a class="button text-button" href="about.html">Read my story <span>→</span></a></div>
         <div class="hero-meta"><span class="status-dot"></span> Recording worldwide from my home studio in Seoul</div>
       </div>
       <div class="hero-portrait reveal delay-1">
         <div class="portrait-frame"><img src="assets/images/home/da-eun-hero.webp" alt="Da Eun Yoon recording at her microphone"></div>
         <span class="portrait-flourish portrait-flourish-top" aria-hidden="true">❦</span><span class="portrait-flourish portrait-flourish-bottom" aria-hidden="true">✦ ☾ ✦</span><span class="portrait-note">from my home studio</span>
-        <div class="portrait-caption" aria-label="Home studio equipment"><small>Her recording chamber</small><span>RØDE NT1</span><i>·</i><span>Scarlett 2i2</span><i>·</i><span>Adobe Audition</span></div>
+        <div class="portrait-caption" aria-label="Home studio equipment"><small>Her recording chamber</small><span>RØDE NT1</span><i>·</i><span>Scarlett 2i2</span><i>·</i><span>Audacity</span></div>
       </div>
+      <aside class="hero-sidecar reveal delay-2" aria-label="Da Eun's background and featured demos">
+        <div class="character-notes">
+          <p class="sidecar-title">A few character notes</p>
+          <ul>
+            <li><strong>Multilingual storyteller</strong><span>Native Korean &amp; English · Intermediate Spanish &amp; Mandarin</span></li>
+            <li><strong>International background</strong><span>Seoul · Chicago · New York City · Singapore</span></li>
+            <li><strong>Stage &amp; art roots</strong><span>Theatre · Acting · Visual art</span></li>
+            <li><strong>Between languages</strong><span>Interpreter &amp; translator across industries</span></li>
+            <li><strong>After hours</strong><span>Crime-thriller fan · <em>Castle</em> to <em>The Mentalist</em></span></li>
+          </ul>
+        </div>
+        <div class="portrait-demos" id="featured-demos">
+          <p class="sidecar-title">Hear the three voices</p>
+          <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play commercial demo"><span>▶</span></button><div class="audio-info"><strong>Commercial</strong><div class="audio-track"><i></i></div><small data-time>01:27</small></div><audio preload="metadata" src="assets/audio/commercial-english.mp3"></audio></div>
+          <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play audiobook demo"><span>▶</span></button><div class="audio-info"><strong>Audiobook</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div><audio preload="metadata" src="assets/audio/audiobook-featured.mp3"></audio></div>
+          <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play animation demo"><span>▶</span></button><div class="audio-info"><strong>Animation</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div><audio preload="metadata" src="assets/audio/animation-english.mp3"></audio></div>
+        </div>
+        <div class="sidecar-links"><a href="authors.html">For authors <span>→</span></a><a href="language-services.html">Language services <span>→</span></a><a href="contact.html">Begin a project <span>↗</span></a></div>
+      </aside>
     </section>
-
-    <section class="story-notes section-pad" aria-labelledby="story-notes-title">
-      <div class="section-heading centered reveal"><p class="chapter-label">Notes in the margin</p><h2 id="story-notes-title">The person<br><em>behind the voice.</em></h2></div>
-      <div class="story-note-grid">
-        <article class="story-note reveal"><span>01 · LANGUAGE</span><h3>Multilingual storyteller</h3><p>Native Korean &amp; English<br>Intermediate Spanish &amp; Mandarin</p></article>
-        <article class="story-note reveal delay-1"><span>02 · PLACES</span><h3>International background</h3><p>Seoul · Chicago · New York City · Singapore</p></article>
-        <article class="story-note reveal delay-2"><span>03 · CRAFT</span><h3>Stage &amp; art roots</h3><p>Theatre, acting and visual art shape every performance.</p></article>
-        <article class="story-note reveal"><span>04 · BETWEEN WORDS</span><h3>Language professional</h3><p>Interpreter and translator across a range of industries.</p></article>
-        <article class="story-note reveal delay-1"><span>05 · AFTER HOURS</span><h3>Crime-thriller devotee</h3><p>From <em>Castle</em> to <em>The Mentalist</em>, I always follow the clues.</p></article>
-      </div>
-    </section>
-
-    <section class="home-demos section-pad" id="featured-demos">
-      <div class="section-heading split-heading reveal"><div><p class="chapter-label">Chapter Two · Press play</p><h2>Three voices.<br><em>One storyteller.</em></h2></div><p>Commercial, audiobook or animation—choose a world and listen.</p></div>
-      <div class="world-cards">
-        <article class="world-card world-commercial reveal">
-          <span class="world-number">01</span><p class="world-icon">☀</p><h3>Commercial</h3><p>Bright, human and trustworthy.</p>
-          <div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play commercial demo"><span>▶</span></button><div class="audio-info"><strong>English Demo</strong><div class="audio-track"><i></i></div><small data-time>01:27</small></div><audio preload="metadata" src="assets/audio/commercial-english.mp3"></audio></div>
-          <a class="card-link" href="commercial.html">More commercial samples <span>→</span></a>
-        </article>
-        <article class="world-card world-audiobook reveal delay-1">
-          <span class="world-number">02</span><p class="world-icon">☾</p><h3>Audiobook</h3><p>Intimate, immersive and character-rich.</p>
-          <div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play audiobook demo"><span>▶</span></button><div class="audio-info"><strong>Featured Demo</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div><audio preload="metadata" src="assets/audio/audiobook-featured.mp3"></audio></div>
-          <a class="card-link" href="audiobook.html">More audiobook samples <span>→</span></a>
-        </article>
-        <article class="world-card world-animation reveal delay-2">
-          <span class="world-number">03</span><p class="world-icon">✦</p><h3>Animation</h3><p>Whimsical, playful and full of character.</p>
-          <div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play animation demo"><span>▶</span></button><div class="audio-info"><strong>English Demo</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div><audio preload="metadata" src="assets/audio/animation-english.mp3"></audio></div>
-          <a class="card-link" href="animation.html">More animation samples <span>→</span></a>
-        </article>
-      </div>
-    </section>
-
-    <section class="home-authors-teaser section-pad">
-      <div class="author-letter reveal"><p class="letter-salutation">Dear independent author,</p><h2>Your story is written.<br><em>Let’s help it travel farther.</em></h2><p>I can listen before publication, voice the finished book, or help carry its meaning between Korean and English.</p><p class="letter-signoff">Warmly,<br><strong>Da Eun</strong></p></div>
-      <div class="home-author-links reveal delay-1"><a href="audiobook-production.html"><span>01 · VOICE</span><strong>Audiobook Production</strong><i>→</i></a><a href="alpha-beta-reading.html"><span>02 · READ</span><strong>Alpha &amp; Beta Reading</strong><i>→</i></a><a href="language-services.html#translation"><span>03 · TRANSLATE</span><strong>Korean ↔ English</strong><i>→</i></a><a href="language-services.html#interpretation"><span>04 · INTERPRET</span><strong>Language Support</strong><i>→</i></a></div>
-    </section>
-
-    <section class="published-work section-pad">
-      <div class="section-heading centered reveal"><p class="chapter-label">Chapter Three · On the shelf</p><h2>Stories already<br><em>out in the world.</em></h2><p>Selected published work available on Audible.</p></div>
-      <div class="book-list">
-        <a href="https://www.audible.com/pd/Deadly-When-Disturbed-Audiobook/B0F14KLMG4" target="_blank" rel="noopener" class="book-row reveal"><span>01</span><strong>Deadly When Disturbed</strong><em>D. M. Barr</em><b>Listen ↗</b></a>
-        <a href="https://www.audible.com/pd/I-Decided-to-Live-as-Me-Audiobook/B0CXC46B9V" target="_blank" rel="noopener" class="book-row reveal"><span>02</span><strong>I Decided to Live as Me</strong><em>Kim Suhyun</em><b>Listen ↗</b></a>
-        <a href="https://www.audible.com/pd/The-Sisters-K-Audiobook/B0DHY3JRQM" target="_blank" rel="noopener" class="book-row reveal"><span>03</span><strong>The Sisters K</strong><em>Maureen Sun · Audible Exclusive</em><b>Listen ↗</b></a>
-      </div>
-      <p class="coming-soon">Coming soon: <em>The Ghosts of Idlewood</em>, <em>Wabi Sabi: The Wisdom in Imperfection</em>, and more.</p>
-      <div class="publisher-cloud reveal" aria-label="Publishers and platforms"><img src="assets/images/home/penguin-random-house.webp" alt="Penguin Random House"><img src="assets/images/home/audible.webp" alt="Audible"><img src="assets/images/home/tantor.webp" alt="Tantor Media"><img src="assets/images/home/tuttle.webp" alt="Tuttle Publishing"></div>
-    </section>
-
-    <section class="finale-cta"><div class="finale-stars" aria-hidden="true">✦　☾　✧</div><p class="chapter-label light">The next page is yours</p><h2>You imagine it.<br><em>I’ll voice it.</em></h2><p>Tell me where your story begins.</p><a class="button light-button" href="contact.html">Start the next chapter <span>↗</span></a></section>
   </main>
 
   <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>
