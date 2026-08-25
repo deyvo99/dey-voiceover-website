@@ -745,3 +745,234 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .publisher-shelf > div { gap: 1.4rem; }
   .publisher-shelf img { max-width: 110px; max-height: 36px; }
 }
+
+/* Homepage two-column composition: portrait left, story panels right */
+.home-spread {
+  grid-template-columns: minmax(520px, 1.08fr) minmax(500px, .92fr);
+  gap: clamp(2.2rem, 4.2vw, 5.8rem);
+  align-items: start;
+}
+.compact-home .hero-portrait {
+  width: min(100%, 790px);
+  padding: 4rem 4rem 8.8rem;
+  align-self: start;
+}
+.compact-home .portrait-frame { min-height: 650px; }
+.home-story-panels {
+  display: grid;
+  gap: clamp(1.7rem, 2.5vw, 2.8rem);
+  align-self: start;
+  padding-top: 1.2rem;
+}
+.home-story-panels > .character-notes,
+.home-story-panels > .portrait-demos {
+  width: 100%;
+  min-width: 0;
+}
+.home-story-panels > .character-notes {
+  position: relative;
+  padding: 3rem .25rem .5rem;
+  border: 0;
+  outline: 0;
+  background: none;
+  box-shadow: none;
+  color: #4a243d;
+}
+.home-story-panels > .character-notes::before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 1%;
+  right: 1%;
+  height: 6px;
+  border-radius: 60%;
+  background: linear-gradient(90deg, #79503c, #b17b4f 46%, #684133);
+  box-shadow: 0 2px 0 rgba(255,238,190,.55), 0 5px 8px rgba(74,32,45,.18);
+  transform: rotate(-1deg);
+}
+.home-story-panels > .character-notes::after { content: "❦"; top: .05rem; right: .6rem; color: #a05c6e; font-size: 1.45rem; }
+.home-story-panels .character-notes ul { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; border: 0; }
+.home-story-panels .character-notes li {
+  position: relative;
+  display: grid;
+  gap: .22rem;
+  min-height: 118px;
+  padding: 1.35rem 1.15rem 1rem;
+  border: 1px solid #9c725b;
+  background: radial-gradient(circle at 12% 8%, rgba(255,255,255,.75), transparent 28%), linear-gradient(135deg, #fff0bd, #e4bd91);
+  color: #4b253d;
+  box-shadow: 5px 6px 0 rgba(86,42,66,.2), inset 0 0 18px rgba(108,62,42,.08);
+  transform: rotate(-.7deg);
+}
+.home-story-panels .character-notes li:nth-child(even) { background: linear-gradient(135deg, #efd0d7, #dfb8a8); transform: rotate(.7deg); }
+.home-story-panels .character-notes li:nth-child(3) { background: linear-gradient(135deg, #e6d8ee, #c9b5d8); }
+.home-story-panels .character-notes li:last-child { grid-column: 1 / -1; min-height: 96px; }
+.home-story-panels .character-notes li::before { content: ""; position: absolute; left: 50%; top: -1.1rem; width: 1px; height: 1.1rem; background: #8d634d; }
+.home-story-panels .character-notes li::after { content: ""; position: absolute; left: calc(50% - 4px); top: .38rem; width: 8px; height: 8px; border-radius: 50%; background: #8e4963; box-shadow: 0 1px 0 #f7d99b; }
+.home-story-panels .character-notes strong { color: #48213e; font-size: clamp(1.3rem, 1.55vw, 1.75rem); }
+.home-story-panels .character-notes span { color: #604050; font-size: .96rem; line-height: 1.35; }
+.home-story-panels > .portrait-demos { padding: 1.8rem 1.65rem 1.6rem; }
+.home-story-panels .portrait-player { min-height: 76px; padding: 1rem 1.05rem; }
+.home-story-panels .portrait-player .audio-toggle { width: 54px; height: 54px; }
+.home-story-panels .portrait-player .audio-info strong { font-size: 1.35rem; }
+.home-story-panels .portrait-player .audio-info small { font-size: .62rem; }
+
+@media (max-width: 1180px) {
+  .home-spread { grid-template-columns: 1fr; width: min(780px, 100%); }
+  .compact-home .hero-portrait { width: min(100%, 760px); }
+  .home-story-panels { width: 100%; padding-top: 0; }
+}
+@media (max-width: 620px) {
+  .compact-home .hero-portrait { padding: 3rem 2.2rem 8.6rem; }
+  .compact-home .portrait-frame { min-height: 0; }
+  .home-story-panels .character-notes ul { grid-template-columns: 1fr; }
+  .home-story-panels .character-notes li:last-child { grid-column: auto; }
+}
+
+/* Light, floating Audible list */
+.audible-chapter { padding-top: clamp(11rem, 15vw, 15rem); }
+.audible-marquee {
+  position: absolute;
+  z-index: 3;
+  top: 2.4rem;
+  left: -2vw;
+  right: -2vw;
+  overflow: hidden;
+  padding: 1.05rem 0 1.35rem;
+  border-block: 2px solid #345a42;
+  background: #fffaf0;
+  color: #ec5c49;
+  box-shadow: 0 10px 28px rgba(9,0,14,.26);
+  transform: rotate(-1deg);
+}
+.audible-marquee::before,
+.audible-marquee::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  height: 9px;
+  background: radial-gradient(12px 7px at 12px 0, transparent 65%, #345a42 67% 73%, transparent 75%) 0 0 / 24px 9px repeat-x;
+}
+.audible-marquee::before { top: -1px; }
+.audible-marquee::after { bottom: -1px; transform: rotate(180deg); }
+.audible-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  width: max-content;
+  animation: audibleMarquee 24s linear infinite;
+}
+.audible-marquee span { white-space: nowrap; font: italic 400 clamp(2rem, 4.2vw, 4.7rem)/1 "IM Fell English", Georgia, serif; }
+.audible-marquee i { color: #d8ad55; font-size: 1.2rem; font-style: normal; }
+@keyframes audibleMarquee { to { transform: translateX(-50%); } }
+
+.latest-audiobooks {
+  display: block;
+  max-width: 1450px;
+  border-top: 1px solid rgba(231,189,98,.58);
+}
+.audible-book,
+.audible-book:nth-child(2),
+.audible-book:nth-child(3) {
+  display: grid;
+  grid-template-columns: 52px minmax(240px, 1fr) minmax(180px, .65fr) auto;
+  align-items: center;
+  gap: 1rem 2rem;
+  min-height: 0;
+  padding: 1.25rem .5rem;
+  border: 0;
+  border-bottom: 1px solid rgba(231,189,98,.58);
+  outline: 0;
+  background: transparent;
+  color: #fff0c2;
+  box-shadow: none;
+  transform: none;
+}
+.audible-book:hover,
+.audible-book:nth-child(2):hover {
+  padding-inline: 1.1rem;
+  background: rgba(255,245,211,.07);
+  box-shadow: none;
+  transform: none;
+}
+.audible-book > span { color: #e4b959; font-size: .58rem; }
+.audible-book strong { margin: 0; color: #fff3cb; font-size: clamp(1.9rem, 3vw, 3.2rem); line-height: 1; }
+.audible-book em { color: #e8cbd7; font-size: 1.15rem; }
+.audible-book b { margin: 0; padding: 0; border: 0; color: #edc76f; white-space: nowrap; }
+.coming-soon-book {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  max-width: 1450px;
+  margin: 1.5rem auto 0;
+  padding: .7rem .5rem;
+  color: #fff0c2;
+}
+.coming-soon-book span { color: #efb8cb; font: 600 .6rem/1 "Cinzel", serif; letter-spacing: .16em; text-transform: uppercase; }
+.coming-soon-book strong { font: italic 400 clamp(1.8rem, 3vw, 3rem)/1 "IM Fell English", Georgia, serif; }
+.coming-soon-book i { color: #e7bd62; font-style: normal; }
+.publisher-shelf {
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(231,189,98,.45);
+  background: rgba(255,249,231,.95);
+  color: #45233b;
+  box-shadow: inset 0 0 24px rgba(94,53,39,.08);
+}
+.publisher-shelf > p { color: #8a4a5d; }
+.publisher-shelf img {
+  filter: none;
+  opacity: 1;
+}
+.publisher-shelf .dreamscape-logo { filter: none; opacity: 1; }
+.publisher-shelf .podium-logo { border-color: #5b304a; background: #3b163f; }
+
+/* Four tapered, translucent wings instead of round petals */
+.fairy-guide { width: 58px; height: 64px; }
+.fairy-wing {
+  top: 9px;
+  width: 27px;
+  height: 39px;
+  border: 1px solid rgba(246,217,146,.8);
+  background:
+    linear-gradient(65deg, transparent 47%, rgba(116,67,123,.42) 49% 51%, transparent 53%),
+    radial-gradient(circle at 35% 28%, rgba(255,255,255,.98), rgba(221,190,244,.68) 42%, rgba(132,86,170,.38) 72%, rgba(231,189,98,.24));
+  box-shadow: inset 0 0 12px rgba(255,255,255,.78), 0 0 11px rgba(245,210,126,.42);
+  clip-path: polygon(46% 0, 100% 14%, 84% 68%, 30% 100%, 0 65%, 12% 22%);
+}
+.fairy-wing::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  width: 19px;
+  height: 28px;
+  border: 1px solid rgba(246,217,146,.7);
+  background: linear-gradient(145deg, rgba(255,255,255,.82), rgba(188,147,224,.55), rgba(231,189,98,.22));
+  box-shadow: inset 0 0 8px rgba(255,255,255,.72), 0 0 8px rgba(245,210,126,.3);
+  clip-path: polygon(45% 0, 100% 32%, 66% 100%, 0 68%, 12% 20%);
+}
+.fairy-wing-left { left: 0; border-radius: 80% 18% 76% 30%; transform: rotate(-18deg); animation: fairyWingLeft .42s ease-in-out infinite alternate; }
+.fairy-wing-left::after { left: 7px; transform: rotate(20deg); }
+.fairy-wing-right { right: 0; border-radius: 18% 80% 30% 76%; transform: scaleX(-1) rotate(-18deg); animation: fairyWingRight .42s ease-in-out infinite alternate; }
+.fairy-wing-right::after { right: 7px; transform: rotate(20deg); }
+.fairy-head { left: 24px; top: 10px; }
+.fairy-body { left: 24px; top: 20px; }
+.fairy-arm { left: 32px; top: 25px; }
+.fairy-light { right: -3px; top: 13px; }
+@keyframes fairyWingLeft { to { transform: rotate(-34deg) scaleY(.86); } }
+@keyframes fairyWingRight { to { transform: scaleX(-1) rotate(-34deg) scaleY(.86); } }
+
+@media (max-width: 760px) {
+  .audible-chapter { padding-top: 10rem; }
+  .audible-marquee { top: 2rem; }
+  .audible-book,
+  .audible-book:nth-child(2),
+  .audible-book:nth-child(3) { grid-template-columns: 34px 1fr auto; gap: .55rem 1rem; }
+  .audible-book em { grid-column: 2; }
+  .audible-book b { grid-column: 3; grid-row: 1 / 3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audible-marquee-track { animation: none; }
+}
