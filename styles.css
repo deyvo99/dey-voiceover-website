@@ -1815,12 +1815,37 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 /* About opens on the childhood film, so that leaf gets the wider column —
    the text reads perfectly well in the narrower one. */
+/* Both leaves carry real content now — the film and the journey on one side,
+   the story on the other — so they can sit level again. */
 .page-about .tale-spread .tale-book {
-  grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
-  align-items: start;   /* a 16:9 film beside a page of text will never match
-                           in height; padding it to match is the empty space */
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+  align-items: stretch;
 }
-.page-about .tale-figure-hero { height: auto; }
+.page-about .tale-figure-hero { flex: 0 0 auto; height: auto; }
+.page-about .tale-leaf-verso .tale-leaf-inner { justify-content: flex-start; }
+.tale-path-open {
+  margin-top: clamp(1.6rem, 2.4vw, 2.2rem);
+  padding-top: clamp(1.2rem, 1.8vw, 1.6rem);
+  border-top: 1px solid rgba(150, 112, 48, .32);
+}
 @media (max-width: 1180px) {
   .page-about .tale-spread .tale-book { grid-template-columns: 1fr; }
+}
+
+/* The journey list was drawn for a full-width slip. Inside a leaf it has half
+   the room, so it runs as a single column — which also fills the film leaf to
+   match the story leaf beside it. */
+.tale-leaf .tale-dl {
+  grid-template-columns: 1fr;
+  gap: clamp(.7rem, 1.1vw, .95rem);
+}
+.tale-leaf .tale-dl > div {
+  display: grid;
+  grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
+  align-items: baseline;
+  gap: .2rem 1rem;
+}
+.tale-leaf .tale-dl dd { margin: 0; }
+@media (max-width: 700px) {
+  .tale-leaf .tale-dl > div { grid-template-columns: 1fr; }
 }
