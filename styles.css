@@ -1161,3 +1161,63 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .home-details-combined .character-notes ul { grid-template-columns: 1fr; }
   .home-details-combined .character-notes li:last-child { grid-column: auto; }
 }
+
+/* Keep the introduction to roughly one third of the first desktop screen */
+@media (min-width: 1081px) {
+  .compact-home { padding-top: 1.2rem; }
+  .compact-home .home-title {
+    width: min(1320px, 90%);
+    margin-bottom: .85rem;
+  }
+  .compact-home .home-title::before {
+    margin-bottom: .18rem;
+    font-size: .82rem;
+  }
+  .compact-home .home-title .chapter-label {
+    margin-bottom: .3rem;
+    font-size: .58rem;
+  }
+  .compact-home .home-title .hero-greeting {
+    font-size: clamp(3.35rem, 4.25vw, 5.15rem);
+    line-height: .82;
+  }
+  .compact-home .home-title h1 em {
+    margin-top: .06em;
+    font-size: clamp(1.95rem, 2.65vw, 3.15rem);
+    line-height: .88;
+  }
+  .compact-home .home-title .hero-lead {
+    max-width: 760px;
+    margin-top: .48rem;
+    font-size: .98rem;
+    line-height: 1.35;
+  }
+  .home-spread > .hero-portrait,
+  .home-details-combined { height: 570px; }
+  .home-spread > .hero-portrait { padding: 2.5rem 3.2rem 7.4rem; }
+  .home-details-combined {
+    grid-template-rows: auto auto;
+    padding: 1.05rem 1.2rem;
+  }
+  .home-details-combined > .character-notes { padding: .2rem .15rem .65rem; }
+  .home-details-combined .character-notes ul { gap: .38rem; }
+  .home-details-combined .character-notes li {
+    min-height: 52px;
+    padding: .52rem .62rem .45rem;
+  }
+  .home-details-combined .character-notes li:last-child { min-height: 46px; }
+  .home-details-combined .character-notes strong { font-size: clamp(.92rem, .9vw, 1.08rem); }
+  .home-details-combined .character-notes span { font-size: .66rem; }
+  .home-details-combined > .portrait-demos { padding: .65rem .15rem 0; }
+  .home-details-combined .portrait-player {
+    min-height: 48px;
+    margin: .25rem 0;
+    padding: .42rem .6rem;
+  }
+  .home-details-combined .portrait-player .audio-toggle { width: 36px; height: 36px; }
+  .home-details-combined .portrait-player .audio-info strong { font-size: .94rem; }
+  .home-details-combined .want-more { margin-top: .35rem; padding-top: .35rem; }
+  .home-details-combined .want-more > p { margin-bottom: .25rem; font-size: 1.05rem; }
+  .home-details-combined .want-more nav a { padding-block: .34rem; }
+  .home-details-combined .learn-about { margin-top: .3rem; padding: .38rem .58rem; font-size: .84rem; }
+}
