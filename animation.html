@@ -17,11 +17,11 @@
   <!-- Torn-paper edges. The filters distort only the paper layers, never the text. -->
   <svg class="tale-defs" aria-hidden="true" focusable="false" width="0" height="0">
     <filter id="deckle" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="4" seed="9" result="grain"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="3" seed="9" result="grain"/>
       <feDisplacementMap in="SourceGraphic" in2="grain" scale="13" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
     <filter id="deckle-wide" x="-6%" y="-12%" width="112%" height="124%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="4" seed="23" result="grain"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="3" seed="23" result="grain"/>
       <feDisplacementMap in="SourceGraphic" in2="grain" scale="11" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
   </svg>
@@ -92,7 +92,7 @@
               <div class="audio-player tale-track" data-audio-player>
                 <button type="button" class="audio-toggle" aria-label="Play English animation demo"><span>▶</span></button>
                 <div class="audio-info"><strong>Da Eun Yoon</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div>
-                <audio preload="metadata" src="assets/audio/animation-english.mp3"></audio>
+                <audio preload="none" src="assets/audio/animation-english.mp3"></audio>
               </div>
             </li>
             <li>
@@ -105,7 +105,7 @@
               <div class="audio-player tale-track" data-audio-player>
                 <button type="button" class="audio-toggle" aria-label="Play Korean animation demo"><span>▶</span></button>
                 <div class="audio-info"><strong>Da Eun Yoon</strong><div class="audio-track"><i></i></div><small data-time>01:01</small></div>
-                <audio preload="metadata" src="assets/audio/animation-korean.mp3"></audio>
+                <audio preload="none" src="assets/audio/animation-korean.mp3"></audio>
               </div>
             </li>
           </ol>

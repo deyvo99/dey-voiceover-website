@@ -175,6 +175,7 @@ const scatterInkSparkles = (layer, origin) => {
       mote.style.setProperty('--scale', (.55 + Math.random() * .85).toFixed(2));
       layer.append(mote);
       mote.addEventListener('animationend', () => mote.remove(), { once: true });
+      window.setTimeout(() => mote.remove(), 1400);
     }
     window.requestAnimationFrame(tick);
   };
@@ -280,10 +281,14 @@ players.forEach((player) => {
   const time = player.querySelector('[data-time]');
   if (!audio || !toggle) return;
 
+  // With preload="none" the duration is unknown until playback starts, so fall
+  // back to the length printed in the markup rather than flashing 00:00.
+  const printedTotal = time ? time.textContent.trim() : '';
   const update = () => {
-    const ratio = audio.duration ? audio.currentTime / audio.duration : 0;
+    const known = Number.isFinite(audio.duration) && audio.duration > 0;
+    const ratio = known ? audio.currentTime / audio.duration : 0;
     if (progress) progress.style.width = `${ratio * 100}%`;
-    if (time) time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    if (time) time.textContent = `${formatTime(audio.currentTime)} / ${known ? formatTime(audio.duration) : printedTotal}`;
   };
 
   toggle.addEventListener('click', async () => {
@@ -360,6 +365,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
     pointerX = event.clientX + 26;
     pointerY = event.clientY - 30;
     followUntil = performance.now() + 1600;
+    wake();
   }, { passive: true });
 
   const clearHighlight = () => {
@@ -376,7 +382,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
         && box.left > 0 && box.right < window.innerWidth;
       if (onScreen) {
         stopIndex = (stopIndex + i) % stops.length;
-        return candidate;
+        return { el: candidate, box };
       }
     }
     return null;
@@ -400,6 +406,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
       spark.style.animationDelay = `${i * 55}ms`;
       document.body.append(spark);
       spark.addEventListener('animationend', () => spark.remove(), { once: true });
+      window.setTimeout(() => spark.remove(), 1700);
     }
   };
 
@@ -414,9 +421,9 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
       targetY = pointerY;
       stopUntil = 0;
     } else {
-      const stop = stops.length && toured < 3 ? visibleStop() : null;
-      if (stop) {
-        const box = stop.getBoundingClientRect();
+      const found = stops.length && toured < 3 ? visibleStop() : null;
+      if (found) {
+        const { el: stop, box } = found;
         // hover just above and left of the target, so she never covers it
         targetX = box.left - 44 + Math.sin(now / 700) * 10;
         targetY = box.top + box.height / 2 - 42 + Math.cos(now / 560) * 9;
@@ -446,9 +453,24 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
 
     fairy.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${Math.sin(now / 420) * 6}deg) scaleX(${facing})`;
     trail(now);
+    // she costs nothing while the visitor is just reading
+    if (toured >= 3 && now > followUntil + 1200) { running = false; return; }
     window.requestAnimationFrame(flutter);
   };
-  window.requestAnimationFrame(flutter);
+
+  // 1a — never fly while the curtain is up: she is display:none there, and the
+  // sparks she sheds would be invisible and therefore never cleaned up
+  let running = false;
+  const wake = () => {
+    if (running) return;
+    running = true;
+    window.requestAnimationFrame(flutter);
+  };
+  if (document.body.classList.contains('has-opening')) {
+    document.addEventListener('click', wake, { once: true });
+  } else {
+    wake();
+  }
 
   // Once the visitor starts clicking things for themselves she stops pointing —
   // but the click that opens the curtain does not count as finding their way.
