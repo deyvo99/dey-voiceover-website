@@ -196,12 +196,18 @@ if (fairy && fairyDestination && finePointer.matches && !reducedMotion.matches) 
   }, { passive: true });
 
   const leaveSpark = () => {
-    const spark = document.createElement('span');
-    spark.className = 'fairy-spark';
-    spark.style.left = `${x + 11 + (Math.random() - .5) * 10}px`;
-    spark.style.top = `${y + 14 + (Math.random() - .5) * 8}px`;
-    document.body.append(spark);
-    spark.addEventListener('animationend', () => spark.remove(), { once: true });
+    const sparkCount = Math.random() > .5 ? 2 : 1;
+    for (let index = 0; index < sparkCount; index += 1) {
+      const spark = document.createElement('span');
+      const isStar = Math.random() > .42;
+      spark.className = `fairy-spark${isStar ? ' is-star' : ''}`;
+      if (isStar) spark.textContent = Math.random() > .5 ? '✦' : '⋆';
+      spark.style.left = `${x + 16 + (Math.random() - .5) * 22}px`;
+      spark.style.top = `${y + 24 + (Math.random() - .5) * 18}px`;
+      spark.style.animationDelay = `${index * 45}ms`;
+      document.body.append(spark);
+      spark.addEventListener('animationend', () => spark.remove(), { once: true });
+    }
   };
 
   const flutter = (time) => {
@@ -215,7 +221,7 @@ if (fairy && fairyDestination && finePointer.matches && !reducedMotion.matches) 
     x += (targetX - x) * .075;
     y += (targetY - y) * .075;
     fairy.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${Math.sin(time / 260) * 7}deg)`;
-    if (time - lastSpark > 105) {
+    if (time - lastSpark > 82) {
       leaveSpark();
       lastSpark = time;
     }

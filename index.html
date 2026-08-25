@@ -52,19 +52,20 @@
 
   <main id="main">
     <section class="home-hero storybook-hero compact-home">
-      <div class="hero-copy reveal">
+      <header class="hero-copy home-title reveal">
         <p class="chapter-label">Chapter One · Meet Da Eun</p>
         <h1><span class="hero-greeting">Hi, I’m Da Eun.</span><em>Can I voice your next story?</em></h1>
         <p class="hero-lead">A native Korean–English voice actor with a life shaped by four cities, many characters, and a deep love of stories.</p>
-        <div class="hero-meta"><span class="status-dot"></span> Recording worldwide from my home studio in Seoul</div>
-      </div>
+      </header>
+      <div class="home-spread">
       <div class="hero-portrait reveal delay-1">
+        <span class="leaf-branch branch-left" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="leaf-branch branch-right" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
         <div class="portrait-frame"><img src="assets/images/home/da-eun-hero.webp" alt="Da Eun Yoon recording at her microphone"></div>
         <span class="portrait-flourish portrait-flourish-top" aria-hidden="true">❦</span><span class="portrait-flourish portrait-flourish-bottom" aria-hidden="true">✦ ☾ ✦</span><span class="portrait-note">from my home studio</span>
         <div class="portrait-caption" aria-label="Home studio equipment"><small>Her recording chamber</small><span>RØDE NT1</span><i>·</i><span>Scarlett 2i2</span><i>·</i><span>Audacity</span></div>
       </div>
-      <aside class="hero-sidecar reveal delay-2" aria-label="Da Eun's background and featured demos">
-        <div class="character-notes">
+      <div class="character-notes reveal delay-2">
           <p class="sidecar-title">A few character notes</p>
           <ul>
             <li><strong>Multilingual storyteller</strong><span>Native Korean &amp; English · Intermediate Spanish &amp; Mandarin</span></li>
@@ -73,19 +74,46 @@
             <li><strong>Between languages</strong><span>Interpreter &amp; translator across industries</span></li>
             <li><strong>After hours</strong><span>Crime-thriller fan · <em>Castle</em> to <em>The Mentalist</em></span></li>
           </ul>
-        </div>
-        <div class="portrait-demos" id="featured-demos">
+      </div>
+      <div class="portrait-demos reveal delay-2" id="featured-demos">
           <p class="sidecar-title">Hear the three voices</p>
           <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play commercial demo"><span>▶</span></button><div class="audio-info"><strong>Commercial</strong><div class="audio-track"><i></i></div><small data-time>01:27</small></div><audio preload="metadata" src="assets/audio/commercial-english.mp3"></audio></div>
           <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play audiobook demo"><span>▶</span></button><div class="audio-info"><strong>Audiobook</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div><audio preload="metadata" src="assets/audio/audiobook-featured.mp3"></audio></div>
           <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play animation demo"><span>▶</span></button><div class="audio-info"><strong>Animation</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div><audio preload="metadata" src="assets/audio/animation-english.mp3"></audio></div>
           <div class="want-more"><p>Want to hear more?</p><nav aria-label="More voice over demos"><a href="commercial.html">Commercial</a><a href="animation.html">Animation</a><a href="audiobook.html">Audiobook</a></nav><a class="learn-about" href="about.html">Learn more about me <span>→</span></a></div>
+      </div>
+      </div>
+    </section>
+
+    <section class="audible-chapter section-pad" aria-labelledby="audible-heading">
+      <div class="audible-heading reveal">
+        <p class="chapter-label">Now playing · Audible</p>
+        <h2 id="audible-heading">The newest stories <em>in my voice.</em></h2>
+        <a href="https://www.audible.com/search?searchNarrator=Da+Eun+Yoon" target="_blank" rel="noopener">View Da Eun’s Audible page <span>↗</span></a>
+      </div>
+      <div class="latest-audiobooks">
+        <a class="audible-book reveal" href="https://www.audible.com/pd/Love-Language-Audiobook/B0GGVCK79Q" target="_blank" rel="noopener"><span>01 · Aug 2026</span><strong>Love Language</strong><em>by Christine Ko</em><b>Listen on Audible ↗</b></a>
+        <a class="audible-book reveal delay-1" href="https://www.audible.com/search?keywords=The+Loom+Tree" target="_blank" rel="noopener"><span>02 · Jun 2026</span><strong>The Loom Tree</strong><em>by Angela Mi Young Hur</em><b>Listen on Audible ↗</b></a>
+        <a class="audible-book reveal delay-2" href="https://www.audible.com/search?keywords=Guilty+Silence" target="_blank" rel="noopener"><span>03 · Jun 2026</span><strong>Guilty Silence</strong><em>by Freya Barker</em><b>Listen on Audible ↗</b></a>
+      </div>
+      <div class="publisher-shelf reveal" aria-label="Publishers Da Eun has worked with">
+        <p>Stories recorded for</p>
+        <div>
+          <img src="assets/images/home/penguin-random-house.webp" alt="Penguin Random House Audio">
+          <img src="assets/images/home/audible.webp" alt="Audible">
+          <img src="assets/images/home/tantor.webp" alt="Tantor Media">
+          <img src="assets/images/home/tuttle.webp" alt="Tuttle Publishing">
+          <img class="dreamscape-logo" src="assets/images/home/dreamscape-logo.jpg" alt="Dreamscape Media">
+          <span class="podium-logo"><img src="assets/images/home/podium-logo.svg" alt="Podium Audio"></span>
         </div>
-      </aside>
+      </div>
     </section>
   </main>
 
-  <div class="fairy-guide" data-fairy aria-hidden="true"><span class="fairy-wing fairy-wing-left"></span><i>✦</i><span class="fairy-wing fairy-wing-right"></span></div>
+  <div class="fairy-guide" data-fairy aria-hidden="true">
+    <span class="fairy-wing fairy-wing-left"></span><span class="fairy-wing fairy-wing-right"></span>
+    <span class="fairy-head"></span><span class="fairy-body"></span><span class="fairy-arm"></span><span class="fairy-light">✦</span>
+  </div>
 
   <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>
   <script src="script.js"></script>

@@ -447,3 +447,301 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } .fairy-guide, .fairy-spark { display: none !important; } }
+
+/* Homepage story spread — title, portrait, notes, and demos */
+.compact-home {
+  display: block;
+  min-height: auto;
+  padding: clamp(3.5rem, 6vw, 7rem) max(4vw, 2rem) clamp(5rem, 7vw, 8rem);
+}
+.compact-home .home-title {
+  width: min(1440px, 94%);
+  margin: 0 auto clamp(3.3rem, 5vw, 5.8rem);
+  text-align: center;
+}
+.compact-home .home-title::before {
+  content: "✦  ❦  ✦";
+  display: block;
+  margin-bottom: 1rem;
+  color: #a9636f;
+  font-size: 1.15rem;
+  letter-spacing: .32em;
+}
+.compact-home .home-title .chapter-label { margin-bottom: 1.1rem; }
+.compact-home .home-title h1 { max-width: none; }
+.compact-home .home-title .hero-greeting {
+  font-size: clamp(4.5rem, 7vw, 8.5rem);
+  line-height: .84;
+  white-space: nowrap;
+}
+.compact-home .home-title h1 em {
+  max-width: none;
+  margin-top: .13em;
+  font-size: clamp(2.8rem, 4.4vw, 5.4rem);
+}
+.compact-home .home-title .hero-lead {
+  max-width: 780px;
+  margin: 1.4rem auto 0;
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+}
+.home-spread {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(400px, 1.08fr) minmax(300px, .72fr) minmax(330px, .78fr);
+  gap: clamp(1.6rem, 3vw, 4rem);
+  align-items: center;
+  width: min(1720px, 100%);
+  margin: 0 auto;
+}
+.compact-home .hero-portrait {
+  width: min(100%, 720px);
+  min-width: 0;
+  padding: 3.7rem 3.8rem 8.4rem;
+  justify-self: center;
+}
+.compact-home .hero-portrait::before {
+  inset: 1rem 1.25rem 7.4rem;
+  border-width: 10px;
+  border-radius: 49% 49% 46% 46% / 45% 45% 55% 55%;
+}
+.compact-home .hero-portrait::after { bottom: 6.5rem; }
+.compact-home .portrait-frame { aspect-ratio: .86; }
+.compact-home .portrait-caption {
+  bottom: .6rem;
+  font-size: clamp(1.2rem, 1.35vw, 1.55rem);
+}
+.compact-home .portrait-caption small {
+  font-size: clamp(.76rem, .82vw, .96rem);
+  letter-spacing: .18em;
+}
+.compact-home .portrait-note { right: 1.5rem; bottom: 7.4rem; font-size: 1.25rem; }
+.leaf-branch {
+  position: absolute;
+  z-index: 5;
+  top: 14%;
+  width: 48px;
+  height: 60%;
+  border-color: #a77345;
+  border-style: solid;
+  pointer-events: none;
+}
+.branch-left { left: .6rem; border-width: 0 0 0 2px; border-radius: 60% 0 0 55%; transform: rotate(-7deg); }
+.branch-right { right: .6rem; border-width: 0 2px 0 0; border-radius: 0 60% 55% 0; transform: rotate(7deg); }
+.leaf-branch i {
+  position: absolute;
+  width: 17px;
+  height: 31px;
+  border: 1px solid rgba(82,42,67,.7);
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(135deg, #d5ad65, #8e5570);
+  box-shadow: inset 0 0 8px rgba(255,239,182,.35), 0 2px 5px rgba(56,16,48,.2);
+}
+.branch-left i { left: 2px; transform-origin: left bottom; }
+.branch-right i { right: 2px; border-radius: 0 100% 0 100%; transform-origin: right bottom; }
+.leaf-branch i:nth-child(1) { top: 6%; transform: rotate(-48deg) scale(.82); }
+.leaf-branch i:nth-child(2) { top: 25%; transform: rotate(35deg); }
+.leaf-branch i:nth-child(3) { top: 45%; transform: rotate(-48deg) scale(.92); }
+.leaf-branch i:nth-child(4) { top: 65%; transform: rotate(38deg) scale(.82); }
+.leaf-branch i:nth-child(5) { top: 84%; transform: rotate(-43deg) scale(.7); }
+.branch-right i:nth-child(1) { transform: rotate(48deg) scale(.82); }
+.branch-right i:nth-child(2) { transform: rotate(-35deg); }
+.branch-right i:nth-child(3) { transform: rotate(48deg) scale(.92); }
+.branch-right i:nth-child(4) { transform: rotate(-38deg) scale(.82); }
+.branch-right i:nth-child(5) { transform: rotate(43deg) scale(.7); }
+.home-spread > .character-notes,
+.home-spread > .portrait-demos { align-self: center; }
+
+@media (max-width: 1240px) {
+  .home-spread { grid-template-columns: minmax(390px, 1fr) minmax(300px, .78fr); }
+  .home-spread > .portrait-demos { grid-column: 1 / -1; width: min(760px, 100%); justify-self: center; }
+}
+@media (max-width: 820px) {
+  .compact-home .home-title { width: 100%; }
+  .compact-home .home-title .hero-greeting { white-space: normal; }
+  .home-spread { grid-template-columns: 1fr; width: min(680px, 100%); }
+  .home-spread > .portrait-demos { grid-column: auto; width: 100%; }
+}
+@media (max-width: 520px) {
+  .compact-home { padding-inline: 1.1rem; }
+  .compact-home .home-title { text-align: left; }
+  .compact-home .home-title .hero-greeting { font-size: clamp(3.5rem, 16vw, 5rem); }
+  .compact-home .hero-portrait { padding: 3.2rem 2.4rem 8.4rem; }
+  .leaf-branch { width: 36px; }
+}
+
+/* Hanging character notes */
+.home-spread > .character-notes {
+  position: relative;
+  padding: 3rem .25rem .5rem;
+  border: 0;
+  outline: 0;
+  background: none;
+  box-shadow: none;
+  color: #4a243d;
+}
+.home-spread > .character-notes::before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: 2%;
+  right: 2%;
+  height: 6px;
+  border-radius: 60%;
+  background: linear-gradient(90deg, #79503c, #b17b4f 46%, #684133);
+  box-shadow: 0 2px 0 rgba(255,238,190,.55), 0 5px 8px rgba(74,32,45,.18);
+  transform: rotate(-1.5deg);
+}
+.home-spread > .character-notes::after { content: "❦"; top: .05rem; right: .6rem; color: #a05c6e; font-size: 1.45rem; }
+.character-notes .sidecar-title,
+.portrait-demos .sidecar-title {
+  margin: 0 0 1.15rem;
+  color: #6b3154;
+  font: 600 .72rem/1.3 "Cinzel", Georgia, serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.home-spread .character-notes ul { display: grid; gap: .85rem; border: 0; }
+.home-spread .character-notes li {
+  position: relative;
+  display: grid;
+  gap: .22rem;
+  min-height: 88px;
+  padding: 1.15rem 1.05rem .95rem;
+  border: 1px solid #9c725b;
+  background: radial-gradient(circle at 12% 8%, rgba(255,255,255,.75), transparent 28%), linear-gradient(135deg, #fff0bd, #e4bd91);
+  color: #4b253d;
+  box-shadow: 5px 6px 0 rgba(86,42,66,.2), inset 0 0 18px rgba(108,62,42,.08);
+  transform: rotate(-1deg);
+}
+.home-spread .character-notes li:nth-child(even) { background: linear-gradient(135deg, #efd0d7, #dfb8a8); transform: rotate(1deg); }
+.home-spread .character-notes li:nth-child(3) { background: linear-gradient(135deg, #e6d8ee, #c9b5d8); }
+.home-spread .character-notes li::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -1.1rem;
+  width: 1px;
+  height: 1.1rem;
+  background: #8d634d;
+}
+.home-spread .character-notes li::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 4px);
+  top: .38rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #8e4963;
+  box-shadow: 0 1px 0 #f7d99b;
+}
+.home-spread .character-notes strong { color: #48213e; font-size: clamp(1.2rem, 1.35vw, 1.55rem); }
+.home-spread .character-notes span { color: #604050; font-size: .9rem; line-height: 1.35; }
+
+/* Demo tickets */
+.home-spread > .portrait-demos {
+  padding: 1.6rem 1.45rem 1.45rem;
+  border: 1px solid #79485d;
+  outline: 1px solid rgba(255,239,193,.65);
+  outline-offset: -8px;
+  background: linear-gradient(145deg, rgba(255,245,208,.98), rgba(229,187,139,.96));
+  box-shadow: 8px 9px 0 rgba(83,35,62,.25), inset 0 0 28px rgba(88,43,42,.09);
+}
+.portrait-demos .sidecar-title { margin-bottom: .8rem; font-size: .78rem; }
+.portrait-player {
+  position: relative;
+  margin: .75rem 0;
+  padding: .85rem .8rem;
+  border: 1px solid #6b354e !important;
+  background: #f5d771;
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+  box-shadow: none;
+}
+.portrait-player:nth-of-type(2) { background: #d7b9e7; }
+.portrait-player:nth-of-type(3) { background: #efb7c9; }
+.portrait-player::after {
+  content: "ADMIT ONE";
+  position: absolute;
+  right: .45rem;
+  top: .35rem;
+  color: rgba(82,35,62,.52);
+  font: 600 .42rem/1 "Cinzel", serif;
+  letter-spacing: .12em;
+}
+.portrait-player .audio-toggle { width: 48px; height: 48px; border-color: #512440; background: #54204f; color: #ffe79d; }
+.portrait-player .audio-info strong { color: #4b213d; font: 400 1.15rem/1 "IM Fell English", Georgia, serif; }
+.portrait-player .audio-info small { color: #633c4d; }
+.want-more { margin-top: 1.2rem; }
+.want-more > p { font-size: 1.55rem; }
+.want-more nav a { padding-block: .65rem; }
+.learn-about { font-size: 1.12rem; }
+
+/* Latest Audible chapter */
+.audible-chapter {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(rgba(43,10,50,.9), rgba(27,4,34,.96)), url("assets/images/opening/enchanted-watercolor-curtain.jpg") center 68% / cover;
+  color: #fff0c2;
+}
+.audible-chapter::before { content: ""; position: absolute; inset: 1.4rem; border: 1px solid rgba(231,189,98,.38); pointer-events: none; }
+.audible-heading { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 1rem 3rem; max-width: 1450px; margin: 0 auto 3.4rem; }
+.audible-heading .chapter-label { grid-column: 1 / -1; color: #edc974; }
+.audible-heading h2 { font: 400 clamp(3.3rem, 5.7vw, 6.6rem)/.92 "IM Fell English", Georgia, serif; }
+.audible-heading h2 em { color: #efbdcf; font-weight: 400; }
+.audible-heading > a { padding-bottom: .45rem; border-bottom: 1px solid #d8ad5a; color: #ffe19a; font-family: "IM Fell English", Georgia, serif; text-decoration: none; }
+.latest-audiobooks { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 1450px; margin: 0 auto; }
+.audible-book {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 315px;
+  padding: 1.6rem;
+  border: 1px solid #c69458;
+  outline: 1px solid rgba(80,34,62,.35);
+  outline-offset: -9px;
+  background: radial-gradient(circle at 11% 7%, rgba(255,255,255,.8), transparent 25%), linear-gradient(145deg, #fff1c6, #ddbc8c);
+  color: #432039;
+  box-shadow: 7px 8px 0 rgba(10,0,15,.4);
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.audible-book:nth-child(2) { background: linear-gradient(145deg, #ebd6e9, #c4add3); transform: translateY(1.3rem); }
+.audible-book:nth-child(3) { background: linear-gradient(145deg, #f4c8d4, #dda99e); }
+.audible-book:hover { transform: translateY(-5px) rotate(-.4deg); box-shadow: 10px 12px 0 rgba(10,0,15,.42); }
+.audible-book:nth-child(2):hover { transform: translateY(.8rem) rotate(.4deg); }
+.audible-book > span { font: 600 .55rem/1 "Cinzel", serif; letter-spacing: .12em; text-transform: uppercase; }
+.audible-book strong { margin: auto 0 .6rem; font: 400 clamp(2rem, 3.2vw, 3.6rem)/.9 "IM Fell English", Georgia, serif; }
+.audible-book em { font: italic 400 1.1rem/1.2 "IM Fell English", Georgia, serif; }
+.audible-book b { margin-top: 1.5rem; padding-top: .85rem; border-top: 1px solid rgba(75,34,57,.42); font: 600 .55rem/1 "Cinzel", serif; letter-spacing: .08em; text-transform: uppercase; }
+.publisher-shelf { position: relative; max-width: 1450px; margin: 5rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(231,189,98,.42); text-align: center; }
+.publisher-shelf > p { margin: 0 0 1.4rem; color: #eac56f; font: 600 .6rem/1 "Cinzel", serif; letter-spacing: .17em; text-transform: uppercase; }
+.publisher-shelf > div { display: flex; align-items: center; justify-content: center; gap: clamp(1.4rem, 3vw, 3.4rem); flex-wrap: wrap; }
+.publisher-shelf img { width: auto; max-width: 150px; max-height: 48px; object-fit: contain; filter: grayscale(1) sepia(.25) brightness(1.45); opacity: .88; }
+.publisher-shelf .dreamscape-logo { max-width: 150px; max-height: 58px; padding: .2rem .35rem; background: #fff; filter: grayscale(1) sepia(.15) brightness(1.2); }
+.publisher-shelf .podium-logo { display: grid; place-items: center; min-width: 160px; min-height: 52px; padding: .55rem .9rem; border: 1px solid rgba(231,189,98,.28); background: rgba(255,255,255,.06); }
+.publisher-shelf .podium-logo img { width: 142px; max-height: 34px; filter: none; opacity: 1; }
+
+/* Original guide fairy */
+.fairy-guide { width: 48px; height: 54px; filter: drop-shadow(0 2px 7px rgba(50,10,57,.45)); }
+.fairy-wing { top: 14px; width: 24px; height: 31px; border-color: rgba(116,67,123,.78); background: radial-gradient(circle at 45% 35%, rgba(255,255,255,.95), rgba(213,179,238,.65) 52%, rgba(231,189,98,.45)); box-shadow: inset 0 0 10px rgba(255,255,255,.7), 0 0 8px rgba(244,205,119,.28); }
+.fairy-wing-left { left: 0; }.fairy-wing-right { right: 0; }
+.fairy-head { position: absolute; z-index: 4; left: 20px; top: 8px; width: 10px; height: 10px; border-radius: 50%; background: #54204f; box-shadow: -3px -3px 0 -1px #54204f, 0 0 7px rgba(246,203,102,.45); }
+.fairy-body { position: absolute; z-index: 4; left: 20px; top: 18px; width: 10px; height: 24px; border-radius: 55% 55% 45% 45%; background: linear-gradient(#6d2d67, #3a123c); clip-path: polygon(30% 0, 70% 0, 100% 100%, 0 100%); }
+.fairy-body::after { content: ""; position: absolute; left: 4px; bottom: -10px; width: 2px; height: 12px; background: #3a123c; box-shadow: 5px 1px 0 #3a123c; transform: rotate(8deg); }
+.fairy-arm { position: absolute; z-index: 5; left: 28px; top: 23px; width: 15px; height: 2px; border-radius: 99px; background: #54204f; transform: rotate(-24deg); transform-origin: left center; }
+.fairy-light { position: absolute; z-index: 6; right: -5px; top: 14px; color: #f7cd66; font-size: 1.2rem; text-shadow: 0 0 6px #fff4ba, 0 0 14px #f0ba4e; animation: fairyPulse .75s ease-in-out infinite alternate; }
+.fairy-spark.is-star { width: auto; height: auto; border-radius: 0; background: none; color: #f7ca61; font: 400 .75rem/1 Georgia, serif; text-shadow: 0 0 8px #fff0a8; }
+
+@media (max-width: 960px) {
+  .audible-heading { grid-template-columns: 1fr; }
+  .latest-audiobooks { grid-template-columns: 1fr; width: min(680px, 100%); }
+  .audible-book, .audible-book:nth-child(2) { min-height: 240px; transform: none; }
+  .audible-book:nth-child(2):hover { transform: translateY(-5px); }
+}
+@media (max-width: 520px) {
+  .home-spread > .character-notes { padding-inline: 0; }
+  .home-spread > .portrait-demos { padding: 1.35rem 1rem; }
+  .publisher-shelf > div { gap: 1.4rem; }
+  .publisher-shelf img { max-width: 110px; max-height: 36px; }
+}
