@@ -1722,3 +1722,189 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .home-spread > .hero-portrait .portrait-frame { width: min(420px, 92%); height: 550px; }
   .home-details-combined { min-height: 0; }
 }
+
+/* Hand-sketched story spread on aged fairytale paper */
+.page-home .storybook-hero {
+  padding-top: clamp(1.1rem, 1.8vw, 2rem);
+  padding-bottom: clamp(4.5rem, 6vw, 7rem);
+  background-color: #eadbb9;
+  background-image:
+    radial-gradient(ellipse at 14% 18%, rgba(160, 119, 73, .13), transparent 28%),
+    radial-gradient(ellipse at 88% 14%, rgba(117, 142, 119, .12), transparent 25%),
+    radial-gradient(ellipse at 78% 83%, rgba(143, 91, 95, .11), transparent 27%),
+    radial-gradient(ellipse at center, rgba(255, 250, 225, .62) 0 48%, rgba(112, 78, 48, .14) 100%),
+    repeating-radial-gradient(circle at 18% 26%, rgba(77, 57, 39, .055) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(93deg, rgba(95, 70, 47, .025) 0 1px, transparent 1px 6px);
+  background-blend-mode: multiply, multiply, multiply, normal, multiply, multiply;
+}
+.page-home .storybook-hero::before {
+  border-color: rgba(96, 70, 50, .32);
+  outline-color: rgba(116, 89, 58, .17);
+}
+.compact-home .home-title {
+  margin-bottom: clamp(.7rem, 1.2vw, 1.2rem);
+}
+.compact-home .home-title h1 { gap: clamp(.65rem, 1.1vw, 1.2rem); }
+.compact-home .home-title .chapter-inline { color: #745e4d; }
+.compact-home .home-title .hero-greeting {
+  color: #3e2837;
+  font-size: clamp(3.7rem, 5.25vw, 6.5rem);
+}
+.compact-home .home-title h1 em {
+  color: #8c4d61;
+  font-size: clamp(2.15rem, 2.9vw, 3.65rem);
+}
+.home-spread {
+  grid-template-columns: minmax(680px, 1.08fr) minmax(520px, .92fr);
+  gap: clamp(1.25rem, 2.1vw, 2.7rem);
+  width: min(1740px, 100%);
+  align-items: start;
+}
+.home-spread > .hero-portrait {
+  height: 790px;
+  padding: 0 0 5.8rem;
+  border: 0;
+  outline: 0;
+  background: none;
+  box-shadow: none;
+  filter: drop-shadow(8px 12px 16px rgba(75, 52, 40, .18));
+}
+.home-spread > .hero-portrait::before,
+.home-spread > .hero-portrait::after,
+.home-spread > .hero-portrait .leaf-branch,
+.home-spread > .hero-portrait .portrait-flourish { display: none; }
+.home-spread > .hero-portrait .portrait-frame {
+  width: min(720px, 96%);
+  height: 730px;
+  border: 0;
+  border-radius: 0;
+  background: #d8c39c;
+  box-shadow: none;
+  clip-path: polygon(
+    7% 2%, 20% 0, 34% 3%, 48% 1%, 61% 4%, 76% 2%, 91% 7%,
+    98% 18%, 96% 31%, 100% 44%, 96% 57%, 99% 70%, 93% 82%,
+    96% 93%, 84% 98%, 69% 96%, 56% 100%, 42% 97%, 27% 100%,
+    14% 95%, 4% 87%, 7% 75%, 1% 63%, 5% 50%, 0 36%, 4% 22%
+  );
+}
+.home-spread > .hero-portrait .portrait-frame img {
+  filter: saturate(.82) sepia(.12) contrast(.98);
+  object-position: 50% 48%;
+}
+.home-spread > .hero-portrait .portrait-frame::after {
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgba(91, 63, 42, .14), transparent 10% 88%, rgba(91, 63, 42, .13)),
+    linear-gradient(180deg, rgba(255, 244, 211, .08), transparent 58%, rgba(67, 43, 34, .18));
+  box-shadow: inset 0 0 36px rgba(72, 49, 33, .13);
+}
+.home-spread > .hero-portrait .portrait-note {
+  right: 1.3rem;
+  bottom: 5rem;
+  border-color: rgba(97, 71, 53, .52);
+  background: #e9d9b4;
+  color: #5e493d;
+}
+.home-spread > .hero-portrait .portrait-caption {
+  bottom: .25rem;
+  color: #58463c;
+}
+.home-spread > .hero-portrait .portrait-caption small,
+.home-spread > .hero-portrait .portrait-caption i { color: #8b6255; }
+.home-details-combined {
+  display: grid;
+  grid-template-rows: minmax(0, .88fr) minmax(0, 1.12fr);
+  gap: clamp(1.1rem, 1.7vw, 1.8rem);
+  height: 790px;
+  padding: .25rem 0 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  box-shadow: none;
+}
+.home-details-combined::before,
+.home-details-combined::after { content: none; }
+.home-details-combined > .character-notes,
+.home-details-combined > .portrait-demos {
+  position: relative;
+  min-height: 0;
+  padding: 2rem 2.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(96, 70, 50, .5);
+  outline: 1px solid rgba(130, 95, 63, .17);
+  outline-offset: -8px;
+  border-radius: 48% 52% 46% 54% / 13% 16% 12% 15%;
+  background:
+    radial-gradient(circle at 14% 10%, rgba(255,255,255,.58), transparent 30%),
+    repeating-radial-gradient(circle at 17% 23%, rgba(77,57,39,.04) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, rgba(237, 221, 184, .96), rgba(223, 199, 164, .93));
+  box-shadow: 6px 9px 15px rgba(76, 52, 39, .13), inset 0 0 30px rgba(91, 63, 43, .07);
+}
+.home-details-combined > .portrait-demos {
+  border-radius: 52% 48% 55% 45% / 15% 12% 16% 13%;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(255,255,255,.56), transparent 28%),
+    repeating-radial-gradient(circle at 68% 31%, rgba(77,57,39,.04) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg, rgba(221, 224, 199, .96), rgba(202, 207, 179, .92));
+}
+.home-details-combined > .character-notes { border-bottom: 1px solid rgba(96, 70, 50, .5); }
+.home-details-combined .sidecar-title {
+  margin-bottom: .8rem;
+  color: #705044;
+}
+.home-details-combined .character-notes ul { gap: .45rem .55rem; }
+.home-details-combined .character-notes li {
+  min-height: 52px;
+  padding: .55rem .68rem .48rem;
+  border-color: rgba(95, 71, 55, .28);
+  border-radius: 3px;
+  background: rgba(247, 235, 204, .48);
+  box-shadow: none;
+  transform: none;
+}
+.home-details-combined .character-notes li:nth-child(2),
+.home-details-combined .character-notes li:nth-child(3),
+.home-details-combined .character-notes li:nth-child(4),
+.home-details-combined .character-notes li:nth-child(5) { background: rgba(246, 233, 201, .38); }
+.home-details-combined .character-notes strong { color: #554136; }
+.home-details-combined .character-notes span { color: #6a594d; }
+.home-details-combined > .portrait-demos { padding-top: 1.55rem; }
+.home-details-combined .portrait-player {
+  min-height: 52px;
+  margin: .3rem 0;
+  border-color: rgba(84, 72, 53, .36) !important;
+  background: rgba(246, 238, 211, .62);
+  box-shadow: none;
+}
+.home-details-combined .portrait-player:nth-of-type(2),
+.home-details-combined .portrait-player:nth-of-type(3) { background: rgba(246, 238, 211, .52); }
+.home-details-combined .portrait-player .audio-toggle,
+.home-details-combined .learn-about { border-color: #65776b; background: #65776b; }
+.home-details-combined .want-more { margin-top: .45rem; padding-top: .4rem; }
+.home-details-combined .want-more > p { margin-bottom: .25rem; }
+.home-details-combined .want-more nav a { padding-block: .34rem; }
+.home-details-combined .learn-about { margin-top: .32rem; padding-block: .42rem; }
+
+.page-home .audible-chapter {
+  background-color: #e8d8b6;
+  background-image:
+    radial-gradient(ellipse at 12% 18%, rgba(121, 150, 124, .16), transparent 29%),
+    radial-gradient(ellipse at 88% 76%, rgba(151, 94, 102, .12), transparent 28%),
+    radial-gradient(ellipse at center, rgba(255, 250, 225, .62), rgba(132, 95, 61, .11)),
+    repeating-radial-gradient(circle at 22% 34%, rgba(77,57,39,.045) 0 1px, transparent 1px 4px);
+}
+.page-home .audible-heading { margin-top: 0; }
+
+@media (max-width: 1180px) {
+  .home-spread { grid-template-columns: 1fr; width: min(860px, 100%); }
+  .home-spread > .hero-portrait { height: 780px; }
+  .home-spread > .hero-portrait .portrait-frame { width: min(700px, 94%); height: 720px; }
+  .home-details-combined { height: auto; min-height: 760px; }
+}
+@media (max-width: 620px) {
+  .home-spread > .hero-portrait { height: 620px; }
+  .home-spread > .hero-portrait .portrait-frame { width: 100%; height: 560px; }
+  .home-details-combined { display: grid; gap: 1rem; min-height: 0; }
+  .home-details-combined > .character-notes,
+  .home-details-combined > .portrait-demos { padding: 1.65rem 1.15rem; border-radius: 12% / 4%; }
+}
