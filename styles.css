@@ -1053,3 +1053,111 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .home-spread > .hero-portrait .portrait-frame { min-height: 470px; }
   .home-spread > .character-notes ul { grid-template-columns: 1fr; }
 }
+
+/* Shorter homepage: oversized portrait with one compact details panel */
+.compact-home {
+  padding-top: clamp(2.5rem, 4vw, 4.5rem);
+  padding-bottom: clamp(3.8rem, 5vw, 5.5rem);
+}
+.compact-home .home-title { margin-bottom: clamp(2.1rem, 3vw, 3.4rem); }
+.compact-home .home-title::before { margin-bottom: .55rem; }
+.compact-home .home-title .chapter-label { margin-bottom: .7rem; }
+.compact-home .home-title .hero-greeting { font-size: clamp(3.8rem, 5.7vw, 6.8rem); }
+.compact-home .home-title h1 em { font-size: clamp(2.3rem, 3.6vw, 4.3rem); }
+.compact-home .home-title .hero-lead { max-width: 720px; margin-top: .95rem; font-size: clamp(1rem, 1.15vw, 1.18rem); }
+.home-spread {
+  grid-template-columns: minmax(560px, 1.28fr) minmax(410px, .72fr);
+  gap: clamp(1.6rem, 3vw, 3.8rem);
+  width: min(1580px, 100%);
+  align-items: stretch;
+}
+.home-spread > .hero-portrait {
+  grid-area: auto !important;
+  width: 100%;
+  height: 700px;
+  padding: 3rem 3.2rem 8rem;
+}
+.home-spread > .hero-portrait .portrait-frame { height: 100%; min-height: 0; }
+.home-details-combined {
+  grid-area: auto !important;
+  display: grid;
+  grid-template-rows: minmax(0, 1.05fr) minmax(0, .95fr);
+  min-width: 0;
+  height: 700px;
+  padding: 1.35rem;
+  border: 1px solid #795066;
+  outline: 1px solid rgba(255,241,196,.78);
+  outline-offset: -8px;
+  background: radial-gradient(circle at 90% 4%, rgba(255,255,255,.68), transparent 24%), linear-gradient(145deg, #f7e6bc, #dab8c8);
+  box-shadow: 8px 9px 0 rgba(83,35,62,.24), inset 0 0 28px rgba(88,43,42,.08);
+}
+.home-details-combined > .character-notes {
+  min-width: 0;
+  padding: .35rem .25rem 1rem;
+  border: 0;
+  border-bottom: 1px solid rgba(84,43,61,.38);
+  outline: 0;
+  background: none;
+  box-shadow: none;
+  color: #4a243d;
+}
+.home-details-combined > .character-notes::before,
+.home-details-combined > .character-notes::after { content: none; }
+.home-details-combined .sidecar-title { margin-bottom: .65rem; }
+.home-details-combined .character-notes ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .55rem;
+  margin: 0;
+  border: 0;
+}
+.home-details-combined .character-notes li {
+  position: relative;
+  display: grid;
+  gap: .08rem;
+  min-height: 68px;
+  padding: .72rem .75rem .6rem;
+  border: 1px solid rgba(112,68,74,.52);
+  background: rgba(255,246,214,.72);
+  box-shadow: 3px 3px 0 rgba(86,42,66,.13);
+  transform: rotate(-.35deg);
+}
+.home-details-combined .character-notes li:nth-child(even) { background: rgba(224,193,217,.68); transform: rotate(.35deg); }
+.home-details-combined .character-notes li:last-child { grid-column: 1 / -1; min-height: 58px; }
+.home-details-combined .character-notes li::before,
+.home-details-combined .character-notes li::after { content: none; }
+.home-details-combined .character-notes strong { color: #48213e; font-size: clamp(1rem, 1.05vw, 1.22rem); line-height: 1; }
+.home-details-combined .character-notes span { color: #654452; font-size: .72rem; line-height: 1.22; }
+.home-details-combined > .portrait-demos {
+  min-width: 0;
+  padding: 1rem .25rem .1rem;
+  border: 0;
+  outline: 0;
+  background: none;
+  box-shadow: none;
+}
+.home-details-combined .portrait-player {
+  min-height: 58px;
+  margin: .4rem 0;
+  padding: .55rem .7rem;
+}
+.home-details-combined .portrait-player .audio-toggle { width: 42px; height: 42px; }
+.home-details-combined .portrait-player .audio-info strong { font-size: 1.05rem; }
+.home-details-combined .want-more { margin-top: .55rem; padding-top: .55rem; }
+.home-details-combined .want-more > p { margin-bottom: .4rem; font-size: 1.2rem; }
+.home-details-combined .want-more nav a { padding-block: .42rem; }
+.home-details-combined .learn-about { margin-top: .4rem; padding: .48rem .65rem; font-size: .92rem; }
+
+@media (max-width: 1080px) {
+  .home-spread { grid-template-columns: 1fr; width: min(780px, 100%); }
+  .home-spread > .hero-portrait { height: 680px; }
+  .home-details-combined { height: auto; min-height: 680px; }
+}
+@media (max-width: 620px) {
+  .compact-home .home-title .hero-greeting { font-size: clamp(3.1rem, 14vw, 4.4rem); }
+  .compact-home .home-title h1 em { font-size: clamp(2.1rem, 10vw, 3.2rem); }
+  .home-spread > .hero-portrait { height: 560px; padding: 2.6rem 2rem 8rem; }
+  .home-details-combined { display: block; min-height: 0; padding: 1.15rem; }
+  .home-details-combined .character-notes ul { grid-template-columns: 1fr; }
+  .home-details-combined .character-notes li:last-child { grid-column: auto; }
+}
