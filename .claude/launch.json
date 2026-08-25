@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "autoPort": true,
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "-e",
+        "const h=require('http'),f=require('fs'),p=require('path'),r=process.cwd(),P=Number(process.env.PORT)||4321,t={'.html':'text/html','.css':'text/css','.js':'text/javascript','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.svg':'image/svg+xml','.mp3':'audio/mpeg','.mp4':'video/mp4','.json':'application/json','.woff2':'font/woff2'};h.createServer((q,s)=>{let u=decodeURIComponent(q.url.split('?')[0]);if(u==='/')u='/index.html';const x=p.join(r,u);if(!x.startsWith(r))return s.writeHead(403).end();f.readFile(x,(e,d)=>{if(e)return s.writeHead(404,{'Content-Type':'text/plain'}).end('404');s.writeHead(200,{'Content-Type':t[p.extname(x).toLowerCase()]||'application/octet-stream','Cache-Control':'no-store'});s.end(d)})}).listen(P,()=>console.log('serving http://localhost:'+P))"
+      ],
+      "port": 4321
+    }
+  ]
+}

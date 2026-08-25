@@ -1,70 +1,232 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Meet Da Eun Yoon: Korean-American voice actor, lifelong storyteller, performer, translator, artist, and cat person.">
   <title>About Me | Da Eun Yoon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-about">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><a class="brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" data-menu-toggle><span></span><span></span></button><nav id="site-nav" class="site-nav" aria-label="Main navigation" data-menu><a href="index.html">Home</a><a class="active" href="about.html">About Me</a><details class="nav-group"><summary>Voice Over <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a></div></details><details class="nav-group"><summary>For Authors <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="authors.html">For Authors Overview</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a></div></details><details class="nav-group"><summary>Language Services <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="language-services.html">Language Services Overview</a><a href="language-services.html#translation">Korean ↔ English Translation</a><a href="language-services.html#interpretation">Korean ↔ English Interpretation</a></div></details><a class="nav-contact" href="contact.html">Contact <span>↗</span></a></nav></header>
 
+  <!-- Torn-paper edges. The filters distort only the paper layers, never the text. -->
+  <svg class="tale-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="deckle" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="4" seed="9" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="deckle-wide" x="-6%" y="-12%" width="112%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="4" seed="23" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <main id="main">
-    <section class="page-hero story-hero">
-      <div class="page-hero-copy reveal"><p class="chapter-label">Chapter One · Before the booth</p><h1>I was building worlds<br><em>before I knew the word storyteller.</em></h1><p>It began with a cassette player, an audiobook, and a small bedroom in Korea.</p></div>
-      <div class="childhood-video reveal delay-1"><div class="video-frame"><video controls playsinline preload="metadata" poster="assets/images/about/portrait-coat.webp"><source src="assets/video/childhood-story.mp4" type="video/mp4"></video></div><span class="video-caption">Da Eun, director of bedroom-floor epics · age very small</span></div>
+    <section class="tale-spread" aria-labelledby="about-opening-line">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Chapter One · Before the booth</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-book">
+        <article class="tale-leaf tale-leaf-verso reveal">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <figure class="tale-figure tale-figure-fill">
+              <div class="tale-plate">
+                <video controls playsinline preload="metadata" poster="assets/images/about/portrait-coat.webp"><source src="assets/video/childhood-story.mp4" type="video/mp4"></video>
+              </div>
+              <figcaption>Director of bedroom-floor epics<br><span>Age very small · Seoul</span></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="tale-leaf tale-leaf-recto reveal delay-1">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <h1 class="tale-opening" id="about-opening-line"><b class="tale-versal">I</b> was building worlds before I knew the word <em>storyteller.</em></h1>
+
+            <p class="tale-byline">
+              <span class="tale-name">Da Eun Yoon</span>
+              <span class="tale-role">Voice Actor · Storyteller · Keeper of two tongues</span>
+            </p>
+
+            <div class="tale-prose">
+              <p>It began with a cassette player, an audiobook, and a small bedroom in Korea. My mother hoped the tape would help me learn English. It did much more than that.</p>
+              <p>Every place I have lived since has left something in my voice, and every language I have carried has changed how I listen.</p>
+            </div>
+
+            <nav class="tale-more" aria-label="Where to go next">
+              <p>Hear the worlds behind the story</p>
+              <span><a class="tale-pill" href="commercial.html">Commercial</a><a class="tale-pill" href="audiobook.html">Audiobook</a><a class="tale-pill" href="animation.html">Animation</a></span>
+              <a class="tale-onward" href="contact.html">Start a conversation <em aria-hidden="true">→</em></a>
+            </nav>
+          </div>
+        </article>
+      </div>
+
+      <article class="tale-leaf tale-slip reveal delay-2" aria-labelledby="about-path-heading">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-leaf-inner">
+          <h2 class="tale-rubric" id="about-path-heading"><span>A voice that travelled</span></h2>
+          <dl class="tale-dl">
+            <div><dt>Seoul</dt><dd>The beginning — telling stories long before they could be a career</dd></div>
+            <div><dt>Chicago</dt><dd>The training — a B.A. in Theatre at Northwestern University</dd></div>
+            <div><dt>New York</dt><dd>The discovery — performer and playwright, then a door into voice over</dd></div>
+            <div><dt>Singapore</dt><dd>The connection — translator, interpreter and English teacher</dd></div>
+            <div><dt>Korea · now</dt><dd>The next chapter — every place and person carried into the booth</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <p class="tale-flourish" aria-hidden="true">✦ &nbsp; ⁂ &nbsp; ✦</p>
     </section>
 
-    <section class="origin-story section-pad">
-      <div class="origin-number">01</div>
-      <div class="origin-copy reveal"><p class="chapter-label">The first doorway</p><h2>A voice opened<br><em>an entire universe.</em></h2><p class="lead-story">Jesse Bernstein’s voice reading <em>Percy Jackson and the Lightning Thief</em> flowed from my cassette player. My mother hoped the audiobook would help me learn English. It did much more.</p><p>It connected me to a new language, distant cultures, and imagined worlds far beyond my own. The next morning, my Barbie dolls, puppets, and scraps of fabric became heroes and explorers. Blankets became kingdoms. My parents became my first audience.</p><blockquote>I wasn’t just playing.<br><strong>I was building entire universes.</strong></blockquote></div>
-      <div class="origin-photo reveal delay-1"><img src="assets/images/about/portrait-city.webp" alt="Da Eun standing in a city"><span class="hand-note">Still following<br>that same magic →</span></div>
-    </section>
+    <section class="tale-chapter" aria-labelledby="about-doorway-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Chapter Two · The first doorway</span><i aria-hidden="true">✦</i></p>
 
-    <section class="life-path section-pad">
-      <div class="section-heading centered reveal"><p class="chapter-label light">Chapter Two · A voice that travelled</p><h2>Seoul to Chicago.<br>New York to Singapore.<br><em>And home again.</em></h2></div>
-      <div class="path-grid">
-        <article class="path-card reveal"><span>SEOUL</span><h3>The beginning</h3><p>Born and raised in Korea, telling stories long before I knew they could become a career.</p></article>
-        <article class="path-card reveal delay-1"><span>CHICAGO</span><h3>The training</h3><p>A B.A. in Theatre at Northwestern University—learning how voice, body and silence can hold a room.</p></article>
-        <article class="path-card reveal delay-2"><span>NEW YORK</span><h3>The discovery</h3><p>Performer and playwright, until a Ripley-Grier workshop opened the door to voice-over.</p></article>
-        <article class="path-card reveal"><span>SINGAPORE</span><h3>The connection</h3><p>Translator, interpreter and English teacher—bringing people together across industries and cultures.</p></article>
-        <article class="path-card current reveal delay-1"><span>KOREA · NOW</span><h3>The next chapter</h3><p>Back home, carrying every place, language and person I’ve met into the recording booth.</p></article>
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="about-doorway-heading">A voice opened <em>an entire universe.</em></h2>
+          </header>
+
+          <div class="tale-columns tale-columns-side">
+            <div class="tale-prose">
+              <p>Jesse Bernstein’s voice reading <em>Percy Jackson and the Lightning Thief</em> flowed from my cassette player. It connected me to a new language, distant cultures, and imagined worlds far beyond my own.</p>
+              <p>The next morning, my Barbie dolls, puppets, and scraps of fabric became heroes and explorers. Blankets became kingdoms. My parents became my first audience.</p>
+              <blockquote class="tale-quote">I wasn’t just playing. <strong>I was building entire universes.</strong></blockquote>
+            </div>
+
+            <figure class="tale-figure">
+              <div class="tale-plate"><img src="assets/images/about/portrait-city.webp" alt="Da Eun standing in a city"></div>
+              <figcaption>Still following that same magic</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="person-section section-pad">
-      <div class="section-heading split-heading reveal"><div><p class="chapter-label">Chapter Three · Off mic</p><h2>Voice actor,<br><em>and a very curious human.</em></h2></div><p>I’m always trying something new, studying the way people think, or turning last night’s dream into a story.</p></div>
-      <div class="scrapbook-grid">
-        <figure class="scrap scrap-a reveal"><img src="assets/images/about/life-01.webp" alt="A moment from Da Eun's life"><figcaption>Stage & screen</figcaption></figure>
-        <figure class="scrap scrap-b reveal delay-1"><img src="assets/images/about/illustration.webp" alt="An illustration by Da Eun"><figcaption>Drawing worlds in Procreate</figcaption></figure>
-        <figure class="scrap scrap-c reveal delay-2"><img src="assets/images/about/life-02.webp" alt="A moment from Da Eun's travels"><figcaption>Travel, despite the airplanes</figcaption></figure>
-        <figure class="scrap scrap-d reveal"><img src="assets/images/about/artwork.webp" alt="Artwork by Da Eun"><figcaption>Art, costumes & odd ideas</figcaption></figure>
-        <figure class="scrap scrap-e reveal delay-1"><img src="assets/images/about/life-wide.webp" alt="A wide life snapshot"><figcaption>Collecting stories everywhere</figcaption></figure>
-        <figure class="scrap scrap-f reveal delay-2"><img src="assets/images/about/life-03.webp" alt="A personal snapshot of Da Eun"><figcaption>Learning languages & instruments</figcaption></figure>
-        <figure class="scrap scrap-g reveal"><img src="assets/images/about/life-04.webp" alt="A personal snapshot"><figcaption>Studying the human mind</figcaption></figure>
-        <figure class="scrap scrap-h reveal delay-1"><img src="assets/images/about/life-05.webp" alt="Da Eun enjoying life outside the booth"><figcaption>The hunt for perfect hot chocolate</figcaption></figure>
-      </div>
-      <div class="video-diary">
-        <article class="reveal"><video controls playsinline preload="metadata"><source src="assets/video/life-snippet-01.mp4" type="video/mp4"></video><p>Little scenes from the life behind the voice.</p></article>
-        <article class="reveal delay-1"><video controls playsinline preload="metadata"><source src="assets/video/life-snippet-02.mp4" type="video/mp4"></video><p>Because every good story needs a few side quests.</p></article>
+    <section class="tale-chapter" aria-labelledby="about-offmic-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Chapter Three · Off mic</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="about-offmic-heading">Voice actor, <em>and a very curious human.</em></h2>
+            <p class="tale-lede">Always trying something new, studying the way people think, or turning last night’s dream into a story.</p>
+          </header>
+
+          <div class="tale-scraps">
+            <figure class="tale-scrap"><img src="assets/images/about/life-01.webp" alt="A moment from Da Eun's life"><figcaption>Stage &amp; screen</figcaption></figure>
+            <figure class="tale-scrap"><img src="assets/images/about/illustration.webp" alt="An illustration by Da Eun"><figcaption>Drawing worlds in Procreate</figcaption></figure>
+            <figure class="tale-scrap"><img src="assets/images/about/life-02.webp" alt="A moment from Da Eun's travels"><figcaption>Travel, despite the airplanes</figcaption></figure>
+            <figure class="tale-scrap"><img src="assets/images/about/artwork.webp" alt="Artwork by Da Eun"><figcaption>Art, costumes &amp; odd ideas</figcaption></figure>
+            <figure class="tale-scrap"><img src="assets/images/about/life-wide.webp" alt="A wide life snapshot"><figcaption>Collecting stories everywhere</figcaption></figure>
+            <figure class="tale-scrap"><img src="assets/images/about/life-03.webp" alt="A personal snapshot of Da Eun"><figcaption>Languages &amp; instruments</figcaption></figure>
+            <figure class="tale-scrap"><img src="assets/images/about/life-04.webp" alt="A personal snapshot"><figcaption>Studying the human mind</figcaption></figure>
+            <figure class="tale-scrap"><img src="assets/images/about/life-05.webp" alt="Da Eun enjoying life outside the booth"><figcaption>The hunt for perfect hot chocolate</figcaption></figure>
+          </div>
+
+          <h3 class="tale-rubric" style="margin-top: 2.4rem"><span>Little scenes from the life behind the voice</span></h3>
+          <div class="tale-columns">
+            <figure class="tale-figure">
+              <div class="tale-plate"><video controls playsinline preload="metadata"><source src="assets/video/life-snippet-01.mp4" type="video/mp4"></video></div>
+              <figcaption>A few minutes outside the booth.</figcaption>
+            </figure>
+            <figure class="tale-figure">
+              <div class="tale-plate"><video controls playsinline preload="metadata"><source src="assets/video/life-snippet-02.mp4" type="video/mp4"></video></div>
+              <figcaption>Because every good story needs a few side quests.</figcaption>
+            </figure>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="credentials section-pad">
-      <div class="credential-intro reveal"><p class="chapter-label">Chapter Four · The professional</p><h2>Playful spirit.<br><em>Serious craft.</em></h2><p>My curiosity may lead the way, but every performance is grounded in theatre training, disciplined preparation and a collaborative process.</p></div>
-      <div class="credential-columns">
-        <div class="credential-card reveal"><h3>Training</h3><ul><li><strong>B.A. in Theatre</strong><span>Northwestern University</span></li><li><strong>Voice-over</strong><span>Elizabeth Bunnell · Piper Goodeve · Emily Woo Zeller</span></li><li><strong>Stage</strong><span>David Catlin · Cindy Gold</span></li><li><strong>Screen</strong><span>Stephen Cone · Kim Plumridge</span></li><li><strong>Speech / Shakespeare</strong><span>Linda Gates</span></li><li><strong>Voice · Mezzo-soprano</strong><span>Nicole Benoit</span></li></ul></div>
-        <div class="credential-card reveal delay-1"><h3>Languages & accents</h3><ul><li><strong>English</strong><span>Native</span></li><li><strong>Korean · 한국어</strong><span>Native</span></li><li><strong>Mandarin · Spanish</strong><span>Intermediate</span></li><li><strong>Accents</strong><span>Standard American · British RP · French · Korean · Chinese · and more</span></li></ul></div>
+    <section class="tale-chapter" aria-labelledby="about-craft-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Chapter Four · The professional</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="about-craft-heading">Playful spirit. <em>Serious craft.</em></h2>
+            <p class="tale-lede">Curiosity may lead the way, but every performance is grounded in theatre training, disciplined preparation and a collaborative process.</p>
+          </header>
+
+          <div class="tale-cards" style="--cols: 2">
+            <article class="tale-card tale-card-lit">
+              <span>Training</span>
+              <h3>Where the craft was learned</h3>
+              <dl class="tale-dl" style="--cols: 1">
+                <div><dt>B.A. in Theatre</dt><dd>Northwestern University</dd></div>
+                <div><dt>Voice over</dt><dd>Elizabeth Bunnell · Piper Goodeve · Emily Woo Zeller</dd></div>
+                <div><dt>Stage</dt><dd>David Catlin · Cindy Gold</dd></div>
+                <div><dt>Screen</dt><dd>Stephen Cone · Kim Plumridge</dd></div>
+                <div><dt>Speech &amp; Shakespeare</dt><dd>Linda Gates</dd></div>
+                <div><dt>Voice · Mezzo-soprano</dt><dd>Nicole Benoit</dd></div>
+              </dl>
+            </article>
+
+            <article class="tale-card tale-card-lit">
+              <span>Languages &amp; accents</span>
+              <h3>The tongues she keeps</h3>
+              <dl class="tale-dl" style="--cols: 1">
+                <div><dt>English</dt><dd>Native</dd></div>
+                <div><dt>Korean · 한국어</dt><dd>Native</dd></div>
+                <div><dt>Mandarin · Spanish</dt><dd>Intermediate</dd></div>
+                <div><dt>Accents</dt><dd>Standard American · British RP · French · Korean · Chinese · and more</dd></div>
+              </dl>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="esme-corner section-pad">
-      <div class="esme-photo reveal"><img src="assets/images/about/esme.webp" alt="Esme the cat"><div class="esme-badge">Official<br>booth critic</div></div>
-      <div class="esme-copy reveal delay-1"><p class="chapter-label">Bonus chapter · Esme’s corner</p><h2>Every star needs<br><em>a demanding agent.</em></h2><p class="esme-intro">My cat would like you to know she’s also accepting bookings. Her range? Mostly meows.</p><blockquote>“I’m five. I love tuna, cheese, cardboard boxes, and ignoring your calls. My rate? One 25g can of Fancy Feast tuna per hour. Serious meows only.”</blockquote><p class="esme-signoff">— Esme, feline voice talent*</p><small>*No other cats allowed in the booth. She has standards.</small></div>
+    <section class="tale-chapter" aria-labelledby="about-esme-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Bonus chapter · Esme’s corner</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet tale-sheet-narrow reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <div class="tale-columns tale-columns-aside">
+            <figure class="tale-figure">
+              <div class="tale-plate"><img src="assets/images/about/esme.webp" alt="Esme the cat"></div>
+              <figcaption>Esme · official booth critic</figcaption>
+            </figure>
+
+            <div>
+              <h2 class="tale-head" id="about-esme-heading">Every star needs <em>a demanding agent.</em></h2>
+              <div class="tale-prose">
+                <p>My cat would like you to know she’s also accepting bookings. Her range? Mostly meows.</p>
+                <blockquote class="tale-quote">I’m five. I love tuna, cheese, cardboard boxes, and ignoring your calls. My rate? One 25g can of Fancy Feast tuna per hour. Serious meows only.<cite>Esme, feline voice talent</cite></blockquote>
+              </div>
+              <p class="tale-marginalia"><span>Fine print</span> <em>No other cats in the booth. She has standards.</em> <i aria-hidden="true">✦</i></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="page-next"><p class="chapter-label light">Keep turning the pages</p><h2>Hear the worlds<br><em>behind the story.</em></h2><div><a class="button light-button" href="commercial.html">Commercial <span>→</span></a><a class="button light-button" href="audiobook.html">Audiobook <span>→</span></a><a class="button light-button" href="animation.html">Animation <span>→</span></a></div></section>
+    <section class="tale-colophon" aria-labelledby="about-colophon-heading">
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <p class="tale-colophon-mark" aria-hidden="true">✦ ⁂ ✦</p>
+          <h2 class="tale-head" id="about-colophon-heading">Keep turning the pages.</h2>
+          <div class="tale-prose"><p>Three voice worlds wait on the other side of this leaf.</p></div>
+          <div class="tale-actions">
+            <a class="tale-seal" href="commercial.html">Commercial <span aria-hidden="true">→</span></a>
+            <a class="tale-seal" href="audiobook.html">Audiobook <span aria-hidden="true">→</span></a>
+            <a class="tale-seal" href="animation.html">Animation <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>

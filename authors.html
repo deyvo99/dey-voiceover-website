@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Story-focused services for independent authors, including audiobook production and alpha or beta reading with Da Eun Yoon.">
   <title>For Authors | Da Eun Yoon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-authors">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -21,23 +24,130 @@
     </nav>
   </header>
 
+  <!-- Torn-paper edges. The filters distort only the paper layers, never the text. -->
+  <svg class="tale-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="deckle" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="4" seed="9" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="deckle-wide" x="-6%" y="-12%" width="112%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="4" seed="23" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <main id="main">
-    <section class="author-hero">
-      <div class="author-hero-copy reveal"><p class="chapter-label">A new chapter · For independent authors</p><h1>You wrote the story.<br><em>Let’s help it find its audience.</em></h1><p>Whether your manuscript needs a thoughtful first reader or your finished book is ready to become an audiobook, I help independent authors take their stories into the next chapter.</p><div class="hero-actions"><a class="button primary" href="audiobook-production.html">Produce my audiobook <span>→</span></a><a class="button text-button" href="alpha-beta-reading.html">Get manuscript feedback <span>→</span></a></div></div>
-      <div class="author-hero-art reveal delay-1" aria-hidden="true"><div class="author-moon">☾</div><div class="author-pages"><span></span><span></span><i>✦</i></div><p>from page<br>to possibility</p></div>
+    <section class="tale-spread" aria-labelledby="authors-opening-line">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>A new chapter · For independent authors</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-book">
+        <article class="tale-leaf tale-leaf-verso reveal">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <div class="tale-emblem">
+              <span class="tale-emblem-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>⋆</i><i>✦</i></span>
+              <span class="tale-emblem-glyph" aria-hidden="true">❖</span>
+              <p>From page to possibility.</p>
+              <small>Audiobooks · Manuscript feedback</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="tale-leaf tale-leaf-recto reveal delay-1">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <h1 class="tale-opening" id="authors-opening-line"><b class="tale-versal">Y</b>ou wrote the story. <em>Let’s help it find its audience.</em></h1>
+
+            <p class="tale-byline">
+              <span class="tale-name">Da Eun Yoon</span>
+              <span class="tale-role">Narrator · Reader · Storyteller</span>
+            </p>
+
+            <div class="tale-prose">
+              <p>Whether your manuscript needs a thoughtful first reader or your finished book is ready to become an audiobook, I help independent authors take their stories into the next chapter.</p>
+            </div>
+
+            <nav class="tale-more" aria-label="Author services">
+              <p>Start with the service that matches where your book is today</p>
+              <span><a class="tale-pill" href="audiobook-production.html">Audiobook Production</a><a class="tale-pill" href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a></span>
+              <a class="tale-onward" href="#next-chapter">Choose your next chapter <em aria-hidden="true">↓</em></a>
+            </nav>
+          </div>
+        </article>
+      </div>
+
+      <p class="tale-flourish" aria-hidden="true">✦ &nbsp; ⁂ &nbsp; ✦</p>
     </section>
 
-    <section class="author-services section-pad">
-      <div class="section-heading centered reveal"><p class="chapter-label">Choose your next chapter</p><h2>Two ways to move<br><em>your story forward.</em></h2><p>Start with the service that matches where your manuscript is today.</p></div>
-      <div class="author-service-grid">
-        <a class="author-service-card service-audio reveal" href="audiobook-production.html"><span>01 · LISTEN</span><div class="service-symbol">◖</div><h3>Audiobook<br>Production</h3><p>Turn your manuscript into an audiobook—from professionally recorded narration to a fully edited and mastered production.</p><strong>Explore production <i>→</i></strong></a>
-        <a class="author-service-card service-reading reveal delay-1" href="alpha-beta-reading.html"><span>02 · READ</span><div class="service-symbol">✦</div><h3>Alpha &amp; Beta<br>Reading</h3><p>Thoughtful manuscript feedback from both a storyteller’s and a reader’s perspective, shaped around your book’s stage.</p><strong>Explore reading services <i>→</i></strong></a>
+    <section class="tale-chapter" id="next-chapter" aria-labelledby="authors-services-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Choose your next chapter</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="authors-services-heading">Two ways to move <em>your story forward.</em></h2>
+            <p class="tale-lede">Start with the service that matches where your manuscript is today.</p>
+          </header>
+
+          <div class="tale-cards" style="--cols: 2">
+            <a class="tale-card tale-card-lit" href="audiobook-production.html">
+              <span>I · Listen</span>
+              <span class="tale-card-folio" aria-hidden="true">◖</span>
+              <h3>Audiobook Production</h3>
+              <p>Turn your manuscript into an audiobook — from professionally recorded narration to a fully edited and mastered production.</p>
+              <b>Explore production <i aria-hidden="true">→</i></b>
+            </a>
+
+            <a class="tale-card tale-card-lit" href="alpha-beta-reading.html">
+              <span>II · Read</span>
+              <span class="tale-card-folio" aria-hidden="true">✦</span>
+              <h3>Alpha &amp; Beta Reading</h3>
+              <p>Thoughtful manuscript feedback from both a storyteller’s and a reader’s perspective, shaped around your book’s stage.</p>
+              <b>Explore reading services <i aria-hidden="true">→</i></b>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="author-philosophy section-pad"><div class="reveal"><p class="chapter-label light">Story first, always</p><h2>A creative partner<br><em>who understands performance.</em></h2></div><div class="reveal delay-1"><p>I approach a manuscript as a reader, performer, and lifelong storyteller. That means listening for rhythm, noticing where attention rises or fades, and protecting the voice that makes your book unmistakably yours.</p><p>No one-size-fits-all package. We begin with your story, your goals, and the kind of support you actually need.</p></div></section>
+    <section class="tale-chapter tale-chapter-last" aria-labelledby="authors-philosophy-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Story first, always</span><i aria-hidden="true">✦</i></p>
 
-    <section class="page-next"><p class="chapter-label light">Ready when you are</p><h2>Your next chapter<br><em>starts with a conversation.</em></h2><p>Tell me where your book is now and where you hope to take it.</p><a class="button light-button" href="mailto:ydaeun.dreams@gmail.com?subject=Author%20services%20inquiry">Tell me about your book <span>↗</span></a></section>
+      <div class="tale-sheet tale-sheet-narrow reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="authors-philosophy-heading">A creative partner <em>who understands performance.</em></h2>
+          </header>
+
+          <div class="tale-columns">
+            <div class="tale-prose">
+              <p>I approach a manuscript as a reader, performer, and lifelong storyteller. That means listening for rhythm, noticing where attention rises or fades, and protecting the voice that makes your book unmistakably yours.</p>
+            </div>
+            <div class="tale-prose">
+              <p>No one-size-fits-all package. We begin with your story, your goals, and the kind of support you actually need.</p>
+              <blockquote class="tale-quote">Every book arrives at a different stage. <strong>The reading should meet it there.</strong></blockquote>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tale-colophon" aria-labelledby="authors-colophon-heading">
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <p class="tale-colophon-mark" aria-hidden="true">✦ ⁂ ✦</p>
+          <h2 class="tale-head" id="authors-colophon-heading">Your next chapter <em>starts with a conversation.</em></h2>
+          <div class="tale-prose"><p>Tell me where your book is now and where you hope to take it.</p></div>
+          <div class="tale-actions">
+            <a class="tale-seal" href="mailto:ydaeun.dreams@gmail.com?subject=Author%20services%20inquiry">Tell me about your book <span aria-hidden="true">↗</span></a>
+            <a class="tale-seal" href="contact.html">Contact <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>

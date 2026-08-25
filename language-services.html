@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Korean and English translation and interpretation with Da Eun Yoon, focused on natural tone, cultural context, and clear human communication.">
   <title>Korean ↔ English Language Services | Da Eun Yoon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-language">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -14,29 +17,168 @@
     <nav id="site-nav" class="site-nav" aria-label="Main navigation" data-menu><a href="index.html">Home</a><a href="about.html">About Me</a><details class="nav-group"><summary>Voice Over <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a></div></details><details class="nav-group"><summary>For Authors <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="authors.html">For Authors Overview</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a></div></details><details class="nav-group active"><summary>Language Services <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a class="active" href="language-services.html">Language Services Overview</a><a href="#translation">Korean ↔ English Translation</a><a href="#interpretation">Korean ↔ English Interpretation</a></div></details><a class="nav-contact" href="contact.html">Contact <span>↗</span></a></nav>
   </header>
 
+  <!-- Torn-paper edges. The filters distort only the paper layers, never the text. -->
+  <svg class="tale-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="deckle" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="4" seed="9" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="deckle-wide" x="-6%" y="-12%" width="112%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="4" seed="23" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <main id="main">
-    <section class="language-hero">
-      <div class="language-hero-copy reveal"><p class="chapter-label">Korean ↔ English language services</p><h1>Not just the words.<br><em>The meaning between them.</em></h1><p>Language carries tone, culture, intention, and personality. Drawing on a life and career across Korea, the United States, and Singapore, I help people communicate clearly without losing the human voice behind the message.</p><div class="hero-actions"><a class="button primary" href="#translation">Translation <span>↓</span></a><a class="button text-button" href="#interpretation">Interpretation <span>↓</span></a></div></div>
-      <div class="language-hero-art reveal delay-1" aria-hidden="true"><div class="language-orbit"><span>EN</span><i>✦</i><span>한</span></div><p>same meaning,<br>new language</p><b>↔</b></div>
+    <section class="tale-spread" aria-labelledby="language-opening-line">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Korean ↔ English language services</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-book">
+        <article class="tale-leaf tale-leaf-verso reveal">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <div class="tale-emblem">
+              <span class="tale-emblem-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>⋆</i><i>✦</i></span>
+              <span class="tale-emblem-glyph" aria-hidden="true">◈</span>
+              <p>Same meaning, new language.</p>
+              <small>English ↔ 한국어</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="tale-leaf tale-leaf-recto reveal delay-1">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <h1 class="tale-opening" id="language-opening-line"><b class="tale-versal">N</b>ot just the words. <em>The meaning between them.</em></h1>
+
+            <p class="tale-byline">
+              <span class="tale-name">Da Eun Yoon</span>
+              <span class="tale-role">Translation &amp; Interpretation · Korean ↔ English</span>
+            </p>
+
+            <div class="tale-prose">
+              <p>Language carries tone, culture, intention, and personality. Drawing on a life and career across Korea, the United States, and Singapore, I help people communicate clearly without losing the human voice behind the message.</p>
+            </div>
+
+            <nav class="tale-more" aria-label="Language services">
+              <p>Two ways to be understood</p>
+              <span><a class="tale-pill" href="#translation">Translation</a><a class="tale-pill" href="#interpretation">Interpretation</a></span>
+              <a class="tale-onward" href="#translation">Begin with the written word <em aria-hidden="true">↓</em></a>
+            </nav>
+          </div>
+        </article>
+      </div>
+
+      <p class="tale-flourish" aria-hidden="true">✦ &nbsp; ⁂ &nbsp; ✦</p>
     </section>
 
-    <section class="translation-service section-pad" id="translation">
-      <div class="language-service-heading reveal"><p class="chapter-label">01 · Written language</p><h2>Translation that sounds<br><em>written—not translated.</em></h2><p>I translate between Korean and English with attention to meaning, rhythm, audience, and tone. The goal is not a word-for-word mirror; it is a version that feels clear and natural in the language your reader actually receives.</p><a class="button primary" href="mailto:ydaeun.dreams@gmail.com?subject=Korean-English%20translation%20inquiry">Ask about translation <span>↗</span></a></div>
-      <div class="language-scope reveal delay-1"><span>PROJECTS MAY INCLUDE</span><ul><li>Creative scripts and dialogue</li><li>Web, brand, and presentation copy</li><li>General professional communication</li><li>Story and character materials</li><li>Translation review for tone and naturalness</li></ul></div>
+    <section class="tale-chapter" id="translation" aria-labelledby="translation-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>The first · Written language</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="translation-heading">Translation that sounds <em>written — not translated.</em></h2>
+          </header>
+
+          <div class="tale-columns tale-columns-side">
+            <div>
+              <div class="tale-prose">
+                <p>I translate between Korean and English with attention to meaning, rhythm, audience, and tone. The goal is not a word-for-word mirror; it is a version that feels clear and natural in the language your reader actually receives.</p>
+              </div>
+              <div class="tale-actions">
+                <a class="tale-seal" href="mailto:ydaeun.dreams@gmail.com?subject=Korean-English%20translation%20inquiry">Ask about translation <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+
+            <article class="tale-card tale-card-lit">
+              <span>Projects may include</span>
+              <ul>
+                <li>Creative scripts and dialogue</li>
+                <li>Web, brand, and presentation copy</li>
+                <li>General professional communication</li>
+                <li>Story and character materials</li>
+                <li>Translation review for tone and naturalness</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="interpretation-service section-pad" id="interpretation">
-      <div class="interpretation-art reveal" aria-hidden="true"><div class="speech-card speech-en">Let’s begin.</div><div class="speech-line"></div><div class="speech-card speech-ko">시작해 볼까요?</div><span>✦</span></div>
-      <div class="language-service-heading reveal delay-1"><p class="chapter-label light">02 · Spoken language</p><h2>Interpretation that keeps<br><em>the conversation human.</em></h2><p>Good interpretation carries more than information. It helps people follow nuance, respond with confidence, and stay connected to the conversation in real time.</p><div class="interpretation-list"><p><span>✦</span>Creative meetings and collaborative sessions</p><p><span>✦</span>Interviews and conversations</p><p><span>✦</span>Remote calls and general professional meetings</p><p><span>✦</span>Conversational or consecutive Korean–English interpretation</p></div><a class="button light-button" href="mailto:ydaeun.dreams@gmail.com?subject=Korean-English%20interpretation%20inquiry">Ask about interpretation <span>↗</span></a></div>
+    <section class="tale-chapter" id="interpretation" aria-labelledby="interpretation-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>The second · Spoken language</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="interpretation-heading">Interpretation that keeps <em>the conversation human.</em></h2>
+          </header>
+
+          <div class="tale-columns tale-columns-aside">
+            <div class="tale-emblem">
+              <span class="tale-emblem-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>⋆</i><i>✦</i></span>
+              <p>“Let’s begin.”</p>
+              <span class="tale-emblem-glyph" aria-hidden="true">↔</span>
+              <p>“시작해 볼까요?”</p>
+            </div>
+
+            <div>
+              <div class="tale-prose">
+                <p>Good interpretation carries more than information. It helps people follow nuance, respond with confidence, and stay connected to the conversation in real time.</p>
+              </div>
+
+              <h3 class="tale-rubric" style="margin-top: 1.6rem"><span>Where I interpret</span></h3>
+              <ul class="tale-tags">
+                <li>Creative meetings</li><li>Collaborative sessions</li><li>Interviews</li><li>Remote calls</li><li>Professional meetings</li><li>Consecutive Korean–English</li>
+              </ul>
+
+              <div class="tale-actions">
+                <a class="tale-seal" href="mailto:ydaeun.dreams@gmail.com?subject=Korean-English%20interpretation%20inquiry">Ask about interpretation <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="language-process section-pad">
-      <div class="section-heading centered reveal"><p class="chapter-label">A clear beginning</p><h2>How we find<br><em>the right words.</em></h2></div>
-      <div class="language-process-grid"><article class="reveal"><span>01</span><h3>Share the context</h3><p>Tell me who the audience is, what the communication needs to achieve, and how it should feel.</p></article><article class="reveal delay-1"><span>02</span><h3>Confirm the scope</h3><p>We agree on language direction, materials, format, schedule, and any terminology or preparation required.</p></article><article class="reveal delay-2"><span>03</span><h3>Communicate clearly</h3><p>I translate or interpret with attention to meaning, tone, cultural context, and the people on both sides.</p></article></div>
-      <p class="language-boundary">Every project is reviewed before booking. Certified, legal, medical, highly technical, or simultaneous interpretation requirements must be discussed and explicitly confirmed in advance.</p>
+    <section class="tale-chapter tale-chapter-last" aria-labelledby="language-process-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>A clear beginning</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet tale-sheet-narrow reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="language-process-heading">How we find <em>the right words.</em></h2>
+          </header>
+
+          <ol class="tale-steps">
+            <li><span>I</span><div><h3>Share the context</h3><p>Tell me who the audience is, what the communication needs to achieve, and how it should feel.</p></div></li>
+            <li><span>II</span><div><h3>Confirm the scope</h3><p>We agree on language direction, materials, format, schedule, and any terminology or preparation required.</p></div></li>
+            <li><span>III</span><div><h3>Communicate clearly</h3><p>I translate or interpret with attention to meaning, tone, cultural context, and the people on both sides.</p></div></li>
+          </ol>
+
+          <p class="tale-note">Every project is reviewed before booking. Certified, legal, medical, highly technical, or simultaneous interpretation requirements must be discussed and explicitly confirmed in advance.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="page-next"><p class="chapter-label light">Across languages, between people</p><h2>Tell me what needs<br><em>to be understood.</em></h2><p>Include the language direction, project type, approximate length or meeting duration, audience, and hoped-for timeline.</p><a class="button light-button" href="mailto:ydaeun.dreams@gmail.com?subject=Language%20services%20inquiry&body=Hi%20Da%20Eun%2C%0A%0AService%3A%20Translation%20%2F%20Interpretation%0ALanguage%20direction%3A%0AProject%20type%3A%0ALength%20or%20meeting%20duration%3A%0AAudience%3A%0AHoped-for%20timeline%3A%0A%0AContext%3A%0A">Start a conversation <span>↗</span></a></section>
+    <section class="tale-colophon" aria-labelledby="language-colophon-heading">
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <p class="tale-colophon-mark" aria-hidden="true">✦ ⁂ ✦</p>
+          <h2 class="tale-head" id="language-colophon-heading">Tell me what needs <em>to be understood.</em></h2>
+          <div class="tale-prose"><p>Include the language direction, project type, approximate length or meeting duration, audience, and hoped-for timeline.</p></div>
+          <div class="tale-actions">
+            <a class="tale-seal" href="mailto:ydaeun.dreams@gmail.com?subject=Language%20services%20inquiry&body=Hi%20Da%20Eun%2C%0A%0AService%3A%20Translation%20%2F%20Interpretation%0ALanguage%20direction%3A%0AProject%20type%3A%0ALength%20or%20meeting%20duration%3A%0AAudience%3A%0AHoped-for%20timeline%3A%0A%0AContext%3A%0A">Start a conversation <span aria-hidden="true">↗</span></a>
+            <a class="tale-seal" href="contact.html">Contact <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>

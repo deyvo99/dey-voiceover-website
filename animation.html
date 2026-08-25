@@ -1,21 +1,169 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Da Eun Yoon animation voice demos in English and Korean, from whimsical fairies to brave adventurers."><title>Animation Voice Acting | Da Eun Yoon</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Da Eun Yoon animation voice demos in English and Korean, from whimsical fairies to brave adventurers.">
+  <title>Animation Voice Acting | Da Eun Yoon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body class="page-demo demo-animation">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><a class="brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" data-menu-toggle><span></span><span></span></button><nav id="site-nav" class="site-nav" aria-label="Main navigation" data-menu><a href="index.html">Home</a><a href="about.html">About Me</a><details class="nav-group active"><summary>Voice Over <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a class="active" href="animation.html">Animation</a></div></details><details class="nav-group"><summary>For Authors <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="authors.html">For Authors Overview</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a></div></details><details class="nav-group"><summary>Language Services <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="language-services.html">Language Services Overview</a><a href="language-services.html#translation">Korean ↔ English Translation</a><a href="language-services.html#interpretation">Korean ↔ English Interpretation</a></div></details><a class="nav-contact" href="contact.html">Contact <span>↗</span></a></nav></header>
+
+  <!-- Torn-paper edges. The filters distort only the paper layers, never the text. -->
+  <svg class="tale-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="deckle" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="4" seed="9" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="deckle-wide" x="-6%" y="-12%" width="112%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="4" seed="23" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <main id="main">
-    <section class="demo-hero">
-      <div class="demo-hero-copy reveal"><p class="chapter-label">Voice world · 03</p><h1>Animation</h1><p class="demo-adjectives">Vibrant. Expressive. Versatile.</p><p>Heroic protagonists, quirky sidekicks, mischievous creatures and whimsical fairies—each character begins with a specific little truth.</p><a class="button primary" href="#demos">Meet the characters <span>↓</span></a></div>
-      <div class="demo-hero-art character-art reveal delay-1" aria-hidden="true"><div class="character-face"><i></i><b></b><span></span></div><span class="speech one">Hey!</span><span class="speech two">안녕!</span><span class="character-star">✦</span></div>
+    <section class="tale-spread" aria-labelledby="animation-opening-line">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Voice world the third · Animation</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-book">
+        <article class="tale-leaf tale-leaf-verso reveal">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <div class="tale-emblem">
+              <span class="tale-emblem-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>⋆</i><i>✦</i></span>
+              <span class="tale-emblem-glyph" aria-hidden="true">❈</span>
+              <p>In this world, anything at all is allowed to speak.</p>
+              <small>Vibrant · Expressive · Versatile</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="tale-leaf tale-leaf-recto reveal delay-1">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <h1 class="tale-opening" id="animation-opening-line"><b class="tale-versal">A</b>nimation — big imagination, <em>very real feelings.</em></h1>
+
+            <p class="tale-byline">
+              <span class="tale-name">Da Eun Yoon</span>
+              <span class="tale-role">Korean &amp; English Character Voice</span>
+            </p>
+
+            <div class="tale-prose">
+              <p>Heroic protagonists, quirky sidekicks, mischievous creatures and whimsical fairies — each character begins with a specific little truth.</p>
+              <p>Two languages, dozens of characters, and plenty of room to play.</p>
+            </div>
+
+            <nav class="tale-more" aria-label="More voice over demos">
+              <p>The other voice worlds, should you wish to wander</p>
+              <span><a class="tale-pill" href="commercial.html">Commercial</a><a class="tale-pill" href="audiobook.html">Audiobook</a><a class="tale-pill" href="about.html">About Me</a></span>
+              <a class="tale-onward" href="#reels">Meet the characters <em aria-hidden="true">↓</em></a>
+            </nav>
+          </div>
+        </article>
+      </div>
+
+      <p class="tale-flourish" aria-hidden="true">✦ &nbsp; ⁂ &nbsp; ✦</p>
     </section>
-    <section class="demo-list-section section-pad" id="demos"><div class="section-heading split-heading reveal"><div><p class="chapter-label">Featured reels</p><h2>Big imagination.<br><em>Very real feelings.</em></h2></div><p>Two languages, dozens of characters, and plenty of room to play.</p></div><div class="large-player-list">
-      <article class="large-player reveal"><div class="player-index">01</div><div class="player-copy"><span>ANIMATION · ENGLISH</span><h3>English Animation Demo</h3><p>Heroes · Creatures · Kids · Villains · Sidekicks</p></div><div class="audio-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play English animation demo"><span>▶</span></button><div class="audio-info"><strong>Da Eun Yoon</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div><audio preload="metadata" src="assets/audio/animation-english.mp3"></audio></div></article>
-      <article class="large-player reveal"><div class="player-index">02</div><div class="player-copy"><span>ANIMATION · 한국어</span><h3>Korean Animation Demo</h3><p>주인공 · 요정 · 어린이 · 악당 · 엉뚱한 친구</p></div><div class="audio-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play Korean animation demo"><span>▶</span></button><div class="audio-info"><strong>Da Eun Yoon</strong><div class="audio-track"><i></i></div><small data-time>01:01</small></div><audio preload="metadata" src="assets/audio/animation-korean.mp3"></audio></div></article>
-    </div></section>
-    <section class="character-cast section-pad"><div class="section-heading centered reveal"><p class="chapter-label light">Inside the character closet</p><h2>Who are we<br><em>bringing to life?</em></h2></div><div class="cast-grid"><article class="cast-card c1 reveal"><span>✦</span><h3>The brave one</h3><p>Young, determined, all heart.</p></article><article class="cast-card c2 reveal delay-1"><span>☾</span><h3>The magical one</h3><p>Airy, curious, otherworldly.</p></article><article class="cast-card c3 reveal delay-2"><span>⚡</span><h3>The chaotic one</h3><p>Tiny body. Enormous plans.</p></article><article class="cast-card c4 reveal"><span>♛</span><h3>The formidable one</h3><p>Elegant, sharp, impossible to ignore.</p></article><article class="cast-card c5 reveal delay-1"><span>♡</span><h3>The gentle one</h3><p>Soft-spoken, grounded, safe.</p></article><article class="cast-card c6 reveal delay-2"><span>?</span><h3>The one we invent</h3><p>Your world. Your rules. Let’s play.</p></article></div></section>
-    <section class="animation-process section-pad"><div class="process-art reveal" aria-hidden="true"><div class="magic-circle">✦<span>imagine</span></div></div><div class="purpose-copy reveal delay-1"><p class="chapter-label">Play with purpose</p><h2>Wild choices.<br><em>Grounded characters.</em></h2><p>I love finding the physicality, rhythm and private logic of a character—the small choices that make even the most fantastical creature feel emotionally real.</p><ul class="spark-list"><li>Character exploration and alternate takes</li><li>Bilingual English / Korean performance</li><li>Theatre-trained physical and emotional range</li><li>A collaborative, director-friendly room</li></ul></div></section>
-    <section class="page-next"><p class="chapter-label light">Ready to make something?</p><h2>Your character is waiting.<br><em>Let’s give them a voice.</em></h2><a class="button light-button" href="contact.html">Start a conversation <span>↗</span></a></section>
+
+    <section class="tale-chapter" id="reels" aria-labelledby="animation-reels-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>The featured reels</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="animation-reels-heading">Wild choices. <em>Grounded characters.</em></h2>
+            <a class="tale-quill" href="contact.html">Book this voice <em aria-hidden="true">↗</em></a>
+          </header>
+
+          <ol class="tale-recital">
+            <li>
+              <span class="tale-folio">I</span>
+              <div class="tale-recital-copy">
+                <span>Animation · English</span>
+                <h3>English Animation Demo</h3>
+                <p>Heroes · Creatures · Kids · Villains · Sidekicks</p>
+              </div>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play English animation demo"><span>▶</span></button>
+                <div class="audio-info"><strong>Da Eun Yoon</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div>
+                <audio preload="metadata" src="assets/audio/animation-english.mp3"></audio>
+              </div>
+            </li>
+            <li>
+              <span class="tale-folio">II</span>
+              <div class="tale-recital-copy">
+                <span>Animation · 한국어</span>
+                <h3>Korean Animation Demo</h3>
+                <p>주인공 · 요정 · 어린이 · 악당 · 엉뚱한 친구</p>
+              </div>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play Korean animation demo"><span>▶</span></button>
+                <div class="audio-info"><strong>Da Eun Yoon</strong><div class="audio-track"><i></i></div><small data-time>01:01</small></div>
+                <audio preload="metadata" src="assets/audio/animation-korean.mp3"></audio>
+              </div>
+            </li>
+          </ol>
+
+          <div class="tale-columns tale-columns-side" style="margin-top: 2.4rem">
+            <div class="tale-prose">
+              <p>I love finding the physicality, rhythm and private logic of a character — the small choices that make even the most fantastical creature feel emotionally real.</p>
+            </div>
+            <div>
+              <h3 class="tale-rubric"><span>What I bring to the room</span></h3>
+              <ul class="tale-tags">
+                <li>Character exploration</li><li>Alternate takes</li><li>Bilingual EN / KR</li><li>Theatre-trained range</li><li>Director-friendly</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tale-chapter tale-chapter-last" aria-labelledby="animation-cast-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Inside the character closet</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="animation-cast-heading">Who are we <em>bringing to life?</em></h2>
+          </header>
+
+          <div class="tale-cards" style="--cols: 3">
+            <article class="tale-card"><span class="tale-card-folio" aria-hidden="true">✦</span><h3>The brave one</h3><p>Young, determined, all heart.</p></article>
+            <article class="tale-card"><span class="tale-card-folio" aria-hidden="true">☾</span><h3>The magical one</h3><p>Airy, curious, otherworldly.</p></article>
+            <article class="tale-card"><span class="tale-card-folio" aria-hidden="true">❈</span><h3>The chaotic one</h3><p>Tiny body. Enormous plans.</p></article>
+            <article class="tale-card"><span class="tale-card-folio" aria-hidden="true">♛</span><h3>The formidable one</h3><p>Elegant, sharp, impossible to ignore.</p></article>
+            <article class="tale-card"><span class="tale-card-folio" aria-hidden="true">❦</span><h3>The gentle one</h3><p>Soft-spoken, grounded, safe.</p></article>
+            <article class="tale-card tale-card-lit"><span class="tale-card-folio" aria-hidden="true">?</span><h3>The one we invent</h3><p>Your world. Your rules. Let’s play.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tale-colophon" aria-labelledby="animation-colophon-heading">
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <p class="tale-colophon-mark" aria-hidden="true">✦ ⁂ ✦</p>
+          <h2 class="tale-head" id="animation-colophon-heading">Your character is waiting. <em>Let’s give them a voice.</em></h2>
+          <div class="tale-prose"><p>Tell me who they are, and I’ll tell you how they sound.</p></div>
+          <div class="tale-actions">
+            <a class="tale-seal" href="contact.html">Start a conversation <span aria-hidden="true">↗</span></a>
+            <a class="tale-seal" href="index.html">Back to the prologue <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer><script src="script.js"></script>
-</body></html>
+
+  <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,26 +1,225 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Da Eun Yoon audiobook narration demos across memoir, nonfiction, mystery, fantasy and romance."><title>Audiobook Narration | Da Eun Yoon</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Da Eun Yoon audiobook narration demos across memoir, nonfiction, mystery, fantasy and romance.">
+  <title>Audiobook Narration | Da Eun Yoon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body class="page-demo demo-audiobook">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><a class="brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav" data-menu-toggle><span></span><span></span></button><nav id="site-nav" class="site-nav" aria-label="Main navigation" data-menu><a href="index.html">Home</a><a href="about.html">About Me</a><details class="nav-group active"><summary>Voice Over <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="commercial.html">Commercial</a><a class="active" href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a></div></details><details class="nav-group"><summary>For Authors <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="authors.html">For Authors Overview</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a></div></details><details class="nav-group"><summary>Language Services <span aria-hidden="true">⌄</span></summary><div class="nav-dropdown"><a href="language-services.html">Language Services Overview</a><a href="language-services.html#translation">Korean ↔ English Translation</a><a href="language-services.html#interpretation">Korean ↔ English Interpretation</a></div></details><a class="nav-contact" href="contact.html">Contact <span>↗</span></a></nav></header>
+
+  <!-- Torn-paper edges. The filters distort only the paper layers, never the text. -->
+  <svg class="tale-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="deckle" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="4" seed="9" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="deckle-wide" x="-6%" y="-12%" width="112%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="4" seed="23" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <main id="main">
-    <section class="demo-hero">
-      <div class="demo-hero-copy reveal"><p class="chapter-label light">Voice world · 02</p><h1>Audiobook<br><em>Narration</em></h1><p class="demo-adjectives">Immersive. Captivating. Engaging.</p><p>Whether mystery, memoir, romance or fantasy, I shape words into worlds that keep listeners company long after the last line.</p><a class="button light-button" href="#demos">Open the listening room <span>↓</span></a></div>
-      <div class="demo-hero-art book-art reveal delay-1" aria-hidden="true"><div class="open-book"><i></i><i></i></div><span class="book-star s1">✦</span><span class="book-star s2">✧</span><span class="book-star s3">☾</span><span class="book-whisper">once upon<br>a voice...</span></div>
+    <section class="tale-spread" aria-labelledby="audiobook-opening-line">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Voice world the second · Audiobook</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-book">
+        <article class="tale-leaf tale-leaf-verso reveal">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <div class="tale-emblem">
+              <span class="tale-emblem-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>⋆</i><i>✦</i></span>
+              <span class="tale-emblem-glyph" aria-hidden="true">☾</span>
+              <p>Once upon a voice, a listener forgot the time.</p>
+              <small>Immersive · Captivating · Engaging</small>
+            </div>
+          </div>
+        </article>
+
+        <article class="tale-leaf tale-leaf-recto reveal delay-1">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <h1 class="tale-opening" id="audiobook-opening-line"><b class="tale-versal">A</b>udiobook narration — close your eyes; <em>the story is starting.</em></h1>
+
+            <p class="tale-byline">
+              <span class="tale-name">Da Eun Yoon</span>
+              <span class="tale-role">Korean &amp; English Audiobook Narration</span>
+            </p>
+
+            <div class="tale-prose">
+              <p>Whether mystery, memoir, romance or fantasy, I shape words into worlds that keep listeners company long after the last line.</p>
+              <p>Character, pacing, emotional truth — and the invisible thread that keeps a listener turning pages.</p>
+            </div>
+
+            <nav class="tale-more" aria-label="More voice over demos">
+              <p>The other voice worlds, should you wish to wander</p>
+              <span><a class="tale-pill" href="commercial.html">Commercial</a><a class="tale-pill" href="animation.html">Animation</a><a class="tale-pill" href="authors.html">For Authors</a></span>
+              <a class="tale-onward" href="#listening-room">Open the listening room <em aria-hidden="true">↓</em></a>
+            </nav>
+          </div>
+        </article>
+      </div>
+
+      <p class="tale-flourish" aria-hidden="true">✦ &nbsp; ⁂ &nbsp; ✦</p>
     </section>
-    <section class="featured-audio section-pad" id="demos"><div class="section-heading split-heading reveal"><div><p class="chapter-label">Featured narration</p><h2>Close your eyes.<br><em>The story is starting.</em></h2></div><p>Character, pacing, emotional truth—and the invisible thread that keeps a listener turning pages.</p></div><div class="hero-audio-card reveal"><div><span>AUDIOBOOK FEATURED DEMO</span><h3>A story in many voices</h3><p>Young adult romance · first person · multiple characters</p></div><div class="audio-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play featured audiobook demo"><span>▶</span></button><div class="audio-info"><strong>Featured Demo</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div><audio preload="metadata" src="assets/audio/audiobook-featured.mp3"></audio></div></div></section>
-    <section class="sample-library section-pad"><div class="section-heading centered reveal"><p class="chapter-label light">The sample library</p><h2>Six stories.<br><em>Six different doors.</em></h2></div><div class="sample-grid">
-      <article class="sample-card reveal"><span>01 · NONFICTION</span><h3>Autobiography / Memoir</h3><p>Serious · first person · 2 women, 1 man</p><div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play memoir sample"><span>▶</span></button><div class="audio-info"><strong>A Face for Picasso</strong><div class="audio-track"><i></i></div><small data-time>02:40</small></div><audio preload="metadata" src="assets/audio/audiobook-memoir-serious.mp3"></audio></div></article>
-      <article class="sample-card reveal delay-1"><span>02 · 한국어 NONFICTION</span><h3>Korean Nonfiction</h3><p>Third person · informative · warm</p><div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play Korean nonfiction sample"><span>▶</span></button><div class="audio-info"><strong>The Korean Food Guide</strong><div class="audio-track"><i></i></div><small data-time>02:21</small></div><audio preload="metadata" src="assets/audio/audiobook-korean-nonfiction.mp3"></audio></div></article>
-      <article class="sample-card reveal delay-2"><span>03 · NONFICTION</span><h3>Memoir / Self-Help</h3><p>Humor · first person · conversational</p><div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play self-help sample"><span>▶</span></button><div class="audio-info"><strong>Sorry I’m Late</strong><div class="audio-track"><i></i></div><small data-time>02:33</small></div><audio preload="metadata" src="assets/audio/audiobook-self-help-humor.mp3"></audio></div></article>
-      <article class="sample-card reveal"><span>04 · FICTION</span><h3>Mystery / Thriller</h3><p>Third person · 1 woman, 3 men</p><div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play mystery sample"><span>▶</span></button><div class="audio-info"><strong>Silenced Girls</strong><div class="audio-track"><i></i></div><small data-time>02:54</small></div><audio preload="metadata" src="assets/audio/audiobook-mystery-thriller.mp3"></audio></div></article>
-      <article class="sample-card reveal delay-1"><span>05 · YA FICTION</span><h3>Fantasy</h3><p>First person · 2 women, 1 man</p><div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play fantasy sample"><span>▶</span></button><div class="audio-info"><strong>Darkness of Light</strong><div class="audio-track"><i></i></div><small data-time>02:55</small></div><audio preload="metadata" src="assets/audio/audiobook-ya-fantasy.mp3"></audio></div></article>
-      <article class="sample-card reveal delay-2"><span>06 · YA FICTION</span><h3>Romance</h3><p>First person · 4 women, 1 man</p><div class="audio-player compact" data-audio-player><button type="button" class="audio-toggle" aria-label="Play romance sample"><span>▶</span></button><div class="audio-info"><strong>I Hope This Doesn’t Find You</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div><audio preload="metadata" src="assets/audio/audiobook-ya-romance.mp3"></audio></div></article>
-    </div></section>
-    <section class="published-work mini-published section-pad"><div class="section-heading centered reveal"><p class="chapter-label">Published work</p><h2>Stories already<br><em>out in the world.</em></h2></div><div class="book-list"><a href="https://www.audible.com/pd/Deadly-When-Disturbed-Audiobook/B0F14KLMG4" target="_blank" rel="noopener" class="book-row"><span>01</span><strong>Deadly When Disturbed</strong><em>D. M. Barr</em><b>Audible ↗</b></a><a href="https://www.audible.com/pd/I-Decided-to-Live-as-Me-Audiobook/B0CXC46B9V" target="_blank" rel="noopener" class="book-row"><span>02</span><strong>I Decided to Live as Me</strong><em>Kim Suhyun</em><b>Audible ↗</b></a><a href="https://www.audible.com/pd/The-Sisters-K-Audiobook/B0DHY3JRQM" target="_blank" rel="noopener" class="book-row"><span>03</span><strong>The Sisters K</strong><em>Maureen Sun</em><b>Audible ↗</b></a></div></section>
-    <section class="author-production-callout section-pad"><div class="reveal"><p class="chapter-label light">For independent authors</p><h2>Writing the book<br><em>instead of publishing it?</em></h2></div><div class="reveal delay-1"><p>You don’t need a traditional publisher to create an audiobook. Choose narration-only delivery or bring in an audio engineer for a complete production.</p><a class="button light-button" href="audiobook-production.html">Explore audiobook production <span>→</span></a></div></section>
-    <section class="page-next"><p class="chapter-label light">The next voice world</p><h2>Where anything can speak.<br><em>Enter Animation.</em></h2><a class="button light-button" href="animation.html">Turn the page <span>→</span></a></section>
+
+    <section class="tale-chapter" id="listening-room" aria-labelledby="audiobook-room-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>The listening room</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="audiobook-room-heading">A story told <em>in many voices.</em></h2>
+            <a class="tale-quill" href="contact.html">Book this narrator <em aria-hidden="true">↗</em></a>
+          </header>
+
+          <ol class="tale-recital">
+            <li>
+              <span class="tale-folio">I</span>
+              <div class="tale-recital-copy">
+                <span>Audiobook · featured demo</span>
+                <h3>A story in many voices</h3>
+                <p>Young adult romance · first person · multiple characters</p>
+              </div>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play featured audiobook demo"><span>▶</span></button>
+                <div class="audio-info"><strong>Featured Demo</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-featured.mp3"></audio>
+              </div>
+            </li>
+          </ol>
+
+          <h3 class="tale-rubric" style="margin-top: 2.4rem"><span>Six stories, six different doors</span></h3>
+
+          <div class="tale-cards" style="--cols: 3">
+            <article class="tale-card">
+              <span>I · Nonfiction</span>
+              <h3>Autobiography / Memoir</h3>
+              <p>Serious · first person · 2 women, 1 man</p>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play memoir sample"><span>▶</span></button>
+                <div class="audio-info"><strong>A Face for Picasso</strong><div class="audio-track"><i></i></div><small data-time>02:40</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-memoir-serious.mp3"></audio>
+              </div>
+            </article>
+
+            <article class="tale-card">
+              <span>II · 한국어 Nonfiction</span>
+              <h3>Korean Nonfiction</h3>
+              <p>Third person · informative · warm</p>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play Korean nonfiction sample"><span>▶</span></button>
+                <div class="audio-info"><strong>The Korean Food Guide</strong><div class="audio-track"><i></i></div><small data-time>02:21</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-korean-nonfiction.mp3"></audio>
+              </div>
+            </article>
+
+            <article class="tale-card">
+              <span>III · Nonfiction</span>
+              <h3>Memoir / Self-Help</h3>
+              <p>Humor · first person · conversational</p>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play self-help sample"><span>▶</span></button>
+                <div class="audio-info"><strong>Sorry I’m Late</strong><div class="audio-track"><i></i></div><small data-time>02:33</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-self-help-humor.mp3"></audio>
+              </div>
+            </article>
+
+            <article class="tale-card">
+              <span>IV · Fiction</span>
+              <h3>Mystery / Thriller</h3>
+              <p>Third person · 1 woman, 3 men</p>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play mystery sample"><span>▶</span></button>
+                <div class="audio-info"><strong>Silenced Girls</strong><div class="audio-track"><i></i></div><small data-time>02:54</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-mystery-thriller.mp3"></audio>
+              </div>
+            </article>
+
+            <article class="tale-card">
+              <span>V · YA Fiction</span>
+              <h3>Fantasy</h3>
+              <p>First person · 2 women, 1 man</p>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play fantasy sample"><span>▶</span></button>
+                <div class="audio-info"><strong>Darkness of Light</strong><div class="audio-track"><i></i></div><small data-time>02:55</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-ya-fantasy.mp3"></audio>
+              </div>
+            </article>
+
+            <article class="tale-card">
+              <span>VI · YA Fiction</span>
+              <h3>Romance</h3>
+              <p>First person · 4 women, 1 man</p>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play romance sample"><span>▶</span></button>
+                <div class="audio-info"><strong>I Hope This Doesn’t Find You</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-ya-romance.mp3"></audio>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tale-chapter tale-chapter-last" aria-labelledby="audiobook-published-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Already out in the world</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="audiobook-published-heading">Stories already <em>on the shelf.</em></h2>
+            <a class="tale-quill" href="https://www.audible.com/search?searchNarrator=Da+Eun+Yoon" target="_blank" rel="noopener">Visit the whole shelf <em aria-hidden="true">↗</em></a>
+          </header>
+
+          <ol class="tale-shelf">
+            <li><a href="https://www.audible.com/pd/Deadly-When-Disturbed-Audiobook/B0F14KLMG4" target="_blank" rel="noopener"><span class="tale-folio">I</span><strong>Deadly When Disturbed</strong><em>D. M. Barr</em><b>Listen <i aria-hidden="true">↗</i></b></a></li>
+            <li><a href="https://www.audible.com/pd/I-Decided-to-Live-as-Me-Audiobook/B0CXC46B9V" target="_blank" rel="noopener"><span class="tale-folio">II</span><strong>I Decided to Live as Me</strong><em>Kim Suhyun</em><b>Listen <i aria-hidden="true">↗</i></b></a></li>
+            <li><a href="https://www.audible.com/pd/The-Sisters-K-Audiobook/B0DHY3JRQM" target="_blank" rel="noopener"><span class="tale-folio">III</span><strong>The Sisters K</strong><em>Maureen Sun</em><b>Listen <i aria-hidden="true">↗</i></b></a></li>
+          </ol>
+
+          <div class="tale-columns tale-columns-side" style="margin-top: 2.4rem">
+            <div>
+              <h3 class="tale-rubric"><span>For independent authors</span></h3>
+              <div class="tale-prose">
+                <p>Writing the book instead of publishing it? You don’t need a traditional publisher to create an audiobook. Choose narration-only delivery, or bring in an audio engineer for a complete production.</p>
+              </div>
+              <div class="tale-actions">
+                <a class="tale-seal" href="audiobook-production.html">Explore audiobook production <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+            <p class="tale-marginalia"><span>Coming soon</span> <em>The Silence Between</em> <i aria-hidden="true">✦</i></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tale-colophon" aria-labelledby="audiobook-colophon-heading">
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-sheet-inner">
+          <p class="tale-colophon-mark" aria-hidden="true">✦ ⁂ ✦</p>
+          <h2 class="tale-head" id="audiobook-colophon-heading">Where anything can speak. <em>Enter Animation.</em></h2>
+          <div class="tale-prose"><p>The last voice world is the one with the most creatures in it.</p></div>
+          <div class="tale-actions">
+            <a class="tale-seal" href="animation.html">Turn the page <span aria-hidden="true">→</span></a>
+            <a class="tale-seal" href="contact.html">Start a conversation <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer><script src="script.js"></script>
-</body></html>
+
+  <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

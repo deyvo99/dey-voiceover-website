@@ -7,19 +7,50 @@
   <title>Da Eun Yoon | Korean Female Voice Over Artist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-home has-opening">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="stage-opening" data-opening aria-label="Website opening">
-    <div class="watercolor-curtain curtain-left" aria-hidden="true"></div>
-    <div class="watercolor-curtain curtain-right" aria-hidden="true"></div>
+    <!-- The veil dissolves through an ink mask; script.js grows the blots. -->
+    <svg class="ink-veil" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="ink-soak">
+          <stop offset="0%" stop-color="#000"/>
+          <stop offset="68%" stop-color="#000"/>
+          <stop offset="84%" stop-color="#555"/>
+          <stop offset="94%" stop-color="#b4b4b4"/>
+          <stop offset="100%" stop-color="#fff"/>
+        </radialGradient>
+        <mask id="ink-open" maskUnits="userSpaceOnUse" x="-60" y="-60" width="220" height="220">
+          <rect x="-60" y="-60" width="220" height="220" fill="#fff"/>
+          <g data-ink-front fill="url(#ink-soak)" style="isolation:isolate"></g>
+        </mask>
+        <mask id="ink-rim" maskUnits="userSpaceOnUse" x="-60" y="-60" width="220" height="220">
+          <rect x="-60" y="-60" width="220" height="220" fill="#000"/>
+          <g data-ink-edge fill="none" stroke="#fff" stroke-width="5"></g>
+        </mask>
+        <mask id="ink-halo" maskUnits="userSpaceOnUse" x="-60" y="-60" width="220" height="220">
+          <rect x="-60" y="-60" width="220" height="220" fill="#000"/>
+          <g data-ink-edge fill="none" stroke="#fff" stroke-width="26"></g>
+        </mask>
+      </defs>
+      <!-- Nesting the wet edge inside the reveal mask keeps it on the unsoaked
+           side of the front, so interior seams between blots never show. -->
+      <g mask="url(#ink-open)">
+        <image class="ink-art" href="assets/images/opening/enchanted-watercolor-curtain.jpg" x="0" y="0" width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
+        <rect class="ink-shade" x="-60" y="-60" width="220" height="220"/>
+        <g class="ink-halo" mask="url(#ink-halo)"><rect x="-60" y="-60" width="220" height="220"/></g>
+        <g class="ink-rim" mask="url(#ink-rim)"><rect x="-60" y="-60" width="220" height="220"/></g>
+      </g>
+    </svg>
+    <div class="ink-sparkles" data-ink-sparkles aria-hidden="true"></div>
     <div class="opening-stars" aria-hidden="true"><i>✦</i><i>✧</i><i>⋆</i><i>✦</i><i class="opening-moon">☾</i></div>
     <div class="opening-copy">
       <p class="opening-eyebrow">Korean Female Voice Over Artist</p>
-      <h1><span class="opening-name">Hi, I’m Da Eun.</span><em class="opening-welcome">Welcome to my world of voices.</em></h1>
+      <h1><span class="opening-name">Da Eun Yoon</span><em class="opening-welcome">A world of voices</em></h1>
       <p class="opening-intro">Ready for me to tell your stories? First, let me tell you mine.</p>
       <button class="opening-button" type="button" data-curtain-open><span class="play-glyph">▶</span><span><small>Press play</small>Let the story begin</span></button>
       <button class="opening-skip" type="button" data-curtain-skip>Enter quietly <span>→</span></button>
@@ -46,78 +77,193 @@
         <summary>Language Services <span aria-hidden="true">⌄</span></summary>
         <div class="nav-dropdown"><a href="language-services.html">Language Services Overview</a><a href="language-services.html#translation">Korean ↔ English Translation</a><a href="language-services.html#interpretation">Korean ↔ English Interpretation</a></div>
       </details>
-      <a class="nav-contact" href="contact.html">Contact <span>↗</span></a>
+      <a class="nav-contact" href="contact.html" data-fairy-stop="4">Contact <span>↗</span></a>
     </nav>
   </header>
 
+  <!-- Torn-paper edges. The filters distort only the paper layers, never the text. -->
+  <svg class="tale-defs" aria-hidden="true" focusable="false" width="0" height="0">
+    <filter id="deckle" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.013 0.05" numOctaves="4" seed="9" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="13" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="deckle-wide" x="-6%" y="-12%" width="112%" height="124%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.06" numOctaves="4" seed="23" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="11" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
   <main id="main">
-    <section class="home-hero storybook-hero compact-home">
-      <header class="hero-copy home-title reveal">
-        <h1><span class="chapter-inline">Chapter One.</span><span class="hero-greeting">Hi, I’m Da Eun!</span><em>Can I voice your next story?</em></h1>
-      </header>
-      <div class="home-spread">
-      <div class="hero-portrait">
-        <span class="leaf-branch branch-left" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-        <span class="leaf-branch branch-right" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-        <div class="portrait-frame"><img src="assets/images/home/da-eun-hero.webp" alt="Da Eun Yoon recording at her microphone"></div>
-        <span class="portrait-flourish portrait-flourish-top" aria-hidden="true">❦</span><span class="portrait-flourish portrait-flourish-bottom" aria-hidden="true">✦ ☾ ✦</span><span class="portrait-note">from my home studio</span>
-        <div class="portrait-caption" aria-label="Home studio equipment"><small>Her recording chamber</small><span>RØDE NT1</span><i>·</i><span>Scarlett 2i2</span><i>·</i><span>Audacity</span></div>
+    <section class="tale-spread" aria-labelledby="tale-opening-line">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Chapter One</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-book">
+        <article class="tale-leaf tale-leaf-verso reveal">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <figure class="tale-portrait">
+              <div class="tale-arch">
+                <img src="assets/images/home/da-eun-hero.webp" alt="Da Eun Yoon recording at her microphone">
+              </div>
+              <figcaption>Recorded in her own small chamber<br><span>Seoul · RØDE NT1 · Scarlett 2i2</span></figcaption>
+            </figure>
+          </div>
+        </article>
+
+        <article class="tale-leaf tale-leaf-recto reveal delay-1">
+          <span class="tale-paper" aria-hidden="true"></span>
+          <div class="tale-leaf-inner">
+            <h1 class="tale-opening" id="tale-opening-line"><b class="tale-versal">O</b>nce upon a time, a story went looking for a voice.</h1>
+
+            <p class="tale-byline">
+              <span class="tale-name">Da Eun Yoon</span>
+              <span class="tale-role">Korean &amp; English Voice Over</span>
+            </p>
+
+            <section class="tale-voices" id="featured-demos" aria-labelledby="tale-voices-heading">
+              <h2 class="tale-rubric" id="tale-voices-heading"><span>Hear the three voices</span></h2>
+
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play commercial demo" data-fairy-stop="1"><span>▶</span></button>
+                <div class="audio-info"><strong>Commercial</strong><div class="audio-track"><i></i></div><small data-time>01:27</small></div>
+                <audio preload="metadata" src="assets/audio/commercial-english.mp3"></audio>
+              </div>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play audiobook demo"><span>▶</span></button>
+                <div class="audio-info"><strong>Audiobook</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div>
+                <audio preload="metadata" src="assets/audio/audiobook-featured.mp3"></audio>
+              </div>
+              <div class="audio-player tale-track" data-audio-player>
+                <button type="button" class="audio-toggle" aria-label="Play animation demo"><span>▶</span></button>
+                <div class="audio-info"><strong>Animation</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div>
+                <audio preload="metadata" src="assets/audio/animation-english.mp3"></audio>
+              </div>
+            </section>
+
+            <nav class="tale-more" aria-label="More voice over demos">
+              <p>Longer reels, should you wish to linger</p>
+              <span><a class="tale-pill" href="commercial.html">Commercial</a><a class="tale-pill" href="audiobook.html">Audiobook</a><a class="tale-pill" href="animation.html">Animation</a></span>
+              <a class="tale-onward" href="about.html" data-fairy-stop="2">Read her story <em aria-hidden="true">→</em></a>
+            </nav>
+          </div>
+        </article>
       </div>
-      <div class="home-details-combined">
-      <div class="character-notes reveal delay-1">
-          <p class="sidecar-title">A few character notes</p>
-          <ul>
-            <li><strong>Multilingual storyteller</strong><span>Native Korean &amp; English · Intermediate Spanish &amp; Mandarin</span></li>
-            <li><strong>International background</strong><span>Seoul · Chicago · New York City · Singapore</span></li>
-            <li><strong>Stage &amp; art roots</strong><span>Theatre · Acting · Visual art</span></li>
-            <li><strong>Between languages</strong><span>Interpreter &amp; translator across industries</span></li>
-            <li><strong>After hours</strong><span>Crime-thriller fan · <em>Castle</em> to <em>The Mentalist</em></span></li>
-          </ul>
-      </div>
-      <div class="portrait-demos reveal delay-2" id="featured-demos">
-          <p class="sidecar-title">Hear the three voices</p>
-          <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play commercial demo"><span>▶</span></button><div class="audio-info"><strong>Commercial</strong><div class="audio-track"><i></i></div><small data-time>01:27</small></div><audio preload="metadata" src="assets/audio/commercial-english.mp3"></audio></div>
-          <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play audiobook demo"><span>▶</span></button><div class="audio-info"><strong>Audiobook</strong><div class="audio-track"><i></i></div><small data-time>02:58</small></div><audio preload="metadata" src="assets/audio/audiobook-featured.mp3"></audio></div>
-          <div class="audio-player portrait-player" data-audio-player><button type="button" class="audio-toggle" aria-label="Play animation demo"><span>▶</span></button><div class="audio-info"><strong>Animation</strong><div class="audio-track"><i></i></div><small data-time>02:36</small></div><audio preload="metadata" src="assets/audio/animation-english.mp3"></audio></div>
-          <div class="want-more"><p>Want to hear more?</p><nav aria-label="More voice over demos"><a href="commercial.html">Commercial</a><a href="animation.html">Animation</a><a href="audiobook.html">Audiobook</a></nav><a class="learn-about" href="about.html">Learn more about me <span>→</span></a></div>
-      </div>
-      </div>
-      </div>
+
+      <article class="tale-leaf tale-slip reveal delay-2" aria-labelledby="tale-notes-heading">
+        <span class="tale-paper" aria-hidden="true"></span>
+        <div class="tale-leaf-inner">
+          <h2 class="tale-rubric" id="tale-notes-heading"><span>Notes on the teller</span></h2>
+          <dl class="tale-dl">
+            <div><dt>Multilingual storyteller</dt><dd>Native Korean &amp; English · Intermediate Spanish &amp; Mandarin</dd></div>
+            <div><dt>Wandered far</dt><dd>Seoul · Chicago · New York City · Singapore</dd></div>
+            <div><dt>Raised on stage &amp; ink</dt><dd>Theatre · Acting · Visual art</dd></div>
+            <div><dt>Keeper of two tongues</dt><dd>Interpreter &amp; translator across industries</dd></div>
+            <div><dt>After hours</dt><dd>Crime-thriller devotee, from <em>Castle</em> to <em>The Mentalist</em></dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <p class="tale-flourish" aria-hidden="true">✦ &nbsp; ⁂ &nbsp; ✦</p>
     </section>
 
-    <section class="audible-chapter section-pad" aria-labelledby="audible-heading">
-      <div class="audible-marquee" aria-hidden="true">
-        <div class="audible-marquee-track">
-          <span>Currently Playing on Audible</span><i>✦</i><span>Currently Playing on Audible</span><i>✦</i><span>Currently Playing on Audible</span><i>✦</i><span>Currently Playing on Audible</span><i>✦</i>
+    <section class="tale-chapter" aria-labelledby="audible-heading">
+      <p class="tale-chapter-mark"><i aria-hidden="true">✦</i><span>Chapter Two</span><i aria-hidden="true">✦</i></p>
+
+      <div class="tale-sheet reveal">
+        <span class="tale-paper" aria-hidden="true"></span>
+
+        <div class="tale-ribbon" aria-hidden="true">
+          <div class="tale-ribbon-track">
+            <span>Currently playing on Audible</span><i>✦</i><span>Currently playing on Audible</span><i>✦</i><span>Currently playing on Audible</span><i>✦</i><span>Currently playing on Audible</span><i>✦</i>
+          </div>
         </div>
-      </div>
-      <div class="audible-heading reveal">
-        <h2 id="audible-heading">The newest stories <em>in my voice.</em></h2>
-        <a href="https://www.audible.com/search?searchNarrator=Da+Eun+Yoon" target="_blank" rel="noopener">View Da Eun’s Audible page <span>↗</span></a>
-      </div>
-      <div class="latest-audiobooks">
-        <a class="audible-book reveal" href="https://www.audible.com/pd/Love-Language-Audiobook/B0GGVCK79Q" target="_blank" rel="noopener"><span>01</span><strong>Love Language</strong><em>Christine Ko</em><b>Listen ↗</b></a>
-        <a class="audible-book reveal delay-1" href="https://www.audible.com/search?keywords=The+Loom+Tree" target="_blank" rel="noopener"><span>02</span><strong>The Loom Tree</strong><em>Angela Mi Young Hur</em><b>Listen ↗</b></a>
-        <a class="audible-book reveal delay-2" href="https://www.audible.com/search?keywords=Inheritance+Jane+Park" target="_blank" rel="noopener"><span>03</span><strong>Inheritance</strong><em>Jane Park</em><b>Listen ↗</b></a>
-      </div>
-      <div class="coming-soon-book reveal"><span>Coming soon</span><strong>The Silence Between</strong><i>✦</i></div>
-      <div class="publisher-shelf reveal" aria-label="Publishers Da Eun has worked with">
-        <p>Stories recorded for</p>
-        <div>
-          <img src="assets/images/home/penguin-random-house.webp" alt="Penguin Random House Audio">
-          <img src="assets/images/home/audible.webp" alt="Audible">
-          <img src="assets/images/home/tantor.webp" alt="Tantor Media">
-          <img src="assets/images/home/tuttle.webp" alt="Tuttle Publishing">
-          <img class="dreamscape-logo" src="assets/images/home/dreamscape-logo.jpg" alt="Dreamscape Media">
-          <span class="podium-logo"><img src="assets/images/home/podium-logo.svg" alt="Podium Audio"></span>
+
+        <div class="tale-sheet-inner">
+          <header class="tale-chapter-head">
+            <h2 id="audible-heading">The newest stories <em>in my voice.</em></h2>
+            <a class="tale-quill" href="https://www.audible.com/search?searchNarrator=Da+Eun+Yoon" target="_blank" rel="noopener">Visit the whole shelf <em aria-hidden="true">↗</em></a>
+          </header>
+
+          <ol class="tale-shelf">
+            <li><a href="https://www.audible.com/pd/Love-Language-Audiobook/B0GGVCK79Q" target="_blank" rel="noopener" data-fairy-stop="3"><span class="tale-folio">I</span><strong>Love Language</strong><em>Christine Ko</em><b>Listen <i aria-hidden="true">↗</i></b></a></li>
+            <li><a href="https://www.audible.com/search?keywords=The+Loom+Tree" target="_blank" rel="noopener"><span class="tale-folio">II</span><strong>The Loom Tree</strong><em>Angela Mi Young Hur</em><b>Listen <i aria-hidden="true">↗</i></b></a></li>
+            <li><a href="https://www.audible.com/search?keywords=Inheritance+Jane+Park" target="_blank" rel="noopener"><span class="tale-folio">III</span><strong>Inheritance</strong><em>Jane Park</em><b>Listen <i aria-hidden="true">↗</i></b></a></li>
+          </ol>
+
+          <p class="tale-marginalia"><span>Coming soon</span> <em>The Silence Between</em> <i aria-hidden="true">✦</i></p>
+
+          <section class="tale-press" aria-label="Publishers Da Eun has recorded for">
+            <h3>Stories recorded for</h3>
+            <div>
+              <img src="assets/images/home/penguin-random-house.webp" alt="Penguin Random House Audio">
+              <img src="assets/images/home/audible.webp" alt="Audible">
+              <img src="assets/images/home/tantor.webp" alt="Tantor Media">
+              <img src="assets/images/home/tuttle.webp" alt="Tuttle Publishing">
+              <img src="assets/images/home/dreamscape-logo.jpg" alt="Dreamscape Media">
+              <img class="is-reversed" src="assets/images/home/podium-logo.svg" alt="Podium Audio">
+            </div>
+          </section>
         </div>
       </div>
     </section>
   </main>
 
   <div class="fairy-guide" data-fairy aria-hidden="true">
-    <span class="fairy-wing fairy-wing-left"></span><span class="fairy-wing fairy-wing-right"></span>
-    <span class="fairy-head"></span><span class="fairy-body"></span><span class="fairy-arm"></span><span class="fairy-light">✦</span>
+    <svg class="fairy" viewBox="0 0 64 64" width="72" height="72">
+      <defs>
+        <radialGradient id="fairy-aura">
+          <stop offset="0%" stop-color="rgba(255,238,184,.6)"/>
+          <stop offset="40%" stop-color="rgba(255,206,116,.19)"/>
+          <stop offset="100%" stop-color="rgba(255,198,104,0)"/>
+        </radialGradient>
+        <linearGradient id="fairy-wing" x1=".1" y1="1" x2=".9" y2="0">
+          <stop offset="0%" stop-color="rgba(255,252,236,.78)"/>
+          <stop offset="40%" stop-color="rgba(233,214,255,.5)"/>
+          <stop offset="100%" stop-color="rgba(186,170,255,.14)"/>
+        </linearGradient>
+        <linearGradient id="fairy-body" x1="0" y1="0" x2=".35" y2="1">
+          <stop offset="0%" stop-color="#fff8e4"/>
+          <stop offset="45%" stop-color="#f6d290"/>
+          <stop offset="100%" stop-color="#c98c33"/>
+        </linearGradient>
+      </defs>
+
+      <circle class="fairy-aura" cx="32" cy="30" r="29" fill="url(#fairy-aura)"/>
+
+      <g class="fairy-wings fairy-wings-upper">
+        <path d="M31 24C27 19 21 13.5 15.5 11C12.5 15 15 22 21 26.5C24.5 29 28.5 28.5 31 26Z"/>
+        <path d="M33 24C37 19 43 13.5 48.5 11C51.5 15 49 22 43 26.5C39.5 29 35.5 28.5 33 26Z"/>
+        <path class="fairy-vein" d="M29.6 25.6C26.4 22 22.6 17.4 17.4 13.8"/>
+        <path class="fairy-vein" d="M34.4 25.6C37.6 22 41.4 17.4 46.6 13.8"/>
+      </g>
+      <g class="fairy-wings fairy-wings-lower">
+        <path d="M31 27.5C27.5 27 22 28.5 19 33C20.5 38 25.5 40 30 37C31.5 35.5 31.5 31 31 27.5Z"/>
+        <path d="M33 27.5C36.5 27 42 28.5 45 33C43.5 38 38.5 40 34 37C32.5 35.5 32.5 31 33 27.5Z"/>
+        <path class="fairy-vein" d="M30 29.4C26.8 29.6 23.4 31.2 21.2 33.8"/>
+        <path class="fairy-vein" d="M34 29.4C37.2 29.6 40.6 31.2 42.8 33.8"/>
+      </g>
+
+      <g class="fairy-figure">
+        <path class="fairy-leg" d="M30.5 45.4C30.2 48.2 29.7 50.6 28.8 53"/>
+        <path class="fairy-leg" d="M33.5 45.4C33.9 47.9 34.4 50.1 35.1 52.3"/>
+        <ellipse class="fairy-foot" cx="28.5" cy="53.5" rx="1" ry="1.4" transform="rotate(-12 28.5 53.5)"/>
+        <ellipse class="fairy-foot" cx="35.4" cy="52.8" rx="1" ry="1.4" transform="rotate(10 35.4 52.8)"/>
+
+        <path class="fairy-gown" d="M29.6 20.6C31.2 20 32.8 20 34.4 20.6C36.7 21.9 37.5 24.3 37 27.2C36.6 29.5 35.9 31.6 35.7 33.9C35.4 37.5 36.1 41.1 37.1 44.6C37.5 45.9 37.9 47.2 38.1 48.6C36.4 47.5 34.9 46.7 33.6 46.4C32.9 47.3 32.4 47.9 32 48.3C31.6 47.9 31.1 47.3 30.4 46.4C29.1 46.7 27.6 47.5 25.9 48.6C26.1 47.2 26.5 45.9 26.9 44.6C27.9 41.1 28.6 37.5 28.3 33.9C28.1 31.6 27.4 29.5 27 27.2C26.5 24.3 27.3 21.9 29.6 20.6Z"/>
+        <path class="fairy-gown-shade" d="M29.6 20.6C30.3 20.3 31 20.1 31.7 20.1C30.6 22.4 30.2 25.1 30.5 28.2C30.8 31.1 31.2 33.7 31.1 36.5C31 40.4 30.2 44.4 28.9 48.2C27.9 48.3 26.9 48.4 25.9 48.6C26.1 47.2 26.5 45.9 26.9 44.6C27.9 41.1 28.6 37.5 28.3 33.9C28.1 31.6 27.4 29.5 27 27.2C26.5 24.3 27.3 21.9 29.6 20.6Z"/>
+
+        <path class="fairy-arm" d="M34.7 22.6C36.9 22.1 38.8 20.8 40 19.1"/>
+        <path class="fairy-arm" d="M29.3 22.8C27.6 24 26.4 25.8 25.8 28"/>
+        <circle class="fairy-hand" cx="40.4" cy="18.5" r="1.15"/>
+        <circle class="fairy-hand" cx="25.6" cy="28.6" r="1.15"/>
+
+        <path class="fairy-neck" d="M30.5 18.4H33.5V22.2H30.5Z"/>
+        <ellipse class="fairy-head" cx="32" cy="15.2" rx="5.3" ry="5.9"/>
+        <path class="fairy-hair" d="M32 8.6C37.2 8.6 40.1 12 39.6 16.9C39.3 15 38.6 13.5 37.6 12.5C36.5 13.6 34.8 14.3 32.7 14.3C29.8 14.3 27.2 13.2 25.4 11.5C24.8 13.2 24.5 15 24.5 16.9C23.9 12 26.8 8.6 32 8.6Z"/>
+        <circle class="fairy-bun" cx="38.4" cy="12.1" r="2.1"/>
+        <path class="fairy-strand" d="M27.1 13.4C26 15.6 25.6 17.9 25.9 20.3"/>
+      </g>
+    </svg>
   </div>
 
   <footer class="site-footer"><div><a class="brand footer-brand" href="index.html"><span>Da Eun Yoon</span><small>Korean Female Voice Over Artist</small></a></div><div class="footer-nav"><a href="about.html">About Me</a><a href="commercial.html">Commercial</a><a href="audiobook.html">Audiobook</a><a href="animation.html">Animation</a><a href="authors.html">For Authors</a><a href="audiobook-production.html">Audiobook Production</a><a href="alpha-beta-reading.html">Alpha &amp; Beta Reading</a><a href="language-services.html">Language Services</a><a href="language-services.html#translation">Translation</a><a href="language-services.html#interpretation">Interpretation</a><a href="contact.html">Contact</a></div><div class="footer-contact"><a href="mailto:ydaeun.dreams@gmail.com">ydaeun.dreams@gmail.com</a><p>English · 한국어 · Worldwide</p></div><p class="legal">© <span data-year></span> Da Eun Yoon. All rights reserved.</p><div class="ai-protection" role="note" aria-label="AI and voice protection notice"><span>AI &amp; Voice Protection</span><p>Engagement with me or my work in any capacity implies an understanding that I expressly prohibit the use or replication of any part of my likeness or voice for anything relating to or in service of AI/LLM without a prior, explicit agreement with me or my representatives regarding engagement with AI/LLM.</p></div></footer>
