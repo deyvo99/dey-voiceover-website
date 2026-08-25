@@ -175,6 +175,55 @@ if ('IntersectionObserver' in window) {
   reveals.forEach((element) => element.classList.add('is-visible'));
 }
 
+// A tiny guide fairy: it rests near the demos, follows a pointer briefly,
+// then returns to the next useful place. Motion is disabled for accessibility.
+const fairy = document.querySelector('[data-fairy]');
+const fairyDestination = document.querySelector('#featured-demos');
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if (fairy && fairyDestination && finePointer.matches && !reducedMotion.matches) {
+  let x = window.innerWidth * .68;
+  let y = window.innerHeight * .34;
+  let pointerX = x;
+  let pointerY = y;
+  let followUntil = 0;
+  let lastSpark = 0;
+
+  window.addEventListener('pointermove', (event) => {
+    pointerX = event.clientX + 20;
+    pointerY = event.clientY - 22;
+    followUntil = performance.now() + 1500;
+  }, { passive: true });
+
+  const leaveSpark = () => {
+    const spark = document.createElement('span');
+    spark.className = 'fairy-spark';
+    spark.style.left = `${x + 11 + (Math.random() - .5) * 10}px`;
+    spark.style.top = `${y + 14 + (Math.random() - .5) * 8}px`;
+    document.body.append(spark);
+    spark.addEventListener('animationend', () => spark.remove(), { once: true });
+  };
+
+  const flutter = (time) => {
+    let targetX = pointerX;
+    let targetY = pointerY;
+    if (time > followUntil) {
+      const destination = fairyDestination.getBoundingClientRect();
+      targetX = destination.left - 22 + Math.sin(time / 760) * 16;
+      targetY = destination.top + 30 + Math.cos(time / 620) * 20;
+    }
+    x += (targetX - x) * .075;
+    y += (targetY - y) * .075;
+    fairy.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${Math.sin(time / 260) * 7}deg)`;
+    if (time - lastSpark > 105) {
+      leaveSpark();
+      lastSpark = time;
+    }
+    window.requestAnimationFrame(flutter);
+  };
+  window.requestAnimationFrame(flutter);
+}
+
 document.querySelectorAll('[data-year]').forEach((year) => {
   year.textContent = String(new Date().getFullYear());
 });
