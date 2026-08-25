@@ -363,6 +363,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
   let stopUntil = 0;
   let highlighted = null;
   let toured = 0;
+  const tourEnds = performance.now() + 30000;
 
   window.addEventListener('pointermove', (event) => {
     pointerX = event.clientX + 26;
@@ -424,6 +425,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
       targetY = pointerY;
       stopUntil = 0;
     } else {
+      if (now > tourEnds) toured = 3;
       const found = stops.length && toured < 3 ? visibleStop() : null;
       if (found) {
         const { el: stop, box } = found;

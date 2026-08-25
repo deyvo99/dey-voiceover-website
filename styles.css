@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap");
 
 /* ==========================================================================
    DA EUN YOON — "The illuminated leaf"
@@ -26,13 +25,13 @@
   --caps: "Cinzel", Georgia, serif;
   --hand: "Cormorant Garamond", Georgia, serif;
   --curtain: url("assets/images/opening/enchanted-watercolor-curtain.jpg");
-  --fiber: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)'/%3E%3C/svg%3E");
+  --fiber: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: clip; }
 body { margin: 0; overflow-x: clip; background: var(--dusk); color: var(--sepia); font: 500 16px/1.6 var(--hand); }
-body::before { content: ""; position: fixed; inset: 0; z-index: 99; pointer-events: none; opacity: .028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+body::before { content: ""; position: fixed; inset: 0; z-index: 99; pointer-events: none; opacity: .028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 img, video { display: block; max-width: 100%; }
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; }
@@ -72,7 +71,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 
 /* --- Opening curtain ------------------------------------------------------ */
 .stage-opening { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; min-height: 100vh; min-height: 100dvh; overflow: hidden; background: transparent; color: var(--cream); }
-.stage-opening.is-gone { visibility: hidden; pointer-events: none; }
+.stage-opening.is-gone { display: none; pointer-events: none; }
 
 /* The veil, dissolved by spreading ink rather than pulled aside ------------- */
 .ink-veil { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; }
@@ -227,14 +226,14 @@ main::before {
     /* where the light falls across the sheet */
     radial-gradient(ellipse 58% 42% at 22% 12%, rgba(255, 250, 230, .62), transparent 66%),
     /* foxing — the rust-brown blooms of a century in a drawer */
-    radial-gradient(circle 74px at 7% 76%, rgba(146, 79, 30, .30), transparent 62%),
-    radial-gradient(circle 52px at 89% 19%, rgba(133, 70, 27, .28), transparent 60%),
-    radial-gradient(circle 38px at 62% 92%, rgba(120, 63, 26, .26), transparent 58%),
-    radial-gradient(circle 30px at 33% 41%, rgba(147, 88, 36, .18), transparent 60%),
-    radial-gradient(circle 62px at 96% 64%, rgba(126, 66, 25, .28), transparent 60%),
-    radial-gradient(circle 26px at 48% 21%, rgba(139, 82, 33, .16), transparent 58%),
-    radial-gradient(circle 34px at 18% 33%, rgba(132, 74, 29, .15), transparent 60%),
-    radial-gradient(circle 22px at 78% 47%, rgba(142, 84, 34, .17), transparent 56%),
+    radial-gradient(circle 74px at 50% 50%, rgba(146, 79, 30, .30), transparent 62%),
+    radial-gradient(circle 52px at 50% 50%, rgba(133, 70, 27, .28), transparent 60%),
+    radial-gradient(circle 38px at 50% 50%, rgba(120, 63, 26, .26), transparent 58%),
+    radial-gradient(circle 30px at 50% 50%, rgba(147, 88, 36, .18), transparent 60%),
+    radial-gradient(circle 62px at 50% 50%, rgba(126, 66, 25, .28), transparent 60%),
+    radial-gradient(circle 26px at 50% 50%, rgba(139, 82, 33, .16), transparent 58%),
+    radial-gradient(circle 34px at 50% 50%, rgba(132, 74, 29, .15), transparent 60%),
+    radial-gradient(circle 22px at 50% 50%, rgba(142, 84, 34, .17), transparent 56%),
     /* laid lines and chain lines of hand-made paper */
     repeating-linear-gradient(90deg, rgba(112, 78, 42, .07) 0 1px, transparent 1px 4px),
     repeating-linear-gradient(0deg, rgba(112, 78, 42, .05) 0 1px, transparent 1px 27px),
@@ -242,8 +241,20 @@ main::before {
     radial-gradient(ellipse 90% 88% at 50% 48%, transparent 34%, rgba(97, 55, 20, .5) 99%),
     linear-gradient(150deg, #eeddb4, #e2cda1 40%, #d5bd8c 74%, #e4d2ab);
   background-blend-mode: soft-light, multiply, multiply, multiply, multiply, multiply, multiply, multiply, multiply, multiply, multiply, multiply, normal;
+  background-repeat: no-repeat;
+  background-size: auto, 100px 100px, 100px 100px, 100px 100px, 100px 100px, 100px 100px, 100px 100px, 100px 100px, 100px 100px, auto, auto, auto, auto;
+  background-position:
+    0 0,
+    calc(7% - 43px) calc(76% + 26px),
+    calc(89% + 39px) calc(19% - 31px),
+    calc(62% + 12px) calc(92% + 42px),
+    calc(33% - 17px) calc(41% - 9px),
+    calc(96% + 46px) calc(64% + 14px),
+    calc(48% - 2px) calc(21% - 29px),
+    calc(18% - 32px) calc(33% - 17px),
+    calc(78% + 28px) calc(47% - 3px),
+    0 0, 0 0, 0 0, 0 0;
   filter: url(#deckle) drop-shadow(0 18px 30px rgba(14, 2, 20, .55));
-  will-change: transform;
 }
 .tale-paper::after {
   content: "";
@@ -1001,7 +1012,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   white-space: nowrap;
 }
 .tale-ribbon-track i { color: #d9b262; font-size: .7rem; font-style: normal; }
-@keyframes taleRibbon { to { transform: translateX(-50%); } }
+@keyframes taleRibbon { to { transform: translateX(calc(-50% - 1.1rem)); } }
 
 .tale-chapter-head {
   display: flex;
@@ -1152,7 +1163,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   opacity: 0;
   animation: fairyLit 1.5s ease-in-out infinite;
 }
-@keyframes fairyLit { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+@keyframes fairyLit { 0%, 100% { opacity: 0; transform: scale(.94); } 50% { opacity: 1; transform: none; } }
 
 /* her trail */
 .fairy-spark {
@@ -1213,7 +1224,6 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   .menu-toggle { display: block; position: relative; z-index: 42; cursor: pointer; }
   .site-nav { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: .35rem; overflow-y: auto; padding: 6rem 2rem 3rem; background: linear-gradient(rgba(34,6,42,.88), rgba(28,4,35,.96)), var(--curtain) center / cover; transform: translateX(102%); transition: transform .35s ease; }.site-nav.is-open { transform: none; }.site-nav > a, .site-nav summary { width: 100%; padding: .7rem .85rem; font: 400 1.85rem/1 var(--fell); }.site-nav summary { justify-content: space-between; }.nav-dropdown { position: static; width: 100%; min-width: 0; margin: .25rem 0 .55rem; padding: .25rem .65rem; border-color: rgba(231,189,98,.34); background: rgba(17,2,23,.3); box-shadow: none; transform: none; }.nav-dropdown a { padding: .65rem .75rem; font-size: 1.15rem; }.site-nav .nav-contact { margin-top: .8rem; padding: .8rem 1rem; text-align: center; }.menu-toggle.is-open span:first-child { transform: translateY(4px) rotate(45deg); }.menu-toggle.is-open span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
-  main::before { position: absolute; }
   .tale-spread { padding-top: clamp(1.5rem, 4vw, 2.2rem); }
   .tale-leaf { --tilt: 0deg; }
   .tale-arch { width: min(330px, 90%); }
