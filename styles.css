@@ -1629,3 +1629,96 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
   .page-home .audible-chapter { padding-inline: 1.25rem; }
   .site-footer::after { content: "✦  ❦  ☾  ❦  ✦"; right: 1.2rem; font-size: .85rem; }
 }
+
+/* Book-title composition: chapter inline, portrait left, notes right */
+.compact-home .home-title {
+  width: min(1640px, 100%);
+  margin-bottom: clamp(1rem, 1.6vw, 1.6rem);
+  padding-top: 0;
+}
+.compact-home .home-title::before { content: none; }
+.compact-home .home-title h1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: clamp(.7rem, 1.4vw, 1.5rem);
+  flex-wrap: wrap;
+}
+.compact-home .home-title .chapter-inline {
+  color: #607370;
+  font: 500 clamp(.88rem, 1.15vw, 1.3rem)/1 "Cinzel", Georgia, serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.compact-home .home-title .chapter-inline::after {
+  content: none;
+}
+.compact-home .home-title .hero-greeting {
+  display: inline;
+  font-size: clamp(3.35rem, 4.75vw, 5.9rem);
+  line-height: .86;
+}
+.compact-home .home-title h1 em {
+  flex-basis: 100%;
+  margin-top: .08em;
+  font-size: clamp(1.95rem, 2.65vw, 3.35rem);
+}
+.home-spread {
+  grid-template-columns: minmax(620px, 1.12fr) minmax(480px, .88fr);
+  gap: clamp(1.5rem, 2.7vw, 3.5rem);
+}
+.home-spread > .hero-portrait {
+  order: 1;
+  height: 650px;
+  padding: .15rem 1rem 5.5rem;
+}
+.home-details-combined {
+  order: 2;
+  height: 650px;
+}
+.home-spread > .hero-portrait .portrait-frame {
+  width: min(570px, 86%);
+  height: 590px;
+}
+.home-spread > .hero-portrait::before {
+  width: min(586px, 88%);
+  height: 603px;
+}
+.home-spread > .hero-portrait::after {
+  width: min(594px, 89%);
+  height: 597px;
+}
+.home-spread > .hero-portrait .branch-left { left: calc(50% - 326px); }
+.home-spread > .hero-portrait .branch-right { right: calc(50% - 326px); }
+.home-spread > .hero-portrait .portrait-note { right: calc(50% - 330px); }
+.home-details-combined {
+  padding: 1.4rem 1.5rem 1.1rem;
+  grid-template-rows: minmax(0, 1.02fr) minmax(0, .98fr);
+}
+.home-details-combined .character-notes li { min-height: 68px; padding: .7rem .78rem .58rem; }
+.home-details-combined .character-notes strong { font-size: clamp(1.02rem, 1vw, 1.22rem); }
+.home-details-combined .character-notes span { font-size: .72rem; }
+.home-details-combined .portrait-player { min-height: 56px; margin: .38rem 0; }
+.home-details-combined .portrait-player .audio-toggle { width: 42px; height: 42px; }
+.home-details-combined .portrait-player .audio-info strong { font-size: 1.05rem; }
+
+@media (max-width: 1180px) {
+  .home-spread { grid-template-columns: 1fr; width: min(820px, 100%); }
+  .home-spread > .hero-portrait { order: 1; height: 700px; }
+  .home-details-combined { order: 2; height: auto; min-height: 650px; }
+  .home-spread > .hero-portrait .portrait-frame { width: min(560px, 82%); height: 630px; }
+}
+@media (max-width: 620px) {
+  .compact-home .home-title h1 { display: block; }
+  .compact-home .home-title .chapter-inline {
+    display: block;
+    margin-bottom: .65rem;
+    font-size: .8rem;
+  }
+  .compact-home .home-title .chapter-inline::after { content: none; }
+  .compact-home .home-title .hero-greeting { display: block; }
+  .home-spread > .hero-portrait { height: 620px; }
+  .home-spread > .hero-portrait .portrait-frame { width: min(420px, 92%); height: 550px; }
+  .home-details-combined { min-height: 0; }
+}
