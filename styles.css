@@ -976,3 +976,80 @@ h1 em, h2 em { color: var(--rose); font-weight: 600; }
 @media (prefers-reduced-motion: reduce) {
   .audible-marquee-track { animation: none; }
 }
+
+/* Corrected equal three-column order: portrait, notes, demos */
+.home-spread {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.2vw, 2.8rem);
+  align-items: stretch;
+  width: min(1780px, 100%);
+}
+.home-spread > .hero-portrait,
+.home-spread > .character-notes,
+.home-spread > .portrait-demos {
+  grid-area: auto !important;
+  width: 100%;
+  min-width: 0;
+  height: 820px;
+  align-self: stretch;
+  justify-self: stretch;
+}
+.home-spread > .hero-portrait {
+  padding: 3.4rem 2.8rem 8.4rem;
+}
+.home-spread > .hero-portrait .portrait-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+.home-spread > .hero-portrait .portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home-spread > .character-notes {
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem .2rem .2rem;
+}
+.home-spread > .character-notes ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  flex: 1;
+}
+.home-spread > .character-notes li,
+.home-spread > .character-notes li:last-child {
+  grid-column: auto;
+  min-height: 0;
+}
+.home-spread > .character-notes strong { font-size: clamp(1.25rem, 1.45vw, 1.65rem); }
+.home-spread > .portrait-demos {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.55rem 1.7rem;
+}
+.home-spread > .portrait-demos .portrait-player {
+  min-height: 98px;
+  margin: .85rem 0;
+  padding: 1.15rem 1rem;
+}
+.home-spread > .portrait-demos .portrait-player .audio-toggle { width: 58px; height: 58px; }
+.home-spread > .portrait-demos .portrait-player .audio-info strong { font-size: 1.45rem; }
+.home-spread > .portrait-demos .want-more { margin-top: auto; }
+
+@media (max-width: 1180px) {
+  .home-spread { grid-template-columns: 1fr; width: min(760px, 100%); }
+  .home-spread > .hero-portrait,
+  .home-spread > .character-notes,
+  .home-spread > .portrait-demos { height: auto; min-height: 720px; }
+  .home-spread > .hero-portrait .portrait-frame { min-height: 570px; }
+}
+@media (max-width: 620px) {
+  .home-spread > .hero-portrait,
+  .home-spread > .character-notes,
+  .home-spread > .portrait-demos { min-height: 0; }
+  .home-spread > .hero-portrait .portrait-frame { min-height: 470px; }
+  .home-spread > .character-notes ul { grid-template-columns: 1fr; }
+}
