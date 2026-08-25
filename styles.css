@@ -1646,3 +1646,70 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 /* the second plate in the opening leaf */
 .tale-figure-second { margin-top: clamp(1.2rem, 2vw, 1.8rem); }
+
+/* --- Voice-over pages: copy on the left, demos immediately on the right ---
+   The decorative emblem plate and the separate "palette" sheet were spending
+   a whole screen each to say nothing, so both are gone and the tone/usage
+   lists live in the copy as text. --------------------------------------- */
+.tale-book-demo {
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+  align-items: start;   /* the audiobook leaf carries seven demos; let each size itself */
+}
+
+.tale-facets {
+  margin: clamp(1.2rem, 1.9vw, 1.7rem) 0 0;
+  display: grid;
+  gap: clamp(.7rem, 1.1vw, .95rem);
+}
+.tale-facets div {
+  padding-left: 1.15rem;
+  border-left: 2px solid rgba(150, 112, 48, .45);
+}
+.tale-facets dt {
+  color: var(--rubric);
+  font: 700 clamp(.66rem, .84vw, .74rem)/1.3 var(--caps);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.tale-facets dd {
+  margin: .25rem 0 0;
+  color: var(--sepia-read);
+  font: 500 clamp(1.04rem, 1.22vw, 1.16rem)/1.45 var(--hand);
+}
+
+/* the demo leaf */
+.tale-recital-tight { margin: 0; padding: 0; list-style: none; }
+/* the three-column recital grid does not apply here — there is no folio and
+   the leaf is half the width, so each entry stacks */
+.tale-recital-tight > li {
+  display: block;
+  padding: clamp(.9rem, 1.4vw, 1.2rem) 0;
+  border-top: 0;
+  border-bottom: 1px dotted rgba(140, 104, 58, .5);
+}
+.tale-recital-tight > li:first-of-type { padding-top: .3rem; }
+.tale-recital-tight > li:last-child { border-bottom: 0; }
+.tale-recital-tight .tale-recital-copy { margin-bottom: .6rem; }
+.tale-recital-tight .tale-recital-copy span {
+  display: block;
+  color: var(--gilt-deep);
+  font: 700 .62rem/1 var(--caps);
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+.tale-recital-tight .tale-recital-copy h3 {
+  margin: .3rem 0 .15rem;
+  color: var(--sepia);
+  font: 400 clamp(1.3rem, 1.6vw, 1.55rem)/1.15 var(--fell);
+}
+.tale-recital-tight .tale-recital-copy p {
+  margin: 0;
+  color: var(--sepia-read);
+  font: italic 500 clamp(1rem, 1.16vw, 1.1rem)/1.4 var(--hand);
+}
+
+.tale-seal-demo { margin-top: clamp(1.2rem, 1.9vw, 1.7rem); }
+
+@media (max-width: 1180px) {
+  .tale-book-demo { grid-template-columns: 1fr; }
+}
