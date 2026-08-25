@@ -1497,3 +1497,152 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   font: italic 500 clamp(1.137rem, 1.299vw, 1.253rem)/1.35 var(--hand);
 }
 .tale-seal-link:first-child b { color: var(--rubric); }
+
+/* ==========================================================================
+   LEGIBILITY PASS
+   The book look was winning over the reading. Visitors have to actually read
+   this, and the things that lead to a demo have to invite a click — so the
+   section leads, the captions and the calls to action all get weight, size
+   and contrast. The display type and the paper are untouched.
+   ========================================================================== */
+
+/* --- Section leads that head a thing worth doing ------------------------- */
+.tale-rubric-lead {
+  color: var(--rubric);
+  font: 700 clamp(.86rem, 1.15vw, 1.02rem)/1.25 var(--caps);
+  letter-spacing: .15em;
+}
+.tale-rubric-lead span::before { font-size: .9em; }
+.tale-rubric-lead::after { background: linear-gradient(90deg, rgba(152, 64, 47, .5), transparent); }
+
+/* --- Everything that leads into a demo ----------------------------------- */
+.tale-track .audio-info strong {
+  color: var(--sepia);
+  font-size: clamp(1.24rem, 1.55vw, 1.5rem);
+  font-weight: 400;
+}
+.tale-track .audio-info small {
+  color: var(--sepia-read);
+  font-size: .68rem;
+  letter-spacing: .08em;
+}
+.tale-track .audio-track { height: 4px; background: rgba(104, 72, 38, .34); }
+.tale-track .audio-toggle {
+  width: clamp(46px, 3.9vw, 54px);
+  height: clamp(46px, 3.9vw, 54px);
+  box-shadow: inset 0 0 0 2px rgba(255, 246, 220, .45), 0 5px 14px rgba(60, 34, 14, .38);
+}
+.tale-track .audio-toggle span { font-size: .92rem; }
+
+.tale-more > p {
+  color: var(--sepia);
+  font: 600 clamp(1.1rem, 1.32vw, 1.28rem)/1.4 var(--hand);
+  font-style: italic;
+}
+/* the reel links are buttons, so they should look like buttons */
+.tale-more .tale-pill {
+  padding: .6rem 1.05rem;
+  border-color: rgba(122, 88, 36, .75);
+  background: rgba(255, 249, 232, .62);
+  color: var(--sepia);
+  font: 700 .72rem/1 var(--caps);
+  letter-spacing: .13em;
+}
+.tale-more .tale-pill:hover { border-color: #3d1449; background: #3d1449; color: #f5d99a; }
+
+.tale-onward {
+  color: var(--rubric);
+  font-size: clamp(1.22rem, 1.45vw, 1.4rem);
+  border-bottom-width: 2px;
+  border-bottom-color: rgba(152, 64, 47, .6);
+}
+.tale-onward:hover { color: #7e2f21; border-bottom-color: #7e2f21; }
+
+/* --- Captions read as captions, not as whispers --------------------------- */
+.tale-portrait figcaption, .tale-figure figcaption {
+  color: var(--sepia-read);
+  font-size: clamp(1.14rem, 1.4vw, 1.32rem);
+}
+.tale-portrait figcaption span, .tale-figure figcaption span {
+  color: #6d4a1c;
+  font-size: clamp(.95rem, 1.1vw, 1.05rem);
+  letter-spacing: .1em;
+}
+
+/* --- The notes slip ------------------------------------------------------- */
+.tale-slip dt {
+  color: var(--sepia);
+  font-size: clamp(.72rem, .92vw, .82rem);
+  font-weight: 700;
+  letter-spacing: .11em;
+}
+.tale-slip dd {
+  color: var(--sepia-read);
+  font-size: clamp(1.08rem, 1.28vw, 1.22rem);
+}
+
+/* --- General contrast lift ------------------------------------------------ */
+.tale-prose p, .tale-lede { color: var(--sepia-read); }
+.tale-shelf em, .tale-press h3, .tale-quill { color: var(--sepia-read); }
+.tale-quill { font-weight: 700; font-size: .68rem; letter-spacing: .14em; }
+.tale-press-more { color: var(--sepia-read); }
+
+/* --- Da Eun's little gallery ---------------------------------------------- */
+.tale-gallery-lede { margin-bottom: clamp(1.4rem, 2.2vw, 2rem); }
+.tale-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: clamp(.9rem, 1.6vw, 1.5rem);
+  margin: 0 0 clamp(2.2rem, 3.4vw, 3.2rem);
+}
+.tale-gallery .tale-scrap { margin: 0; }
+.tale-gallery .tale-scrap img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 1px solid rgba(122, 88, 36, .55);
+  outline: 1px solid rgba(150, 112, 48, .2);
+  outline-offset: 4px;
+  background: rgba(255, 250, 232, .5);
+  box-shadow: 0 8px 18px rgba(70, 44, 22, .22);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.tale-gallery .tale-scrap:hover img {
+  transform: translateY(-3px) scale(1.012);
+  box-shadow: 0 14px 26px rgba(70, 44, 22, .3);
+}
+.tale-gallery .tale-scrap-wide { grid-column: span 2; }
+.tale-gallery .tale-scrap-wide img { aspect-ratio: 2.44; }
+@media (max-width: 560px) {
+  .tale-gallery .tale-scrap-wide { grid-column: auto; }
+  .tale-gallery .tale-scrap-wide img { aspect-ratio: 1.6; }
+}
+
+/* --- What fills the hours between takes ----------------------------------- */
+.tale-pursuits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(.8rem, 1.3vw, 1.2rem) clamp(1.4rem, 2.6vw, 2.6rem);
+  margin: 0 0 clamp(1rem, 1.6vw, 1.4rem);
+  padding: 0;
+  list-style: none;
+}
+.tale-pursuits li {
+  padding-left: 1.35rem;
+  border-left: 2px solid rgba(150, 112, 48, .45);
+}
+.tale-pursuits strong {
+  display: block;
+  color: var(--sepia);
+  font: 400 clamp(1.18rem, 1.4vw, 1.34rem)/1.25 var(--fell);
+}
+.tale-pursuits span {
+  display: block;
+  margin-top: .18rem;
+  color: var(--sepia-read);
+  font: 500 clamp(1rem, 1.16vw, 1.1rem)/1.4 var(--hand);
+}
+
+/* the second plate in the opening leaf */
+.tale-figure-second { margin-top: clamp(1.2rem, 2vw, 1.8rem); }
