@@ -344,13 +344,96 @@ if ('IntersectionObserver' in window) {
 // hovering over each long enough to be noticed, and breaks off to follow the
 // pointer whenever the visitor moves. Motion and pointer-precision gated:
 // no fairy on touch screens or for visitors who asked for less movement.
-const fairy = document.querySelector('[data-fairy]');
+// A slighter, lighter sprite: narrow body, short petal-hemmed dress, a top knot,
+// and wings large against the frame. Built in JS so every page gets her from one
+// source, and only when she is going to be used.
+const FAIRY_SVG = `
+<svg class="fairy" viewBox="0 0 64 64" width="56" height="56">
+  <defs>
+    <radialGradient id="fairy-aura">
+      <stop offset="0%" stop-color="rgba(255,241,196,.55)"/>
+      <stop offset="34%" stop-color="rgba(255,212,128,.17)"/>
+      <stop offset="62%" stop-color="rgba(255,214,130,.09)"/>
+      <stop offset="100%" stop-color="rgba(255,198,104,0)"/>
+    </radialGradient>
+    <linearGradient id="fairy-wing" x1=".1" y1="1" x2=".9" y2="0">
+      <stop offset="0%" stop-color="rgba(255,253,242,.72)"/>
+      <stop offset="42%" stop-color="rgba(236,220,255,.42)"/>
+      <stop offset="100%" stop-color="rgba(196,182,255,.1)"/>
+    </linearGradient>
+    <linearGradient id="fairy-body" x1="0" y1="0" x2=".35" y2="1">
+      <stop offset="0%" stop-color="#fffdf2"/>
+      <stop offset="48%" stop-color="#f9e3b2"/>
+      <stop offset="100%" stop-color="#e0b46c"/>
+    </linearGradient>
+  </defs>
+
+  <circle class="fairy-aura" cx="32" cy="30" r="31" fill="url(#fairy-aura)"/>
+
+  <g class="fairy-wings fairy-wings-upper">
+    <path d="M30.9 24.4C27 20.3 20.6 14.6 14.6 12.1C11.2 16.7 13.6 24.4 20 28.1C24 30.3 28.2 29.6 30.9 26.9Z"/>
+    <path d="M33.1 24.4C37 20.3 43.4 14.6 49.4 12.1C52.8 16.7 50.4 24.4 44 28.1C40 30.3 35.8 29.6 33.1 26.9Z"/>
+    <path class="fairy-vein" d="M29.7 25.9C26.7 22.5 22.9 18.2 17.9 14.9"/>
+    <path class="fairy-vein" d="M34.3 25.9C37.3 22.5 41.1 18.2 46.1 14.9"/>
+  </g>
+  <g class="fairy-wings fairy-wings-lower">
+    <path d="M31 28.2C27.8 27.6 22.6 29.1 19.8 34C21.6 39.3 27.4 41 31.5 37.6C32.6 36.3 31.9 31.4 31 28.2Z"/>
+    <path d="M33 28.2C36.2 27.6 41.4 29.1 44.2 34C42.4 39.3 36.6 41 32.5 37.6C31.4 36.3 32.1 31.4 33 28.2Z"/>
+    <path class="fairy-vein" d="M30.2 30C27.3 30.3 24.3 31.8 22.3 34.1"/>
+    <path class="fairy-vein" d="M33.8 30C36.7 30.3 39.7 31.8 41.7 34.1"/>
+  </g>
+
+  <g class="fairy-figure">
+    <path class="fairy-leg" d="M30.9 38.4C30.6 41.6 30.3 44.6 29.8 47.6"/>
+    <path class="fairy-leg" d="M33.1 38.4C33.4 41.4 33.7 44.2 34.2 47.2"/>
+    <ellipse class="fairy-foot" cx="29.5" cy="48.3" rx=".75" ry="1.1" transform="rotate(-12 29.5 48.3)"/>
+    <ellipse class="fairy-foot" cx="34.5" cy="47.9" rx=".75" ry="1.1" transform="rotate(10 34.5 47.9)"/>
+
+    <path class="fairy-arm" d="M34 22.4C36 21.9 37.6 20.8 38.7 19.2"/>
+    <path class="fairy-arm" d="M30 22.6C28.5 23.5 27.4 24.9 26.8 26.6"/>
+    <circle class="fairy-hand" cx="39.1" cy="18.7" r=".9"/>
+    <circle class="fairy-hand" cx="26.6" cy="27.1" r=".9"/>
+
+    <path class="fairy-gown" d="M30 21.3C31.3 20.7 32.7 20.7 34 21.3C35.3 22.2 35.8 23.8 35.5 25.8C35.3 27.3 35 28.6 34.9 30C34.8 32 35.3 34 36 36C36.3 36.9 36.6 37.6 36.8 38.4C35.6 37.9 34.7 37.7 34 37.9C33.5 38.7 33 39.4 32.4 40.2C32.2 39.3 32.1 38.6 32 37.9C31.9 38.6 31.8 39.3 31.6 40.2C31 39.4 30.5 38.7 30 37.9C29.3 37.7 28.4 37.9 27.2 38.4C27.4 37.6 27.7 36.9 28 36C28.7 34 29.2 32 29.1 30C29 28.6 28.7 27.3 28.5 25.8C28.2 23.8 28.7 22.2 30 21.3Z"/>
+    <path class="fairy-gown-shade" d="M30 21.3C30.5 21 31 20.8 31.5 20.8C30.6 22.6 30.3 24.4 30.5 26.4C30.7 28.2 30.9 29.6 30.8 31.2C30.7 33.4 30.2 35.6 29.4 37.6C28.7 37.7 28 37.9 27.2 38.4C27.4 37.6 27.7 36.9 28 36C28.7 34 29.2 32 29.1 30C29 28.6 28.7 27.3 28.5 25.8C28.2 23.8 28.7 22.2 30 21.3Z"/>
+
+    <path class="fairy-neck" d="M30.9 18.6H33.1V21.7H30.9Z"/>
+    <ellipse class="fairy-head" cx="32" cy="15.2" rx="4.6" ry="5"/>
+    <path class="fairy-hair" d="M32 9.8C35.8 9.8 38 12.4 37.7 16.4C37.4 14.7 36.8 13.5 35.9 12.6C34.9 13.6 33.5 14.2 31.8 14.2C29.5 14.2 27.4 13.3 26 12C25.4 13.3 25.1 14.9 25.1 16.4C24.7 12.3 27.2 9.8 32 9.8Z"/>
+    <ellipse class="fairy-bun" cx="32" cy="8.9" rx="2.1" ry="1.8"/>
+  </g>
+</svg>`;
+
+const fairy = (() => {
+  const finePointerProbe = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reducedProbe = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!finePointerProbe.matches || reducedProbe.matches) return null;
+  const host = document.createElement('div');
+  host.className = 'fairy-guide';
+  host.setAttribute('data-fairy', '');
+  host.setAttribute('aria-hidden', 'true');
+  host.innerHTML = FAIRY_SVG;
+  document.body.append(host);
+  return host;
+})();
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (fairy && finePointer.matches && !reducedMotion.matches) {
-  const stops = [...document.querySelectorAll('[data-fairy-stop]')]
+  const marked = [...document.querySelectorAll('[data-fairy-stop]')]
     .sort((p, q) => Number(p.dataset.fairyStop) - Number(q.dataset.fairyStop));
+  // pages that mark nothing still get a tour, chosen by shape
+  const DEFAULT_STOPS = [
+    '.tale-voices .audio-toggle',   // the demo players, where they exist
+    '.tale-seal',                   // the primary call to action on every subpage
+    '.tale-onward',                 // "read her story" / "start a conversation"
+    '.tale-address',                // the contact page's email
+    '.tale-quill',                  // "view the whole Audible page"
+    '.tale-seal-link',              // the letter's ways to begin
+  ].join(', ');
+  const stops = marked.length
+    ? marked
+    : [...document.querySelectorAll(DEFAULT_STOPS)].slice(0, 3);
 
   let x = window.innerWidth * .62;
   let y = window.innerHeight * .36;

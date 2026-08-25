@@ -12,7 +12,7 @@
   --leaf-lit: #f5e7c6;      /* where the light falls */
   --sepia: #3b2a20;         /* iron-gall ink         */
   --sepia-soft: #6d5641;    /* faded ink             */
-  --sepia-read: #4a3527;    /* ink at reading size   */
+  --sepia-read: #402d20;    /* ink at reading size   */
   --rubric: #98402f;        /* rubricated red        */
   --gilt: #b1873c;
   --gilt-lit: #e6c37c;
@@ -30,7 +30,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; overflow-x: clip; }
-body { margin: 0; overflow-x: clip; background: var(--dusk); color: var(--sepia); font: 500 16px/1.6 var(--hand); }
+body { margin: 0; overflow-x: clip; background: var(--dusk); color: var(--sepia); font: 500 17.5px/1.62 var(--hand); }
 body::before { content: ""; position: fixed; inset: 0; z-index: 99; pointer-events: none; opacity: .028; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 img, video { display: block; max-width: 100%; }
 button, a { -webkit-tap-highlight-color: transparent; }
@@ -124,11 +124,11 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .opening-copy::after { content: "✦\FE0E"; bottom: -.62rem; font-size: .8rem; }
 .stage-opening.is-open .opening-copy { opacity: 0; transform: scale(.965) translateY(-6px); pointer-events: none; transition: opacity .5s ease, transform .7s cubic-bezier(.3,.7,.3,1); }
 .stage-opening.is-open .opening-stars { opacity: 0; transition: opacity .8s ease; }
-.opening-eyebrow { margin: 0 0 .85rem; color: #f7dc98; font: 600 clamp(.6rem, .9vw, .76rem)/1.4 var(--caps); letter-spacing: .2em; text-transform: uppercase; }
+.opening-eyebrow { margin: 0 0 .85rem; color: #f7dc98; font: 600 clamp(0.72rem, 1.08vw, 0.912rem)/1.4 var(--caps); letter-spacing: .2em; text-transform: uppercase; }
 .opening-copy h1 { margin: 0; }
 .opening-name { display: block; color: #fff1be; font: 400 clamp(3.4rem, 6.7vw, 6.35rem)/.9 var(--fell); letter-spacing: -.035em; text-shadow: 0 3px 18px rgba(22,2,26,.55), 0 0 24px rgba(255,219,120,.12); }
 .opening-welcome { display: block; margin-top: .18em; color: #f6d477; font: italic 400 clamp(2rem, 4vw, 3.55rem)/.96 var(--fell); letter-spacing: -.02em; }
-.opening-intro { max-width: 560px; margin: 1.2rem auto 1.45rem; color: #ffe9ad; font: italic 500 clamp(1.05rem, 1.45vw, 1.28rem)/1.5 var(--hand); }
+.opening-intro { max-width: 560px; margin: 1.2rem auto 1.45rem; color: #ffe9ad; font: italic 500 clamp(1.218rem, 1.682vw, 1.485rem)/1.5 var(--hand); }
 .opening-button { position: relative; display: inline-flex; align-items: center; gap: .9rem; min-width: 260px; padding: .72rem 1.2rem; overflow: hidden; border: 1px solid #7d5528; border-radius: 3px; outline: 1px solid rgba(241,211,147,.58); outline-offset: 4px; background: radial-gradient(circle at 18% 22%, rgba(255,255,255,.46), transparent 25%), radial-gradient(circle at 82% 78%, rgba(126,77,29,.19), transparent 33%), linear-gradient(145deg,#f3e3b9,#d5af6c 58%,#efd79e); color: #3a1c27; box-shadow: 0 10px 24px rgba(0,0,0,.31), inset 0 0 20px rgba(116,67,22,.15), inset 0 0 0 2px rgba(255,246,218,.4); cursor: pointer; transition: transform .2s, box-shadow .2s; }
 .opening-button::before, .opening-button::after { content: ""; position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; background: #4a1d58; transform: translateY(-50%); }
 .opening-button::before { left: -8px; }.opening-button::after { right: -8px; }
@@ -188,7 +188,7 @@ main::before {
   gap: clamp(.7rem, 1.3vw, 1.25rem);
   margin: 0 0 clamp(1.15rem, 2vw, 2rem);
   color: #ecd29a;
-  font: 600 clamp(.6rem, .85vw, .74rem)/1 var(--caps);
+  font: 600 clamp(0.72rem, 1.02vw, 0.888rem)/1 var(--caps);
   letter-spacing: .34em;
   text-transform: uppercase;
   text-align: center;
@@ -368,7 +368,7 @@ main::before {
 }
 .tale-portrait figcaption {
   color: var(--sepia-soft);
-  font: italic 500 clamp(1rem, 1.25vw, 1.15rem)/1.45 var(--hand);
+  font: italic 500 clamp(1.16rem, 1.45vw, 1.334rem)/1.45 var(--hand);
   text-align: center;
 }
 .tale-portrait figcaption span {
@@ -407,7 +407,7 @@ main::before {
 .tale-figure-fill { flex: 1; justify-content: center; }
 .tale-figure figcaption {
   color: var(--sepia-soft);
-  font: italic 500 clamp(.98rem, 1.2vw, 1.12rem)/1.45 var(--hand);
+  font: italic 500 clamp(1.137rem, 1.392vw, 1.299rem)/1.45 var(--hand);
   text-align: center;
 }
 .tale-figure figcaption span {
@@ -453,11 +453,11 @@ main::before {
   max-width: 22ch;
   margin: 0;
   color: #f8e2ab;
-  font: italic 500 clamp(1.1rem, 1.5vw, 1.4rem)/1.4 var(--hand);
+  font: italic 500 clamp(1.276rem, 1.74vw, 1.624rem)/1.4 var(--hand);
 }
 .tale-emblem small {
   color: rgba(242, 210, 140, .82);
-  font: 600 clamp(.54rem, .74vw, .64rem)/1 var(--caps);
+  font: 600 clamp(0.648rem, 0.888vw, 0.768rem)/1 var(--caps);
   letter-spacing: .24em;
   text-transform: uppercase;
 }
@@ -522,7 +522,7 @@ main::before {
   display: block;
   margin-top: .55rem;
   color: var(--gilt-deep);
-  font: 600 clamp(.54rem, .76vw, .66rem)/1.5 var(--caps);
+  font: 600 clamp(0.648rem, 0.912vw, 0.792rem)/1.5 var(--caps);
   letter-spacing: .26em;
   text-transform: uppercase;
 }
@@ -534,7 +534,7 @@ main::before {
   gap: .85rem;
   margin: 0 0 clamp(.7rem, 1.1vw, 1rem);
   color: var(--rubric);
-  font: 600 clamp(.58rem, .8vw, .69rem)/1.4 var(--caps);
+  font: 600 clamp(0.696rem, 0.96vw, 0.828rem)/1.4 var(--caps);
   letter-spacing: .22em;
   text-transform: uppercase;
 }
@@ -578,13 +578,13 @@ main::before {
   max-width: 62ch;
   margin: clamp(1rem, 1.7vw, 1.5rem) 0 0;
   color: var(--sepia-read);
-  font: italic 500 clamp(1.1rem, 1.45vw, 1.35rem)/1.5 var(--hand);
+  font: italic 500 clamp(1.276rem, 1.682vw, 1.566rem)/1.5 var(--hand);
 }
 .tale-prose { max-width: 66ch; }
 .tale-prose p {
   margin: clamp(.85rem, 1.3vw, 1.1rem) 0 0;
   color: var(--sepia-read);
-  font: 500 clamp(1.05rem, 1.22vw, 1.16rem)/1.62 var(--hand);
+  font: 500 clamp(1.218rem, 1.415vw, 1.346rem)/1.62 var(--hand);
 }
 .tale-prose p:first-child { margin-top: 0; }
 .tale-prose em { font-style: italic; }
@@ -597,7 +597,7 @@ main::before {
   padding-top: clamp(.8rem, 1.2vw, 1.05rem);
   border-top: 1px solid rgba(150, 112, 48, .34);
   color: var(--sepia-soft);
-  font: italic 500 clamp(.95rem, 1.1vw, 1.04rem)/1.5 var(--hand);
+  font: italic 500 clamp(1.102rem, 1.276vw, 1.206rem)/1.5 var(--hand);
 }
 .tale-note-mid { margin-inline: auto; text-align: center; }
 
@@ -638,7 +638,7 @@ main::before {
 }
 .tale-dl dt {
   color: var(--sepia);
-  font: 600 clamp(.55rem, .72vw, .62rem)/1.35 var(--caps);
+  font: 600 clamp(0.66rem, 0.864vw, 0.744rem)/1.35 var(--caps);
   letter-spacing: .14em;
   text-transform: uppercase;
 }
@@ -646,7 +646,7 @@ main::before {
 .tale-dl dd {
   margin: .42rem 0 0;
   color: var(--sepia-soft);
-  font: 500 clamp(.94rem, 1.1vw, 1.05rem)/1.42 var(--hand);
+  font: 500 clamp(1.09rem, 1.276vw, 1.218rem)/1.42 var(--hand);
 }
 .tale-dl dd em { font-style: italic; }
 .tale-slip .tale-leaf-inner { padding: clamp(1.5rem, 2.3vw, 2.3rem) clamp(1.6rem, 2.7vw, 2.9rem) clamp(1.7rem, 2.5vw, 2.5rem); }
@@ -672,7 +672,7 @@ main::before {
 }
 .tale-card > span {
   color: var(--rubric);
-  font: 600 clamp(.52rem, .7vw, .6rem)/1.4 var(--caps);
+  font: 600 clamp(0.624rem, 0.84vw, 0.72rem)/1.4 var(--caps);
   letter-spacing: .18em;
   text-transform: uppercase;
 }
@@ -684,14 +684,14 @@ main::before {
 .tale-card p {
   margin: 0;
   color: var(--sepia-read);
-  font: 500 clamp(.98rem, 1.12vw, 1.08rem)/1.5 var(--hand);
+  font: 500 clamp(1.137rem, 1.299vw, 1.253rem)/1.5 var(--hand);
 }
 .tale-card ul { margin: .2rem 0 0; padding: 0; list-style: none; }
 .tale-card li {
   padding: .42rem 0;
   border-bottom: 1px dotted rgba(140, 104, 58, .5);
   color: var(--sepia-read);
-  font: 500 clamp(.95rem, 1.08vw, 1.04rem)/1.4 var(--hand);
+  font: 500 clamp(1.102rem, 1.253vw, 1.206rem)/1.4 var(--hand);
 }
 .tale-card li::before { content: "✦\FE0E"; margin-right: .5rem; color: var(--gilt); font-size: .68em; }
 .tale-card li:last-child { border-bottom: 0; }
@@ -741,7 +741,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   margin: .35rem 0 0;
   max-width: 62ch;
   color: var(--sepia-read);
-  font: 500 clamp(1rem, 1.14vw, 1.1rem)/1.5 var(--hand);
+  font: 500 clamp(1.16rem, 1.322vw, 1.276rem)/1.5 var(--hand);
 }
 
 /* --- A shelf of linked titles -------------------------------------------- */
@@ -765,7 +765,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   align-items: baseline;
   gap: clamp(.7rem, 1.4vw, 1.4rem);
   color: var(--sepia-soft);
-  font: italic 500 clamp(.98rem, 1.2vw, 1.14rem)/1.25 var(--hand);
+  font: italic 500 clamp(1.137rem, 1.392vw, 1.322rem)/1.25 var(--hand);
 }
 .tale-shelf em::before {
   content: "";
@@ -899,7 +899,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-recital > li:last-child { border-bottom: 1px dotted rgba(140, 104, 58, .55); }
 .tale-recital-copy > span {
   color: var(--rubric);
-  font: 600 clamp(.52rem, .7vw, .6rem)/1.4 var(--caps);
+  font: 600 clamp(0.624rem, 0.84vw, 0.72rem)/1.4 var(--caps);
   letter-spacing: .18em;
   text-transform: uppercase;
 }
@@ -911,7 +911,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-recital-copy p {
   margin: .3rem 0 0;
   color: var(--sepia-soft);
-  font: italic 500 clamp(.98rem, 1.14vw, 1.08rem)/1.4 var(--hand);
+  font: italic 500 clamp(1.137rem, 1.322vw, 1.253rem)/1.4 var(--hand);
 }
 
 /* --- Scraps taped into the book ------------------------------------------ */
@@ -932,7 +932,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   right: .6rem;
   bottom: .55rem;
   color: var(--sepia-soft);
-  font: italic 500 clamp(.85rem, 1vw, .98rem)/1.25 var(--hand);
+  font: italic 500 clamp(0.986rem, 1.16vw, 1.137rem)/1.25 var(--hand);
   text-align: center;
 }
 .tale-scrap::before, .tale-scrap::after {
@@ -976,7 +976,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-more > p {
   margin: 0 0 .65rem;
   color: var(--sepia-soft);
-  font: italic 500 clamp(.95rem, 1.15vw, 1.08rem)/1.3 var(--hand);
+  font: italic 500 clamp(1.102rem, 1.334vw, 1.253rem)/1.3 var(--hand);
 }
 .tale-more span { display: flex; flex-wrap: wrap; gap: .5rem; }
 .tale-more .tale-onward { margin-top: clamp(.75rem, 1.2vw, 1rem); }
@@ -1006,7 +1006,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-ribbon-track { display: flex; align-items: center; gap: 2.2rem; width: max-content; animation: taleRibbon 34s linear infinite; }
 .tale-ribbon-track span {
   color: #f4dda6;
-  font: 600 clamp(.56rem, .76vw, .66rem)/1 var(--caps);
+  font: 600 clamp(0.672rem, 0.912vw, 0.792rem)/1 var(--caps);
   letter-spacing: .3em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -1114,8 +1114,8 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   z-index: 60;
   top: 0;
   left: 0;
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   pointer-events: none;
   will-change: transform;
   transform: translate3d(62vw, 36vh, 0);
@@ -1124,30 +1124,29 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 @media (hover: none), (pointer: coarse) {
   .fairy-guide, .fairy-spark { display: none; }
 }
-.fairy { display: block; overflow: visible; filter: drop-shadow(0 2px 3px rgba(58, 30, 10, .42)); }
+.fairy { display: block; overflow: visible; filter: drop-shadow(0 1px 2.5px rgba(58, 30, 10, .34)); }
 .fairy-aura { animation: fairyAura 3.1s ease-in-out infinite; transform-origin: 32px 31px; }
 
 .fairy-wings > path:not(.fairy-vein) {
   fill: url(#fairy-wing);
-  stroke: rgba(255, 246, 220, .6);
-  stroke-width: .55;
+  stroke: rgba(255, 250, 232, .55);
+  stroke-width: .45;
 }
-.fairy-vein { fill: none; stroke: rgba(255, 246, 220, .38); stroke-width: .4; stroke-linecap: round; }
+.fairy-vein { fill: none; stroke: rgba(255, 250, 232, .3); stroke-width: .32; stroke-linecap: round; }
 .fairy-wings { transform-origin: 32px 27px; }
-.fairy-wings-upper { animation: fairyWingUpper .17s ease-in-out infinite alternate; }
-.fairy-wings-lower { animation: fairyWingLower .17s ease-in-out infinite alternate; animation-delay: .05s; }
+.fairy-wings-upper { animation: fairyWingUpper .15s ease-in-out infinite alternate; }
+.fairy-wings-lower { animation: fairyWingLower .15s ease-in-out infinite alternate; animation-delay: .045s; }
 
 .fairy-gown, .fairy-head, .fairy-neck { fill: url(#fairy-body); }
-.fairy-gown-shade { fill: #b8873a; opacity: .32; }
-.fairy-hand, .fairy-foot { fill: #f6d79b; }
-.fairy-hair, .fairy-bun { fill: #a9701f; }
-.fairy-strand { fill: none; stroke: #a9701f; stroke-width: 1.1; stroke-linecap: round; }
-.fairy-arm, .fairy-leg { fill: none; stroke: #f0ca86; stroke-width: 1.5; stroke-linecap: round; }
-.fairy-leg { stroke-width: 1.7; }
+.fairy-gown-shade { fill: #c39a52; opacity: .26; }
+.fairy-hand, .fairy-foot { fill: #f9e2b2; }
+.fairy-hair, .fairy-bun { fill: #c08c33; }
+.fairy-arm, .fairy-leg { fill: none; stroke: #f6dba4; stroke-width: 1.05; stroke-linecap: round; }
+.fairy-leg { stroke-width: 1.15; }
 .fairy-figure { animation: fairyBob 2.3s ease-in-out infinite alternate; transform-origin: 32px 30px; }
 
 @keyframes fairyAura { 50% { opacity: .55; transform: scale(.86); } }
-@keyframes fairyWingUpper { from { transform: rotate(-19deg) scaleX(.88); } to { transform: rotate(9deg) scaleX(1); } }
+@keyframes fairyWingUpper { from { transform: rotate(-21deg) scaleX(.84); } to { transform: rotate(10deg) scaleX(1); } }
 @keyframes fairyWingLower { from { transform: rotate(11deg) scaleX(.9); } to { transform: rotate(-7deg) scaleX(1); } }
 @keyframes fairyBob { to { transform: translateY(-1.6px); } }
 
@@ -1169,11 +1168,11 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .fairy-spark {
   position: fixed;
   z-index: 59;
-  width: 3px;
-  height: 3px;
+  width: 2.5px;
+  height: 2.5px;
   border-radius: 50%;
-  background: radial-gradient(circle at 34% 30%, #fffdf2, #ffd77c 55%, rgba(224, 158, 54, 0) 80%);
-  box-shadow: 0 0 9px rgba(255, 214, 130, .9);
+  background: radial-gradient(circle at 34% 30%, #fffef7, #ffe093 55%, rgba(224, 158, 54, 0) 80%);
+  box-shadow: 0 0 8px rgba(255, 220, 145, .85);
   pointer-events: none;
   animation: fairyTrail 1.5s ease-out forwards;
 }
@@ -1419,3 +1418,82 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   .footer-nav { grid-template-columns: 1fr; }
   .site-footer::after { letter-spacing: .25em; font-size: .85rem; }
 }
+
+/* --- "And more…" closing the publisher row ------------------------------- */
+.tale-press-more {
+  color: var(--sepia-soft);
+  font: italic 500 clamp(1.183rem, 1.45vw, 1.369rem)/1 var(--hand);
+  white-space: nowrap;
+}
+
+/* --- Chapter Three: the open letter -------------------------------------- */
+.tale-letter .tale-sheet-inner { padding-bottom: clamp(2.4rem, 3.6vw, 3.6rem); }
+
+.tale-salutation {
+  margin: clamp(1.4rem, 2.2vw, 2rem) 0 0;
+  color: var(--sepia);
+  font: 400 clamp(1.3rem, 1.9vw, 1.75rem)/1.35 var(--fell);
+}
+.tale-letter-body { max-width: 68ch; margin-top: clamp(.9rem, 1.4vw, 1.2rem); }
+.tale-letter-body p + p { margin-top: .85em; }
+
+.tale-signoff {
+  margin: clamp(1.4rem, 2.2vw, 2rem) 0 0;
+  color: var(--sepia-soft);
+  font: italic 500 clamp(1.253rem, 1.508vw, 1.415rem)/1.5 var(--hand);
+}
+.tale-signoff span {
+  display: block;
+  margin-top: .2rem;
+  color: var(--sepia);
+  font: 400 clamp(1.7rem, 2.5vw, 2.3rem)/1.1 var(--fell);
+  font-style: normal;
+}
+
+/* letter left, ways to begin alongside it — the sheet is far wider than a
+   comfortable measure, so the column keeps the reading line honest */
+.tale-letter .tale-sheet-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+  align-items: start;
+  column-gap: clamp(2rem, 4vw, 4.5rem);
+}
+.tale-letter .tale-rubric { grid-column: 1 / -1; }
+.tale-letter-text { min-width: 0; }
+.tale-letter-body { max-width: none; }
+
+.tale-letter-ways {
+  display: grid;
+  gap: clamp(.7rem, 1.2vw, 1.1rem);
+  margin-top: clamp(1.4rem, 2.2vw, 2rem);
+  padding-top: clamp(1.4rem, 2.2vw, 2rem);
+  border-top: 1px solid rgba(150, 112, 48, .34);
+}
+@media (max-width: 900px) {
+  .tale-letter .tale-sheet-inner { grid-template-columns: 1fr; }
+  .tale-letter-ways { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+}
+.tale-seal-link {
+  display: grid;
+  gap: .3rem;
+  padding: clamp(.9rem, 1.3vw, 1.15rem) clamp(1rem, 1.4vw, 1.25rem);
+  border: 1px solid rgba(150, 112, 48, .45);
+  background: rgba(255, 247, 224, .28);
+  text-decoration: none;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.tale-seal-link:hover {
+  border-color: rgba(150, 112, 48, .8);
+  background: rgba(255, 249, 231, .6);
+  transform: translateY(-2px);
+}
+.tale-seal-link b {
+  color: var(--sepia);
+  font: 400 clamp(1.14rem, 1.4vw, 1.32rem)/1.2 var(--fell);
+  font-weight: 400;
+}
+.tale-seal-link em {
+  color: var(--sepia-soft);
+  font: italic 500 clamp(1.137rem, 1.299vw, 1.253rem)/1.35 var(--hand);
+}
+.tale-seal-link:first-child b { color: var(--rubric); }
