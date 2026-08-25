@@ -89,9 +89,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 }
 /* pigment pooling where the paper is still wet */
 .ink-rim rect { fill: #1c0526; }
-.ink-halo rect { fill: #4a1a58; }
-.ink-rim { opacity: .34; }
-.ink-halo { opacity: .38; filter: blur(6px); }
+.ink-rim { opacity: .3; }
 .stage-opening.is-open .ink-veil { animation: inkVeilSoak 900ms ease-in 2650ms both; }
 @keyframes inkVeilSoak { to { opacity: 0; } }
 
@@ -1259,4 +1257,155 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   .fairy-guide, .fairy-spark { display: none !important; }
   .tale-ribbon-track { animation: none; }
   .wisp-glow, .wisp-wing { animation: none; }
+}
+
+/* ==========================================================================
+   THE CLOSING LEAF — site footer
+   Its base rules were lost in an earlier rewrite; the markup survived on all
+   ten pages. It sits on the viewport-fixed curtain from main::before, so it
+   needs no background image of its own.
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(1.8rem, 3vw, 3rem) clamp(1.5rem, 3.5vw, 3.5rem);
+  padding: clamp(3rem, 5vw, 4.5rem) max(5vw, 1.5rem) clamp(2rem, 3vw, 2.8rem);
+  background: linear-gradient(180deg, rgba(18, 4, 24, .55), rgba(14, 3, 20, .82));
+  color: var(--story-cream);
+}
+/* gilt rule closing the page, with a printer's ornament seated on it */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: clamp(.9rem, 1.6vw, 1.5rem) clamp(1rem, 2.5vw, 2.5rem) auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(231, 189, 98, .7) 18%, rgba(231, 189, 98, .7) 82%, transparent);
+}
+.site-footer::after {
+  content: "✦   ⁂   ☾   ⁂   ✦";
+  position: absolute;
+  top: calc(clamp(.9rem, 1.6vw, 1.5rem) - .78em);
+  left: 50%;
+  padding: 0 .9rem;
+  background: #1a0522;
+  color: rgba(241, 211, 145, .8);
+  font: 400 1rem/1.5 Georgia, serif;
+  letter-spacing: .4em;
+  text-indent: .4em;
+  transform: translateX(-50%);
+}
+
+.footer-brand span { font-size: clamp(1.35rem, 1.9vw, 1.75rem); }
+
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .5rem clamp(1rem, 2vw, 2rem);
+  align-content: start;
+}
+.footer-nav a {
+  color: #f4e6c2;
+  font: 400 clamp(.98rem, 1.15vw, 1.1rem)/1.3 var(--fell);
+  text-decoration: none;
+  transition: color .2s, transform .2s;
+}
+.footer-nav a::before { content: "✦"; margin-right: .5rem; color: rgba(231, 189, 98, .55); font-size: .58em; vertical-align: .18em; }
+.footer-nav a:hover { color: #ffe6a6; transform: translateX(3px); }
+
+.footer-contact { align-content: start; display: grid; gap: .55rem; }
+.footer-contact a {
+  color: #ffe9b6;
+  font: 400 clamp(1rem, 1.25vw, 1.18rem)/1.3 var(--fell);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(231, 189, 98, .45);
+  justify-self: start;
+  transition: color .2s, border-color .2s;
+}
+.footer-contact a:hover { color: #fff6d8; border-color: #ffe6a6; }
+.footer-contact p {
+  margin: 0;
+  color: rgba(244, 224, 178, .72);
+  font: 500 .95rem/1.4 var(--hand);
+  font-style: italic;
+}
+
+.legal {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: rgba(238, 214, 165, .5);
+  font: 600 .56rem/1.4 var(--caps);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+/* the notice, pasted in like a slip of the same parchment */
+.ai-protection {
+  position: relative;
+  grid-column: 1 / -1;
+  padding: clamp(1.4rem, 2.6vw, 2.2rem) clamp(1.3rem, 2.8vw, 2.4rem);
+  border: 1px solid rgba(228, 184, 87, .6);
+  outline: 1px solid rgba(244, 211, 137, .22);
+  outline-offset: 6px;
+  background: linear-gradient(150deg, rgba(245, 231, 198, .95), rgba(232, 213, 173, .92));
+  color: var(--sepia);
+  box-shadow: 0 14px 34px rgba(10, 2, 16, .45);
+}
+.ai-protection::before {
+  content: "⁂";
+  position: absolute;
+  left: 50%;
+  top: -.72rem;
+  padding: 0 .65rem;
+  background: #2c0a37;
+  color: var(--story-gold);
+  font: 400 1.15rem/1 var(--fell);
+  transform: translateX(-50%);
+}
+.ai-protection > span {
+  display: block;
+  margin-bottom: .7rem;
+  color: var(--rubric);
+  font: 600 .58rem/1.2 var(--caps);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.ai-protection p {
+  max-width: 1400px;
+  margin: 0;
+  font: 400 clamp(1rem, 1.4vw, 1.2rem)/1.55 var(--fell);
+}
+
+/* --- Scroll-scrubbed entrance ---------------------------------------------
+   Driven entirely by the scroll timeline: no listener, no rAF, and it animates
+   only opacity and transform. Everything is visible by default, so browsers
+   without scroll-driven animations simply get the finished state. */
+@keyframes footerRise {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-footer > div,
+    .site-footer > .legal,
+    .site-footer > .ai-protection {
+      animation: footerRise linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 60%;
+    }
+    .site-footer > .footer-nav { animation-range: entry 12% entry 68%; }
+    .site-footer > .footer-contact { animation-range: entry 18% entry 74%; }
+    .site-footer > .legal { animation-range: entry 24% entry 80%; }
+    .site-footer > .ai-protection { animation-range: entry 28% entry 86%; }
+  }
+}
+
+@media (max-width: 900px) {
+  .site-footer { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .footer-nav { grid-template-columns: 1fr; }
+  .site-footer::after { letter-spacing: .25em; font-size: .85rem; }
 }

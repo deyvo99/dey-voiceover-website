@@ -124,8 +124,8 @@ const buildInkVeil = (() => {
     };
 
     const specs = [
-      ...INK_BLOTS.map((b, i) => ({ ...b, r0: i % 2 ? -7 : 6, r1: i % 2 ? 5 : -4, pts: 110, drop: false })),
-      ...INK_DROPS.map((b) => ({ ...b, r0: 0, r1: 11, pts: 64, drop: true })),
+      ...INK_BLOTS.map((b, i) => ({ ...b, r0: i % 2 ? -7 : 6, r1: i % 2 ? 5 : -4, pts: 72, drop: false })),
+      ...INK_DROPS.map((b) => ({ ...b, r0: 0, r1: 11, pts: 48, drop: true })),
     ];
 
     const shapes = document.createDocumentFragment();
@@ -154,13 +154,16 @@ const scatterInkSparkles = (layer, origin) => {
   if (reduced) return;
   const start = performance.now();
   const DURATION = 2600;
+  let lastMote = 0;
   const tick = (now) => {
     const t = (now - start) / DURATION;
     if (t >= 1) return;
+    if (now - lastMote < 70) { window.requestAnimationFrame(tick); return; }
+    lastMote = now;
     // matches the blots' ease-out, so motes ride the visible front
     const eased = 1 - Math.pow(1 - t, 2.6);
     const reach = Math.hypot(window.innerWidth, window.innerHeight) * .58 * eased;
-    const count = t < .16 ? 5 : 3;
+    const count = t < .16 ? 3 : 2;
     for (let i = 0; i < count; i += 1) {
       const angle = Math.random() * Math.PI * 2;
       const radius = reach * (.82 + Math.random() * .3);
