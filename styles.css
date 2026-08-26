@@ -483,6 +483,19 @@ main::before {
   letter-spacing: 0;
 }
 .tale-opening em { color: var(--rubric); font-style: italic; }
+
+/* The descriptors used to run on inside the title and pushed it to three
+   lines. Demoted to a second line under it, they wrap beside the versal
+   instead of below it, and the step down in family, size and colour keeps the
+   two apart without either going quiet. */
+.tale-title-sub {
+  display: block;
+  max-width: 46ch;
+  margin-top: clamp(.45rem, .8vw, .7rem);
+  color: var(--sepia-read);
+  font: italic 500 clamp(1.18rem, 1.5vw, 1.42rem)/1.45 var(--hand);
+  letter-spacing: .004em;
+}
 .tale-versal {
   float: left;
   display: grid;
@@ -590,6 +603,27 @@ main::before {
 .tale-prose em { font-style: italic; }
 .tale-prose strong { color: var(--sepia); font-weight: 700; }
 .tale-prose-mid { margin-inline: auto; text-align: center; }
+
+/* Pricing was fine print at the foot of the page; a buyer looking for it had
+   to read past everything else. Given its own panel it can be found. */
+.tale-pricing {
+  max-width: 78ch;
+  margin: clamp(1.9rem, 3vw, 2.8rem) 0 0;
+  padding: clamp(1.3rem, 2vw, 1.8rem) clamp(1.4rem, 2.2vw, 2rem);
+  border: 1px solid rgba(150, 112, 48, .46);
+  outline: 1px solid rgba(177, 135, 60, .22);
+  outline-offset: 4px;
+  background: rgba(255, 245, 216, .4);
+}
+
+.tale-pricing .tale-prose { margin-top: .7rem; }
+.tale-pricing .tale-tags { margin-top: clamp(.9rem, 1.4vw, 1.15rem); }
+.tale-pricing .tale-seal { margin-top: clamp(1.1rem, 1.7vw, 1.45rem); }
+.tale-pricing-note {
+  margin: clamp(.9rem, 1.4vw, 1.15rem) 0 0;
+  color: var(--sepia-soft);
+  font: italic 500 clamp(1.02rem, 1.18vw, 1.12rem)/1.5 var(--hand);
+}
 
 .tale-note {
   max-width: 78ch;
@@ -1733,11 +1767,9 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 /* One leaf, no spread: the pages that lost their decorative half centre the
    remaining leaf rather than leaving the other column empty. */
-.tale-book-solo {
-  grid-template-columns: minmax(0, 1fr);
-  width: min(880px, 100%);
-  margin-inline: auto;
-}
+/* Full width, matching the sheets further down the same page — held in any
+   narrower it reads as pinched beside them. The prose keeps its own measure. */
+.tale-book-solo { grid-template-columns: minmax(0, 1fr); }
 /* Centring the byline only read well in a narrow column; across a full leaf it
    drifts away from the text it belongs to. */
 .tale-book-solo .tale-byline { text-align: left; }
