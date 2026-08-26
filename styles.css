@@ -1727,6 +1727,23 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 .tale-seal-demo { margin-top: clamp(1.2rem, 1.9vw, 1.7rem); }
 
+/* The facets open the second leaf now, so they carry no divider above them and
+   the two lists need more air between one another than they did in a footer. */
+.tale-facets-lead { gap: clamp(1.7rem, 2.8vw, 2.5rem); }
+
+/* One leaf, no spread: the pages that lost their decorative half centre the
+   remaining leaf rather than leaving the other column empty. */
+.tale-book-solo {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(880px, 100%);
+  margin-inline: auto;
+}
+/* Centring the byline only read well in a narrow column; across a full leaf it
+   drifts away from the text it belongs to. */
+.tale-book-solo .tale-byline { text-align: left; }
+.tale-book-solo .tale-name { justify-content: flex-start; }
+.tale-book-solo .tale-name::before { display: none; }
+
 @media (max-width: 1180px) {
   .tale-book-demo { grid-template-columns: 1fr; }
 }
@@ -1771,11 +1788,24 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   align-items: start;
   column-gap: clamp(2rem, 4vw, 4rem);
 }
+/* With the introductory prose gone, the title has nothing to sit beside, so it
+   runs the full width and the facets spread underneath it. */
+.tale-intro-open {
+  display: grid;
+  row-gap: clamp(1.5rem, 2.4vw, 2.1rem);
+}
 .tale-intro-copy { min-width: 0; }
 .tale-byline-left { text-align: left; }
 .tale-byline-left .tale-name { justify-content: flex-start; }
 .tale-byline-left .tale-name::before { display: none; }
 .tale-facets-side { margin-top: 0; padding-top: 0; border-top: 0; }
+
+/* Ages holds four chips against a dozen, so the columns are weighted rather
+   than equal — otherwise the short list opens a hole in the middle. */
+.tale-facets-row {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .5fr) minmax(0, 1.2fr);
+  column-gap: clamp(1.8rem, 3.4vw, 3.2rem);
+}
 
 .tale-room-open {
   margin-top: clamp(2.4rem, 3.6vw, 3.4rem);
@@ -1800,6 +1830,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 @media (max-width: 900px) {
   .tale-intro-split { grid-template-columns: 1fr; row-gap: clamp(1.4rem, 2.4vw, 2rem); }
+  .tale-facets-row { grid-template-columns: 1fr; }
   .tale-more-inline .tale-seal-demo { margin-left: 0; }
 }
 
