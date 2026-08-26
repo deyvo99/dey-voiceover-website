@@ -1850,22 +1850,20 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   .page-about .tale-leaf-verso .tale-dl > div { grid-template-columns: 1fr; }
 }
 
-/* --- A signature in the corner of the notes slip -------------------------- */
-.tale-sign {
-  width: clamp(150px, 15vw, 205px);
-  margin: clamp(1.3rem, 2vw, 1.8rem) 0 0 auto;
-  pointer-events: none;
+/* --- A line to close the slip and send the reader on ---------------------- */
+.tale-sendoff {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .6rem;
+  margin: clamp(1.3rem, 2vw, 1.8rem) 0 0;
+  color: var(--rubric);
+  font: italic 500 clamp(1.2rem, 1.5vw, 1.42rem)/1.2 var(--hand);
 }
-.tale-sign svg { display: block; width: 100%; height: auto; overflow: visible; }
-.tale-sign path {
-  fill: none;
-  stroke: var(--sepia);
-  stroke-width: 3.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: .55;
+.tale-sendoff::before {
+  content: "";
+  width: clamp(40px, 8vw, 110px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(152, 64, 47, .5));
 }
-.tale-sign .tale-sign-flourish { stroke-width: 2.2; opacity: .34; }
-@media (max-width: 900px) {
-  .tale-sign { width: 160px; }
-}
+.tale-sendoff i { color: var(--gilt); font-size: .72em; font-style: normal; }
