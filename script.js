@@ -132,9 +132,6 @@ const buildInkVeil = (() => {
     specs.forEach((spec) => {
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', outline(spec));
-      // the wet edge is drawn as a stroke, so its width stays constant on screen
-      // instead of thickening as the blot grows
-      path.setAttribute('vector-effect', 'non-scaling-stroke');
       path.setAttribute('class', spec.drop ? 'ink-blot ink-blot-drop' : 'ink-blot');
       path.style.cssText = `--x:${spec.x}px;--y:${spec.y}px;--s:${spec.s};`
         + `--r0:${spec.r0}deg;--r1:${spec.r1}deg;--d:${spec.d}ms`;
@@ -143,7 +140,13 @@ const buildInkVeil = (() => {
 
     // filled copies punch the hole; stroked copies trace the wet edge
     veil.querySelectorAll('[data-ink-front]').forEach((g) => g.append(shapes.cloneNode(true)));
-    veil.querySelectorAll('[data-ink-edge]').forEach((g) => g.append(shapes.cloneNode(true)));
+    // only the stroked copy needs a constant on-screen stroke width; on the
+    // filled copy it rebuilt a stroke geometry that is never painted
+    veil.querySelectorAll('[data-ink-edge]').forEach((g) => {
+      const copy = shapes.cloneNode(true);
+      copy.querySelectorAll('path').forEach((p) => p.setAttribute('vector-effect', 'non-scaling-stroke'));
+      g.append(copy);
+    });
   };
 })();
 
@@ -228,21 +231,21 @@ if (opening) {
     if (withSound) playOpeningAudio();
     else stopOpeningAudio();
 
-    // The ink lands where the visitor pressed, then spreads from there.
-    buildInkVeil(inkVeil);
+    // Measure before building: a read that precedes the write is free, and
+    // the motes need to know where the visitor pressed.
     const spot = source?.getBoundingClientRect();
     const origin = spot
       ? { x: spot.left + spot.width / 2, y: spot.top + spot.height / 2 }
       : { x: window.innerWidth / 2, y: window.innerHeight * .53 };
-    if (inkVeil) {
-      inkVeil.style.setProperty('--ink-x', `${(origin.x / window.innerWidth) * 100}%`);
-      inkVeil.style.setProperty('--ink-y', `${(origin.y / window.innerHeight) * 100}%`);
-    }
+    buildInkVeil(inkVeil);
     scatterInkSparkles(sparkleLayer, origin);
 
     opening.classList.add('is-open');
-    document.body.classList.remove('has-opening');
-    window.setTimeout(() => opening.classList.add('is-gone'), revealDuration);
+    window.setTimeout(() => {
+      opening.classList.add('is-gone');
+      document.body.classList.remove('has-opening');
+      document.dispatchEvent(new CustomEvent('dey:opening-done'));
+    }, revealDuration);
   };
 
   stopButton?.addEventListener('click', stopOpeningAudio);
@@ -258,10 +261,9 @@ if (opening) {
     const releaseScroll = () => { document.body.style.overflow = ''; };
     openButton?.addEventListener('click', () => { openCurtain(true, openButton); releaseScroll(); });
     skipButton?.addEventListener('click', () => { openCurtain(false, skipButton); releaseScroll(); });
-    // Build the geometry while the visitor is still reading, not on the click.
-    const warm = () => buildInkVeil(inkVeil);
-    if ('requestIdleCallback' in window) window.requestIdleCallback(warm, { timeout: 1500 });
-    else window.setTimeout(warm, 400);
+    // Build one frame after the opening has painted: early enough that no
+    // human can beat it, late enough not to delay first paint.
+    window.requestAnimationFrame(() => window.requestAnimationFrame(() => buildInkVeil(inkVeil)));
   }
 }
 
@@ -461,7 +463,14 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
   };
 
   // Only stop at something actually on screen; skip anything scrolled away.
-  const visibleStop = () => {
+  // A 200ms-stale rect is not observable: she hovers each stop for 2600ms and
+  // the per-frame motion is a sine wobble through a ~16-frame lerp.
+  let stopCache = null;
+  let stopMeasured = -1e9;
+  const visibleStop = (now) => {
+    if (stopCache && now - stopMeasured < 200) return stopCache;
+    stopMeasured = now;
+    stopCache = null;
     for (let i = 0; i < stops.length; i += 1) {
       const candidate = stops[(stopIndex + i) % stops.length];
       const box = candidate.getBoundingClientRect();
@@ -469,7 +478,8 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
         && box.left > 0 && box.right < window.innerWidth;
       if (onScreen) {
         stopIndex = (stopIndex + i) % stops.length;
-        return { el: candidate, box };
+        stopCache = { el: candidate, box };
+        return stopCache;
       }
     }
     return null;
@@ -509,7 +519,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
       stopUntil = 0;
     } else {
       if (now > tourEnds) toured = 3;
-      const found = stops.length && toured < 3 ? visibleStop() : null;
+      const found = stops.length && toured < 3 ? visibleStop(now) : null;
       if (found) {
         const { el: stop, box } = found;
         // hover just above and left of the target, so she never covers it
@@ -525,6 +535,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
           clearHighlight();
           stopUntil = 0;
           stopIndex = (stopIndex + 1) % stops.length;
+          stopCache = null;
           if (stopIndex === 0) toured += 1;
         }
       } else {
@@ -546,19 +557,20 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
     window.requestAnimationFrame(flutter);
   };
 
-  // 1a — never fly while the curtain is up: she is display:none there, and the
-  // sparks she sheds would be invisible and therefore never cleaned up
+  // She must not fly while the curtain is up OR during the ink dissolve. The
+  // gate lives inside wake() because pointermove calls it too, and was starting
+  // her on the visitor's first mouse move — long before any click. Her sparks
+  // were display:none, so animationend never fired and ~45 accumulated, then
+  // all began animating at once the moment has-opening dropped.
   let running = false;
+  let allowed = !document.body.classList.contains('has-opening');
   const wake = () => {
-    if (running) return;
+    if (running || !allowed) return;
     running = true;
     window.requestAnimationFrame(flutter);
   };
-  if (document.body.classList.contains('has-opening')) {
-    document.addEventListener('click', wake, { once: true });
-  } else {
-    wake();
-  }
+  if (allowed) wake();
+  else document.addEventListener('dey:opening-done', () => { allowed = true; wake(); }, { once: true });
 
   // Once the visitor starts clicking things for themselves she stops pointing —
   // but the click that opens the curtain does not count as finding their way.
@@ -569,6 +581,17 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
     document.removeEventListener('click', standDown);
   };
   document.addEventListener('click', standDown);
+}
+
+// The ribbon only scrolls while it is on screen. Off screen it is 34s of
+// main-thread transform for nobody — including the entire opening dissolve.
+const ribbon = document.querySelector('.tale-ribbon');
+if (ribbon && 'IntersectionObserver' in window) {
+  new IntersectionObserver(([entry]) => {
+    ribbon.classList.toggle('is-on-screen', entry.isIntersecting);
+  }).observe(ribbon);
+} else {
+  ribbon?.classList.add('is-on-screen');
 }
 
 document.querySelectorAll('[data-year]').forEach((year) => {

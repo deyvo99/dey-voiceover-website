@@ -1003,7 +1003,8 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   transform: rotate(-1.15deg);
   clip-path: polygon(0 0, 100% 0, calc(100% - 17px) 50%, 100% 100%, 0 100%, 17px 50%);
 }
-.tale-ribbon-track { display: flex; align-items: center; gap: 2.2rem; width: max-content; animation: taleRibbon 34s linear infinite; }
+.tale-ribbon-track { display: flex; align-items: center; gap: 2.2rem; width: max-content; animation: taleRibbon 34s linear infinite; animation-play-state: paused; }
+.tale-ribbon.is-on-screen .tale-ribbon-track { animation-play-state: running; }
 .tale-ribbon-track span {
   color: #f4dda6;
   font: 600 clamp(0.672rem, 0.912vw, 0.792rem)/1 var(--caps);
