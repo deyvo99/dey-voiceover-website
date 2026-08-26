@@ -1868,3 +1868,12 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   background: linear-gradient(90deg, transparent, rgba(152, 64, 47, .5));
 }
 .tale-sendoff i { color: var(--gilt); font-size: .72em; font-style: normal; }
+
+/* "And more…" closes a list without pretending to be another item in it */
+.tale-tags .is-more {
+  border-style: dashed;
+  border-color: rgba(150, 112, 48, .4);
+  background: none;
+  color: var(--sepia-soft);
+  font-style: italic;
+}

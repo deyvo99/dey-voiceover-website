@@ -594,6 +594,35 @@ if (ribbon && 'IntersectionObserver' in window) {
   ribbon?.classList.add('is-on-screen');
 }
 
+// Videos marked data-autoplay start themselves once they are actually on
+// screen, and stop when they leave. Autoplay is only permitted while muted, so
+// the controls stay put for anyone who wants the sound. Nothing is fetched
+// until the element is in view — this one is 12.7 MB.
+const autoplayVideos = [...document.querySelectorAll('video[data-autoplay]')];
+if (autoplayVideos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if ('IntersectionObserver' in window) {
+    const watcher = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) {
+          // a visitor who pressed pause should stay paused
+          if (!target.dataset.userPaused) target.play().catch(() => {});
+        } else if (!target.paused) {
+          target.pause();
+        }
+      });
+    }, { threshold: 0.35 });
+    autoplayVideos.forEach((video) => {
+      video.addEventListener('pause', () => {
+        if (!video.ended && document.visibilityState === 'visible') video.dataset.userPaused = '1';
+      });
+      video.addEventListener('play', () => { delete video.dataset.userPaused; });
+      watcher.observe(video);
+    });
+  } else {
+    autoplayVideos.forEach((v) => v.play().catch(() => {}));
+  }
+}
+
 document.querySelectorAll('[data-year]').forEach((year) => {
   year.textContent = String(new Date().getFullYear());
 });
