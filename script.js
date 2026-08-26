@@ -292,7 +292,8 @@ players.forEach((player) => {
   const update = () => {
     const known = Number.isFinite(audio.duration) && audio.duration > 0;
     const ratio = known ? audio.currentTime / audio.duration : 0;
-    if (progress) progress.style.width = `${ratio * 100}%`;
+    // scaleX composites; width relayouts the bar on every timeupdate tick
+    if (progress) progress.style.transform = `scaleX(${ratio})`;
     if (time) time.textContent = `${formatTime(audio.currentTime)} / ${known ? formatTime(audio.duration) : printedTotal}`;
   };
 
@@ -485,8 +486,15 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
     return null;
   };
 
-  const trail = (now) => {
-    if (now - lastSpark < 55) return;
+  // Sparks were spawning every 55ms for as long as she flew, including while
+  // she was only drifting in a corner with nothing to point at. That is ~20 a
+  // second of createElement + seven style writes + an animation, for the whole
+  // visit. She now sheds them only when she is actually doing something, and
+  // never more than LIVE_SPARKS at once.
+  const LIVE_SPARKS = 14;
+  let liveSparks = 0;
+  const trail = (now, lively) => {
+    if (!lively || liveSparks >= LIVE_SPARKS || now - lastSpark < 55) return;
     lastSpark = now;
     const count = 1 + (Math.random() > .55 ? 1 : 0);
     for (let i = 0; i < count; i += 1) {
@@ -502,14 +510,26 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
       spark.style.setProperty('--size', (.5 + Math.random() * .8).toFixed(2));
       spark.style.animationDelay = `${i * 55}ms`;
       document.body.append(spark);
-      spark.addEventListener('animationend', () => spark.remove(), { once: true });
-      window.setTimeout(() => spark.remove(), 1700);
+      liveSparks += 1;
+      // one removal path, not two: a hidden spark never fires animationend, so
+      // the timer is the fallback and clears itself when the event wins.
+      let gone = false;
+      const drop = () => {
+        if (gone) return;
+        gone = true;
+        liveSparks -= 1;
+        window.clearTimeout(timer);
+        spark.remove();
+      };
+      const timer = window.setTimeout(drop, 1700);
+      spark.addEventListener('animationend', drop, { once: true });
     }
   };
 
   const flutter = (now) => {
     let targetX;
     let targetY;
+    let lively = true;
 
     if (now < followUntil) {
       // the visitor is moving, so she comes along
@@ -539,7 +559,9 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
           if (stopIndex === 0) toured += 1;
         }
       } else {
+        // drifting with nothing to point at — no reason to shed sparks
         clearHighlight();
+        lively = false;
         targetX = window.innerWidth * .72 + Math.sin(now / 900) * 40;
         targetY = window.innerHeight * .3 + Math.cos(now / 760) * 30;
       }
@@ -551,7 +573,7 @@ if (fairy && finePointer.matches && !reducedMotion.matches) {
     if (Math.abs(x - previousX) > .35) facing = x > previousX ? 1 : -1;
 
     fairy.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${Math.sin(now / 420) * 6}deg) scaleX(${facing})`;
-    trail(now);
+    trail(now, lively);
     // she costs nothing while the visitor is just reading
     if (toured >= 3 && now > followUntil + 1200) { running = false; return; }
     window.requestAnimationFrame(flutter);

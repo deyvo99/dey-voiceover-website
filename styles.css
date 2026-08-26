@@ -24,7 +24,10 @@
   --fell: "IM Fell English", Georgia, serif;
   --caps: "Cinzel", Georgia, serif;
   --hand: "Cormorant Garamond", Georgia, serif;
-  --curtain: url("assets/images/opening/enchanted-watercolor-curtain.jpg");
+  /* The site chrome — header strip, nav panel, the fixed backdrop behind the
+     page — shows this under gradients of .82 to .95 opacity, so it gets a
+     heavily compressed copy: 264KB rather than 680KB, on every page. */
+  --curtain: url("assets/images/opening/curtain-veil.jpg");
   --fiber: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
@@ -45,6 +48,11 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .motion-ready .reveal.is-visible { opacity: 1; transform: none; }
 .motion-ready .delay-1 { transition-delay: .12s; }
 .motion-ready .delay-2 { transition-delay: .24s; }
+
+/* Home already downloads the full-quality curtain for the opening dissolve,
+   where it is the showpiece and only 20% shaded. Pointing its chrome at the
+   same file means one image on that page instead of two. */
+.page-home { --curtain: url("assets/images/opening/enchanted-watercolor-curtain.jpg"); }
 
 /* --- Header --------------------------------------------------------------- */
 .site-header { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: .8rem max(4vw, 1.25rem); background: linear-gradient(90deg, rgba(29,5,36,.88), rgba(78,27,87,.72), rgba(29,5,36,.88)), var(--curtain) center 42% / cover; border-bottom: 1px solid rgba(231,189,98,.7); color: var(--story-cream); box-shadow: 0 5px 20px rgba(32,7,39,.2), inset 0 0 28px rgba(236,193,103,.08); }
@@ -159,7 +167,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .audio-info { flex: 1; min-width: 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .3rem .8rem; }
 .audio-info strong { grid-column: 1/-1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .audio-track { position: relative; height: 5px; overflow: hidden; background: rgba(23,35,31,.18); cursor: pointer; }
-.audio-track i { position: absolute; inset: 0 auto 0 0; width: 0; pointer-events: none; }
+.audio-track i { position: absolute; inset: 0; width: auto; transform: scaleX(0); transform-origin: left center; pointer-events: none; }
 
 /* --- The ground ----------------------------------------------------------- */
 .tale-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
@@ -789,9 +797,10 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   gap: clamp(.7rem, 2.4vw, 3rem);
   padding: clamp(.85rem, 1.5vw, 1.3rem) clamp(.35rem, .9vw, .95rem);
   text-decoration: none;
-  transition: background .25s ease, padding-left .25s ease;
+  /* translate, not padding — padding relaid the row on every frame of the hover */
+  transition: background .25s ease, transform .25s ease;
 }
-.tale-shelf a:hover { padding-left: clamp(.8rem, 1.6vw, 1.7rem); background: linear-gradient(90deg, rgba(255, 246, 219, .8), rgba(255, 246, 219, .1)); }
+.tale-shelf a:hover { transform: translateX(clamp(.45rem, .9vw, .9rem)); background: linear-gradient(90deg, rgba(255, 246, 219, .8), rgba(255, 246, 219, .1)); }
 .tale-folio { color: var(--gilt-deep); font: 400 clamp(1.15rem, 1.6vw, 1.65rem)/1 var(--fell); letter-spacing: .06em; }
 .tale-shelf strong { color: var(--sepia); font: 400 clamp(1.4rem, 2.2vw, 2.15rem)/1.05 var(--fell); }
 .tale-shelf em {
@@ -900,9 +909,11 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   background: radial-gradient(circle at 30% 26%, #f6e3af, #b1873c 62%, #8a6526);
   color: #3b1b46;
   box-shadow: inset 0 0 0 2px rgba(255, 244, 214, .38), 0 5px 12px rgba(60, 34, 14, .3);
-  transition: transform .2s, box-shadow .2s, filter .2s;
+  /* no filter here: this is the control people actually click, and a filter
+     transition repaints the button every frame instead of compositing it */
+  transition: transform .2s, box-shadow .2s;
 }
-.tale-track .audio-toggle:hover { transform: scale(1.07); filter: brightness(1.08); }
+.tale-track .audio-toggle:hover { transform: scale(1.07); background: radial-gradient(circle at 30% 26%, #fff5bd, #bf9241 62%, #956d29); }
 .tale-track .audio-toggle span { font-size: .78rem; }
 .tale-track .audio-info { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .5rem .9rem; }
 .tale-track .audio-info strong { grid-area: 1 / 1; }
