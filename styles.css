@@ -1835,17 +1835,37 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 /* The journey list was drawn for a full-width slip. Inside a leaf it has half
    the room, so it runs as a single column — which also fills the film leaf to
    match the story leaf beside it. */
-.tale-leaf .tale-dl {
+.page-about .tale-leaf-verso .tale-dl {
   grid-template-columns: 1fr;
   gap: clamp(.7rem, 1.1vw, .95rem);
 }
-.tale-leaf .tale-dl > div {
+.page-about .tale-leaf-verso .tale-dl > div {
   display: grid;
   grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr);
   align-items: baseline;
   gap: .2rem 1rem;
 }
-.tale-leaf .tale-dl dd { margin: 0; }
+.page-about .tale-leaf-verso .tale-dl dd { margin: 0; }
 @media (max-width: 700px) {
-  .tale-leaf .tale-dl > div { grid-template-columns: 1fr; }
+  .page-about .tale-leaf-verso .tale-dl > div { grid-template-columns: 1fr; }
+}
+
+/* --- A signature in the corner of the notes slip -------------------------- */
+.tale-sign {
+  width: clamp(150px, 15vw, 205px);
+  margin: clamp(1.3rem, 2vw, 1.8rem) 0 0 auto;
+  pointer-events: none;
+}
+.tale-sign svg { display: block; width: 100%; height: auto; overflow: visible; }
+.tale-sign path {
+  fill: none;
+  stroke: var(--sepia);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: .55;
+}
+.tale-sign .tale-sign-flourish { stroke-width: 2.2; opacity: .34; }
+@media (max-width: 900px) {
+  .tale-sign { width: 160px; }
 }
