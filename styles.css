@@ -28,7 +28,6 @@
      page — shows this under gradients of .82 to .95 opacity, so it gets a
      heavily compressed copy: 264KB rather than 680KB, on every page. */
   --curtain: url("assets/images/opening/curtain-veil.jpg");
-  --watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23fffdf2' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M60 34 L66 54 L86 60 L66 66 L60 86 L54 66 L34 60 L54 54 Z'/%3E%3Cpath d='M180 154 L186 174 L206 180 L186 186 L180 206 L174 186 L154 180 L174 174 Z'/%3E%3C/g%3E%3Cg fill='%23fffdf2'%3E%3Ccircle cx='180' cy='60' r='2.6'/%3E%3Ccircle cx='60' cy='180' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
   --fiber: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
@@ -267,18 +266,6 @@ main::before {
     calc(78% + 28px) calc(47% - 3px),
     0 0, 0 0, 0 0, 0 0;
   filter: url(#deckle) drop-shadow(0 18px 30px rgba(14, 2, 20, .55)) drop-shadow(0 0 24px rgba(236, 190, 106, .28));
-}
-/* Light through the sheet, not ink on it. Outlined rather than solid, so the
-   motif never reads as a blot even where two tiles meet. */
-.tale-paper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-image: var(--watermark);
-  background-size: 300px 300px;
-  opacity: .16;
-  pointer-events: none;
 }
 
 .tale-paper::after {
@@ -1833,8 +1820,8 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 /* the gallery needs air above it, and a rule so it reads as a new movement */
 .tale-gallery-open {
-  margin-top: clamp(3rem, 5vw, 4.6rem);
-  padding-top: clamp(1.8rem, 2.8vw, 2.6rem);
+  margin-top: clamp(1.7rem, 2.7vw, 2.5rem);
+  padding-top: clamp(1.1rem, 1.7vw, 1.6rem);
   border-top: 1px solid rgba(150, 112, 48, .32);
 }
 
@@ -2033,14 +2020,44 @@ a.tale-card:hover > b i { margin-left: .35rem; }
    name is the h1 now — it is what a visitor and a search engine both want
    first — and the sentence supports it underneath at a size that no longer
    pushes the demos below the fold. */
+/* Set as a book cover, from her references: gold lettering on the deep plum
+   the versals already wear, held in a gilt frame with corner scrolls. The
+   name is the brightest thing on the leaf, which is the point of a cover. */
 .tale-byline-open {
+  position: relative;
   margin: 0 0 clamp(1.4rem, 2.2vw, 2rem);
   text-align: center;
+  padding: clamp(1.5rem, 2.3vw, 2.1rem) clamp(1rem, 2vw, 2rem) clamp(1.6rem, 2.5vw, 2.2rem);
+  border: 1px solid var(--gilt-deep);
+  outline: 1px solid rgba(177, 135, 60, .45);
+  outline-offset: 4px;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 0)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px top 7px / 24px 24px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(40 0) scale(-1 1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px top 7px / 24px 24px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 40) scale(1 -1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px bottom 7px / 24px 24px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px bottom 7px / 24px 24px no-repeat,
+    radial-gradient(circle at 26% 18%, rgba(255, 226, 160, .22), transparent 55%),
+    linear-gradient(150deg, #52215f, #2b0d36 58%, #46184f);
+  box-shadow:
+    inset 0 0 0 2px rgba(232, 197, 128, .3),
+    0 10px 22px rgba(20, 4, 28, .42);
 }
 
-.tale-byline-open .tale-name { font-size: clamp(2.1rem, 3vw, 3.1rem); }
-.tale-byline-open .tale-epithet { font-size: clamp(1.24rem, 1.6vw, 1.52rem); }
-.tale-byline-open .tale-role { font-size: clamp(.72rem, .95vw, .84rem); }
+.tale-byline-open .tale-name {
+  font-size: clamp(2.4rem, 3.4vw, 3.5rem);
+  color: #f2d28c;
+  text-shadow: 0 2px 14px rgba(18, 2, 24, .65), 0 0 2px rgba(242, 210, 140, .45);
+}
+
+.tale-byline-open .tale-epithet {
+  font-size: clamp(1.28rem, 1.66vw, 1.58rem);
+  color: #f6d477;
+}
+
+.tale-byline-open .tale-role {
+  font-size: clamp(.72rem, .95vw, .84rem);
+  color: rgba(236, 210, 154, .72);
+}
 
 
 /* --- Nightfall: the world the book sits in ------------------------------- */
@@ -2163,10 +2180,39 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   text-shadow: 0 2px 12px rgba(18, 2, 24, .7), 0 0 3px rgba(242, 210, 140, .5);
 }
 
-/* A four-word opening earns display size in a way a full sentence never did. */
+/* A four-word opening earns display size in a way a full sentence never did.
+   Set in italic with a breath of gold behind the ink, trailing stars, and a
+   flourish ruled beneath — the storybook opening, not a heading that happens
+   to quote one. */
 .tale-opening-solo {
-  font-size: clamp(2.6rem, 4vw, 4.2rem);
-  margin-bottom: clamp(1.4rem, 2.2vw, 2rem);
+  font-size: clamp(2.7rem, 4.2vw, 4.4rem);
+  font-style: italic;
+  margin-bottom: clamp(1.2rem, 1.9vw, 1.7rem);
+  text-shadow: 0 0 1px rgba(59, 42, 32, .34), 0 0 14px rgba(212, 166, 77, .28);
+}
+
+.tale-opening-solo::after {
+  content: "";
+  display: block;
+  width: min(300px, 62%);
+  height: 22px;
+  margin-top: clamp(.7rem, 1.2vw, 1rem);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 36'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M16 18 H126'/%3E%3Cpath d='M234 18 H344'/%3E%3Cpath d='M126 18 C138 8 150 8 156 14'/%3E%3Cpath d='M126 18 C138 28 150 28 156 22'/%3E%3Cpath d='M234 18 C222 8 210 8 204 14'/%3E%3Cpath d='M234 18 C222 28 210 28 204 22'/%3E%3C/g%3E%3Cg fill='%23a37c33'%3E%3Ccircle cx='160' cy='18' r='2.4'/%3E%3Ccircle cx='200' cy='18' r='2.4'/%3E%3Cpath d='M6 18 L12 14.6 L18 18 L12 21.4 Z'/%3E%3Cpath d='M342 18 L348 14.6 L354 18 L348 21.4 Z'/%3E%3C/g%3E%3Cpath d='M180 7 L191 18 L180 29 L169 18 Z' fill='%2398402f' stroke='%23c9a24a' stroke-width='1'/%3E%3C/svg%3E") left center / contain no-repeat;
+}
+
+.tale-h1-stars {
+  display: inline-block;
+  margin-left: .25em;
+  color: var(--gilt);
+  font-size: .38em;
+  font-style: normal;
+  letter-spacing: .3em;
+  vertical-align: .6em;
+  text-shadow: 0 0 8px rgba(230, 195, 124, .75);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tale-h1-stars { animation: markGlint 3.8s ease-in-out infinite; }
 }
 
 /* Commercial and animation sit beside a versal in a half-leaf, where 46ch is
@@ -2204,28 +2250,17 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-cartouche i { font-size: .78rem; font-style: normal; opacity: .8; }
 .tale-cartouche b { color: var(--rubric); font: 400 1.5rem/1 Georgia, serif; }
 
-.tale-byline-open {
-  position: relative;
-  padding: clamp(1.3rem, 2vw, 1.8rem) clamp(1rem, 2vw, 2rem) clamp(1.4rem, 2.2vw, 2rem);
-  border-top: 2px solid rgba(150, 112, 48, .5);
-  border-bottom: 2px solid rgba(150, 112, 48, .5);
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 0)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 6px top 8px / 24px 24px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(40 0) scale(-1 1)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 6px top 8px / 24px 24px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 40) scale(1 -1)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 6px bottom 8px / 24px 24px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 6px bottom 8px / 24px 24px no-repeat,
-    linear-gradient(rgba(255, 248, 226, .5), rgba(255, 245, 214, .16));
-}
+/* (merged into the book-cover block above) */
 
 /* the hairlines that sit inside the heavy rules, as on a printed title page */
 .tale-byline-open::before,
 .tale-byline-open::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 10px;
+  right: 10px;
   height: 1px;
-  background: rgba(150, 112, 48, .38);
+  background: rgba(230, 195, 124, .35);
 }
 
 .tale-byline-open::before { top: 4px; }
