@@ -648,3 +648,37 @@ if (autoplayVideos.length && !window.matchMedia('(prefers-reduced-motion: reduce
 document.querySelectorAll('[data-year]').forEach((year) => {
   year.textContent = String(new Date().getFullYear());
 });
+
+/* --- The night sky behind the book ---------------------------------------
+   Built here rather than written into ten pages. Positions come from a fixed
+   sequence, not Math.random, so the sky is the same on every visit and every
+   page — it should feel like one place, not a new scatter each load. Every
+   star is a single element animating opacity only, which the compositor
+   carries without touching layout or paint. */
+(() => {
+  if (document.querySelector('.night-sky')) return;
+
+  const sky = document.createElement('div');
+  sky.className = 'night-sky';
+  sky.setAttribute('aria-hidden', 'true');
+
+  // x%, y%, px, star?
+  const STARS = [
+    [4, 8, 3, 0], [11, 22, 2, 0], [7, 41, 4, 1], [3, 62, 2, 0], [9, 78, 3, 0], [15, 92, 2, 1],
+    [21, 6, 2, 0], [27, 33, 3, 0], [19, 54, 2, 1], [24, 70, 4, 0], [31, 88, 2, 0],
+    [38, 14, 3, 1], [44, 47, 2, 0], [36, 66, 3, 0], [42, 83, 2, 0], [49, 27, 2, 1],
+    [56, 9, 3, 0], [61, 38, 2, 0], [54, 58, 4, 1], [66, 74, 2, 0], [59, 94, 3, 0],
+    [72, 18, 2, 1], [78, 44, 3, 0], [69, 63, 2, 0], [83, 81, 4, 0], [76, 96, 2, 1],
+    [88, 12, 3, 0], [94, 35, 2, 0], [86, 56, 3, 1], [97, 71, 2, 0], [91, 89, 3, 0],
+  ];
+
+  const frag = document.createDocumentFragment();
+  STARS.forEach(([x, y, s, star], i) => {
+    const el = document.createElement('i');
+    if (star) el.className = 'is-star';
+    el.style.cssText = `--x:${x}%;--y:${y}%;--s:${s * 2}px;--t:${5 + (i % 5) * 1.6}s;--d:-${(i * 0.83).toFixed(2)}s`;
+    frag.appendChild(el);
+  });
+  sky.appendChild(frag);
+  document.body.appendChild(sky);
+})();
