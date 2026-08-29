@@ -927,18 +927,31 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   /* An illuminated initial, the same purple-and-gilt as the versal that opens
      every page — so it reads as part of the book rather than a stock control,
      and carries far more contrast against parchment than gold-on-gold did. */
-  border-radius: 2px;
-  border: 1px solid var(--gilt-deep);
-  background:
-    radial-gradient(circle at 26% 20%, rgba(255, 226, 160, .32), transparent 58%),
-    linear-gradient(150deg, #52215f, #2b0d36 58%, #46184f);
-  color: #f2d28c;
-  box-shadow: inset 0 0 0 2px rgba(232, 197, 128, .3), 0 5px 12px rgba(46, 22, 10, .34);
+  /* An amethyst set in a gilt bezel. The flat purple plaque had no light in
+     it; this one is lit from the upper left, glows into the parchment, and
+     keeps the gold ring so it still belongs to the book. */
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 26%, #c98fe0, #6a2b7d 44%, #38104a 78%);
+  color: #ffe9b0;
+  box-shadow:
+    0 0 0 2px var(--gilt), 0 0 0 3px var(--gilt-deep),
+    inset 0 3px 9px rgba(255, 220, 255, .5),
+    inset 0 -4px 10px rgba(20, 2, 28, .68),
+    0 0 15px rgba(190, 130, 220, .5),
+    0 5px 13px rgba(46, 22, 10, .38);
   /* no filter here: this is the control people actually click, and a filter
      transition repaints the button every frame instead of compositing it */
   transition: transform .2s, box-shadow .2s;
 }
-.tale-track .audio-toggle:hover { transform: scale(1.07); box-shadow: inset 0 0 0 2px rgba(240, 210, 140, .52), 0 8px 17px rgba(46, 22, 10, .44); }
+.tale-track .audio-toggle:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 2px var(--gilt-lit), 0 0 0 3px var(--gilt),
+    inset 0 3px 10px rgba(255, 230, 255, .62),
+    inset 0 -4px 10px rgba(20, 2, 28, .6),
+    0 0 24px rgba(205, 145, 235, .8),
+    0 8px 17px rgba(46, 22, 10, .44);
+}
 .tale-track .audio-toggle span { font-size: .78rem; }
 .tale-track .audio-info { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .5rem .9rem; }
 .tale-track .audio-info strong { grid-area: 1 / 1; }
@@ -1982,31 +1995,60 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 .tale-epithet + .tale-role { margin-top: .3rem; }
 
-/* --- Starlight around the portrait --------------------------------------- */
-/* The arch was a bare gilt frame on a page whose opening screen is full of
-   stars. This picks that thread back up: a small crown over the crest, and
-   sparks scattered wider at the top than the foot, so the eye still lands on
-   her face first. Sits outside the frame, so it never covers the photograph. */
-.tale-arch-stars {
+/* --- The portrait as an illuminated page --------------------------------- */
+/* The first attempt grew a filigree crown out of the top of the arch, which
+   read as antennae. Nothing sticks out of the frame now: a manuscript rule
+   drawn around the whole plate, and motes of light resting on the parchment
+   around it, the way gold leaf catches on an illuminated page. */
+.tale-arch-deco { position: absolute; inset: -30px -26px -14px; pointer-events: none; z-index: 2; }
+
+.tale-arch-rule {
   position: absolute;
-  inset: -30px -26px -16px;
-  overflow: visible;
-  pointer-events: none;
-  z-index: 2;
+  inset: 4px 0 0;
+  border: 1px solid rgba(150, 112, 48, .7);
+  box-shadow:
+    inset 0 0 0 3px rgba(232, 213, 173, .45),
+    inset 0 0 0 4px rgba(150, 112, 48, .38);
 }
 
-.arch-spark { opacity: .85; transform-box: fill-box; transform-origin: center; }
-.arch-crown { opacity: .9; }
+/* corner marks, drawn as two L-shaped rules rather than a continuous frame */
+.tale-arch-rule::before,
+.tale-arch-rule::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 1.5px solid var(--gilt);
+}
+
+.tale-arch-rule::before { left: -1px; top: -1px; border-right: 0; border-bottom: 0; }
+.tale-arch-rule::after { right: -1px; bottom: -1px; border-left: 0; border-top: 0; }
+
+.tale-arch-deco i {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s);
+  height: var(--s);
+  margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffaf0, rgba(246, 220, 158, .85) 34%, rgba(214, 168, 78, .35) 58%, transparent 74%);
+}
+
+/* a few read as four-pointed rather than round, so it is light and not bokeh */
+.tale-arch-deco i.is-star {
+  border-radius: 0;
+  background: #fff3cf;
+  filter: drop-shadow(0 0 3px rgba(246, 214, 140, .9));
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
 
 @media (prefers-reduced-motion: no-preference) {
-  /* opacity only, so the compositor carries it and no frame costs layout */
-  .arch-spark { animation: archTwinkle 5.5s ease-in-out infinite; }
-  .arch-spark:nth-child(2n) { animation-duration: 7s; animation-delay: -1.8s; }
-  .arch-spark:nth-child(3n) { animation-duration: 6.2s; animation-delay: -3.4s; }
-  .arch-spark:nth-child(5n) { animation-duration: 8s; animation-delay: -2.6s; }
+  /* opacity only — the compositor carries it, no frame costs layout */
+  .tale-arch-deco i { animation: archMote 6s ease-in-out var(--d, 0s) infinite; }
 }
 
-@keyframes archTwinkle {
-  0%, 100% { opacity: .38; }
+@keyframes archMote {
+  0%, 100% { opacity: .5; }
   50% { opacity: 1; }
 }
