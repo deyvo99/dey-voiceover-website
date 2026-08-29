@@ -365,7 +365,10 @@ main::before {
   border-radius: 50% 50% 3px 3px / 39% 39% 2px 2px;
   object-fit: cover;
   object-position: 56% 34%;
-  filter: sepia(.46) saturate(1.18) contrast(1.05) brightness(1.03);
+  /* Sepia at .46 was flattening her skin to beige and her lips to brown.
+     Pulled back to a warm cast rather than a wash, with the saturation and
+     contrast raised to put the life back in. */
+  filter: sepia(.2) saturate(1.36) contrast(1.07) brightness(1.05);
 }
 .tale-arch::after {
   content: "";
