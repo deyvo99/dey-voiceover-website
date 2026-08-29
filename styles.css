@@ -2023,6 +2023,10 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 /* Set as a book cover, from her references: gold lettering on the deep plum
    the versals already wear, held in a gilt frame with corner scrolls. The
    name is the brightest thing on the leaf, which is the point of a cover. */
+/* Set as a book cover, from her references: gold lettering on deep plum
+   cloth. Flat and matte on purpose — a real cover has grain, not a light
+   sweep — so the ground is one colour with the paper's own fibre texture
+   pressed into it, and only the edges darken, the way boards do. */
 .tale-byline-open {
   position: relative;
   margin: 0 0 clamp(1.4rem, 2.2vw, 2rem);
@@ -2031,22 +2035,27 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   border: 1px solid var(--gilt-deep);
   outline: 1px solid rgba(177, 135, 60, .45);
   outline-offset: 4px;
-  background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 0)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px top 7px / 24px 24px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(40 0) scale(-1 1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px top 7px / 24px 24px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 40) scale(1 -1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px bottom 7px / 24px 24px no-repeat,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px bottom 7px / 24px 24px no-repeat,
-    radial-gradient(circle at 26% 18%, rgba(255, 226, 160, .22), transparent 55%),
-    linear-gradient(150deg, #52215f, #2b0d36 58%, #46184f);
+  background-color: #3b1247;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 0)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px top 7px / 24px 24px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(40 0) scale(-1 1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px top 7px / 24px 24px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 40) scale(1 -1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px bottom 7px / 24px 24px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px bottom 7px / 24px 24px,
+    var(--fiber);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+  background-size: 24px 24px, 24px 24px, 24px 24px, 24px 24px, 190px 190px;
+  background-blend-mode: normal, normal, normal, normal, soft-light;
   box-shadow:
     inset 0 0 0 2px rgba(232, 197, 128, .3),
+    inset 0 0 30px rgba(12, 0, 18, .5),
     0 10px 22px rgba(20, 4, 28, .42);
 }
 
 .tale-byline-open .tale-name {
   font-size: clamp(2.4rem, 3.4vw, 3.5rem);
   color: #f2d28c;
-  text-shadow: 0 2px 14px rgba(18, 2, 24, .65), 0 0 2px rgba(242, 210, 140, .45);
+  /* foil sits ON the cloth: one crisp press shadow, no halo */
+  text-shadow: 0 1px 0 rgba(14, 0, 20, .55);
 }
 
 .tale-byline-open .tale-epithet {
@@ -2297,3 +2306,57 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-letter-body strong { color: var(--rubric); font-weight: 600; }
 
 .tale-salutation { color: var(--rubric); }
+
+/* --- The keepsake in the letter ------------------------------------------ */
+/* Her painting for her grandmother sits beside the paragraphs that tell that
+   story, mounted like a photograph slipped into the letter. object-position
+   crops the last sliver of desk out of the shot. */
+.tale-keepsake {
+  float: right;
+  width: min(235px, 42%);
+  margin: .3rem 0 .9rem clamp(1.1rem, 2vw, 1.8rem);
+  padding: 8px 8px 11px;
+  background: rgba(255, 250, 235, .92);
+  border: 1px solid rgba(150, 112, 48, .38);
+  box-shadow: 0 7px 16px rgba(70, 44, 22, .28);
+  transform: rotate(1.4deg);
+}
+
+.tale-keepsake img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 780 / 1005;
+  object-fit: cover;
+  object-position: top;
+}
+
+.tale-keepsake figcaption {
+  margin-top: .55rem;
+  color: var(--sepia-soft);
+  font: italic 500 .98rem/1.45 var(--hand);
+  text-align: center;
+}
+
+/* the signoff divider already clears its own line; make it clear the float */
+.tale-letter .tale-signoff { clear: both; }
+
+@media (max-width: 620px) {
+  .tale-keepsake {
+    float: none;
+    width: min(280px, 86%);
+    margin: 1.1rem auto 1.2rem;
+  }
+}
+
+/* Esme signs her section the way Da Eun seals hers — one inked paw, pressed a
+   little crooked, the way a stamp actually lands. */
+.tale-pawprint {
+  display: block;
+  width: clamp(46px, 4vw, 58px);
+  height: auto;
+  margin: clamp(.9rem, 1.5vw, 1.3rem) 0 0 auto;
+  color: rgba(74, 53, 39, .78);
+  mix-blend-mode: multiply;
+  transform: rotate(-14deg);
+}
