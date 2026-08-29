@@ -219,12 +219,11 @@ main::before {
 .tale-chapter-mark::after { transform: scaleX(-1); }
 
 .tale-flourish {
-  margin: clamp(1.5rem, 2.6vw, 2.6rem) 0 0;
-  color: rgba(233, 202, 141, .72);
-  font: 400 1.1rem/1 Georgia, serif;
-  letter-spacing: .26em;
-  text-align: center;
-  text-shadow: 0 2px 14px rgba(10, 0, 16, .6);
+  height: 30px;
+  margin: clamp(1.5rem, 2.6vw, 2.6rem) auto 0;
+  font-size: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 36'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M16 18 H126'/%3E%3Cpath d='M234 18 H344'/%3E%3Cpath d='M126 18 C138 8 150 8 156 14'/%3E%3Cpath d='M126 18 C138 28 150 28 156 22'/%3E%3Cpath d='M234 18 C222 8 210 8 204 14'/%3E%3Cpath d='M234 18 C222 28 210 28 204 22'/%3E%3C/g%3E%3Cg fill='%23d9b768'%3E%3Cpath d='M180 7 L191 18 L180 29 L169 18 Z' stroke='%23f0d69a' stroke-width='1'/%3E%3Ccircle cx='160' cy='18' r='2.2'/%3E%3Ccircle cx='200' cy='18' r='2.2'/%3E%3Cpath d='M6 18 L12 14.6 L18 18 L12 21.4 Z'/%3E%3Cpath d='M342 18 L348 14.6 L354 18 L348 21.4 Z'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 2px 8px rgba(10, 0, 16, .5));
 }
 
 /* --- A sheet of old paper ------------------------------------------------ */
@@ -311,13 +310,13 @@ main::before {
   outline-offset: 6px;
 }
 .tale-leaf-inner::after, .tale-sheet-inner::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 0)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(40 0) scale(-1 1)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 40) scale(1 -1)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 15px 15px;
+  background-size: 30px 30px;
   background-position: left top, right top, left bottom, right bottom;
-  /* the corners sit on the rule, not inside it */
-  margin: -7.5px;
-  padding: 7.5px;
+  /* the scrolls straddle the ruled frame rather than floating inside it */
+  margin: -5px;
+  padding: 5px;
 }
 
 /* --- The spread ---------------------------------------------------------- */
@@ -451,59 +450,6 @@ main::before {
 }
 
 /* --- An illuminated emblem, where a page has no photograph --------------- */
-.tale-emblem {
-  position: relative;
-  display: grid;
-  flex: 1;
-  place-items: center;
-  align-content: center;
-  gap: clamp(1rem, 1.8vw, 1.7rem);
-  min-height: clamp(280px, 34vw, 430px);
-  padding: clamp(1.8rem, 3vw, 3rem);
-  border: 1px solid var(--gilt-deep);
-  outline: 1px solid rgba(177, 135, 60, .4);
-  outline-offset: 5px;
-  background:
-    radial-gradient(circle at 28% 20%, rgba(255, 226, 160, .28), transparent 56%),
-    linear-gradient(150deg, #52215f, #2b0d36 58%, #46184f);
-  box-shadow: inset 0 0 0 2px rgba(232, 197, 128, .28), 0 14px 28px rgba(46, 22, 10, .34);
-  text-align: center;
-}
-.tale-emblem-glyph {
-  display: grid;
-  place-items: center;
-  width: clamp(96px, 11vw, 148px);
-  height: clamp(96px, 11vw, 148px);
-  border: 1px solid rgba(232, 197, 128, .5);
-  border-radius: 50%;
-  color: #f2d28c;
-  font: 400 clamp(2.9rem, 5vw, 4.4rem)/1 var(--fell);
-  text-shadow: 0 2px 18px rgba(18, 2, 24, .8);
-}
-.tale-emblem p {
-  max-width: 22ch;
-  margin: 0;
-  color: #f8e2ab;
-  font: italic 500 clamp(1.276rem, 1.74vw, 1.624rem)/1.4 var(--hand);
-}
-.tale-emblem small {
-  color: rgba(242, 210, 140, .82);
-  font: 600 clamp(0.648rem, 0.888vw, 0.768rem)/1 var(--caps);
-  letter-spacing: .24em;
-  text-transform: uppercase;
-}
-.tale-emblem-stars { position: absolute; inset: 0; pointer-events: none; }
-.tale-emblem-stars i {
-  position: absolute;
-  color: rgba(246, 214, 128, .72);
-  font-size: 1rem;
-  font-style: normal;
-  text-shadow: 0 0 14px rgba(255, 220, 123, .5);
-}
-.tale-emblem-stars i:nth-child(1) { left: 12%; top: 14%; }
-.tale-emblem-stars i:nth-child(2) { right: 13%; top: 22%; font-size: 1.4rem; }
-.tale-emblem-stars i:nth-child(3) { left: 17%; bottom: 15%; font-size: .8rem; }
-.tale-emblem-stars i:nth-child(4) { right: 15%; bottom: 12%; font-size: 1.15rem; }
 
 /* --- Recto: the opening line --------------------------------------------- */
 .tale-opening {
@@ -1178,7 +1124,13 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-colophon .tale-head { margin-inline: auto; text-align: center; }
 .tale-colophon .tale-prose { margin-inline: auto; text-align: center; }
 .tale-colophon .tale-actions { justify-content: center; }
-.tale-colophon-mark { margin: 0 0 clamp(.9rem, 1.5vw, 1.3rem); color: var(--gilt); font: 400 1.15rem/1 Georgia, serif; letter-spacing: .3em; }
+.tale-colophon-mark {
+  height: 26px;
+  width: min(300px, 70%);
+  margin: 0 auto clamp(.9rem, 1.5vw, 1.3rem);
+  font-size: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 36'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M16 18 H126'/%3E%3Cpath d='M234 18 H344'/%3E%3Cpath d='M126 18 C138 8 150 8 156 14'/%3E%3Cpath d='M126 18 C138 28 150 28 156 22'/%3E%3Cpath d='M234 18 C222 8 210 8 204 14'/%3E%3Cpath d='M234 18 C222 28 210 28 204 22'/%3E%3C/g%3E%3Cg fill='%23a37c33'%3E%3Ccircle cx='160' cy='18' r='2.4'/%3E%3Ccircle cx='200' cy='18' r='2.4'/%3E%3Cpath d='M6 18 L12 14.6 L18 18 L12 21.4 Z'/%3E%3Cpath d='M342 18 L348 14.6 L354 18 L348 21.4 Z'/%3E%3C/g%3E%3Cpath d='M180 7 L191 18 L180 29 L169 18 Z' fill='%2398402f' stroke='%23c9a24a' stroke-width='1'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 
 /* --- Contact ------------------------------------------------------------- */
 .tale-address {
@@ -1329,7 +1281,6 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   .tale-ribbon { top: clamp(1rem, 3vw, 1.6rem); }
   .tale-steps li { grid-template-columns: 38px minmax(0, 1fr); gap: .7rem; }
   .tale-recital > li { grid-template-columns: 38px minmax(0, 1fr); gap: .7rem 1rem; }
-  .tale-emblem { min-height: 240px; }
   .site-footer { grid-template-columns: 1fr; gap: 2rem; }
   .legal, .ai-protection { grid-column: auto; }
   .ai-protection { margin-top: .5rem; padding: 1.35rem; }
@@ -1525,6 +1476,15 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 }
 .tale-letter-body { max-width: 68ch; margin-top: clamp(.9rem, 1.4vw, 1.2rem); }
 .tale-letter-body p + p { margin-top: .85em; }
+
+.tale-letter .tale-signoff::before {
+  content: "";
+  display: block;
+  width: 210px;
+  height: 20px;
+  margin-bottom: .9rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 36'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M16 18 H126'/%3E%3Cpath d='M234 18 H344'/%3E%3Cpath d='M126 18 C138 8 150 8 156 14'/%3E%3Cpath d='M126 18 C138 28 150 28 156 22'/%3E%3Cpath d='M234 18 C222 8 210 8 204 14'/%3E%3Cpath d='M234 18 C222 28 210 28 204 22'/%3E%3C/g%3E%3Cg fill='%23a37c33'%3E%3Ccircle cx='160' cy='18' r='2.4'/%3E%3Ccircle cx='200' cy='18' r='2.4'/%3E%3Cpath d='M6 18 L12 14.6 L18 18 L12 21.4 Z'/%3E%3Cpath d='M342 18 L348 14.6 L354 18 L348 21.4 Z'/%3E%3C/g%3E%3Cpath d='M180 7 L191 18 L180 29 L169 18 Z' fill='%2398402f' stroke='%23c9a24a' stroke-width='1'/%3E%3C/svg%3E") left center / contain no-repeat;
+}
 
 .tale-signoff {
   margin: clamp(1.4rem, 2.2vw, 2rem) 0 0;
@@ -2145,8 +2105,8 @@ a.tale-card:hover > b i { margin-left: .35rem; }
    pairs of levels dressed alike, which is what collapsed the hierarchy. The
    ask moves to IM Fell in ink: the name's family, nobody else's on this leaf. */
 .tale-ask {
-  margin: clamp(1.5rem, 2.4vw, 2.2rem) 0 0;
-  padding-top: clamp(1.3rem, 2vw, 1.8rem);
+  margin: clamp(.9rem, 1.5vw, 1.4rem) 0 0;
+  padding-top: clamp(.9rem, 1.4vw, 1.25rem);
   border-top: 1px solid rgba(150, 112, 48, .3);
   color: var(--sepia);
   font: 400 clamp(1.5rem, 2vw, 2.05rem)/1.32 var(--fell);
@@ -2155,26 +2115,34 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 /* .tale-voices carried margin-top:auto to balance the leaves; with the ask in
    place it only opened a hole between the two. The leaves stretch anyway. */
-.tale-byline-open ~ .tale-voices { margin-top: clamp(1.7rem, 2.8vw, 2.6rem); }
+.tale-byline-open ~ .tale-voices { margin-top: clamp(1.1rem, 1.8vw, 1.7rem); }
 
 /* --- Wax, pressed while it was still soft -------------------------------- */
+/* Drawn, not rounded: a border-radius can only make an egg. This is a lobed
+   blob smoothed the same way the opening ink is, with a pressed disc inside
+   it and the light catching the rim — the shape wax actually lands in. */
 .tale-wax {
   display: grid;
   place-items: center;
-  width: clamp(64px, 5.6vw, 82px);
-  height: clamp(64px, 5.6vw, 82px);
+  width: clamp(74px, 6.4vw, 94px);
+  height: clamp(74px, 6.4vw, 94px);
   margin: clamp(1rem, 1.7vw, 1.5rem) 0 0;
-  /* uneven on purpose: wax never lands round */
-  border-radius: 47% 53% 51% 49% / 52% 48% 53% 47%;
-  background: radial-gradient(circle at 34% 28%, #a84835, #7d2b20 56%, #52190f);
-  box-shadow:
-    inset 0 2px 7px rgba(255, 178, 150, .3),
-    inset 0 -4px 10px rgba(38, 7, 3, .62),
-    0 4px 11px rgba(50, 16, 10, .42);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3CradialGradient id='w' cx='38%25' cy='30%25' r='75%25'%3E%3Cstop offset='0' stop-color='%23b25843'/%3E%3Cstop offset='.55' stop-color='%238a3325'/%3E%3Cstop offset='1' stop-color='%23561b10'/%3E%3C/radialGradient%3E%3CradialGradient id='p' cx='40%25' cy='32%25' r='72%25'%3E%3Cstop offset='0' stop-color='%23a34635'/%3E%3Cstop offset='.7' stop-color='%237d2b20'/%3E%3Cstop offset='1' stop-color='%23652114'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M113.0 60.0C112.6 66.6 107.4 75.4 105.1 81.5C102.9 87.7 104.3 92.4 99.5 96.8C94.7 101.3 82.5 105.7 76.2 108.4C69.9 111.1 68.0 113.5 61.8 113.0C55.7 112.4 45.9 107.1 39.5 105.0C33.0 103.0 27.6 105.5 23.2 100.9C18.8 96.3 16.0 84.0 13.2 77.5C10.3 71.0 5.7 68.4 6.0 61.9C6.3 55.4 12.6 45.0 14.9 38.5C17.2 31.9 15.2 26.9 19.8 22.5C24.3 18.1 35.9 14.8 42.1 12.2C48.4 9.7 50.7 6.6 57.2 7.1C63.8 7.6 74.7 13.1 81.3 15.3C87.9 17.6 92.4 16.0 96.8 20.5C101.2 25.0 105.1 35.6 107.8 42.1C110.5 48.7 113.4 53.4 113.0 60.0Z' fill='url(%23w)'/%3E%3Cpath d='M113.0 60.0C112.6 66.6 107.4 75.4 105.1 81.5C102.9 87.7 104.3 92.4 99.5 96.8C94.7 101.3 82.5 105.7 76.2 108.4C69.9 111.1 68.0 113.5 61.8 113.0C55.7 112.4 45.9 107.1 39.5 105.0C33.0 103.0 27.6 105.5 23.2 100.9C18.8 96.3 16.0 84.0 13.2 77.5C10.3 71.0 5.7 68.4 6.0 61.9C6.3 55.4 12.6 45.0 14.9 38.5C17.2 31.9 15.2 26.9 19.8 22.5C24.3 18.1 35.9 14.8 42.1 12.2C48.4 9.7 50.7 6.6 57.2 7.1C63.8 7.6 74.7 13.1 81.3 15.3C87.9 17.6 92.4 16.0 96.8 20.5C101.2 25.0 105.1 35.6 107.8 42.1C110.5 48.7 113.4 53.4 113.0 60.0Z' fill='none' stroke='rgba(255,178,150,.22)' stroke-width='1.6' transform='translate(-.6,-.8)'/%3E%3Ccircle cx='60' cy='60' r='37' fill='url(%23p)' stroke='rgba(40,8,4,.42)' stroke-width='1.4'/%3E%3Cpath d='M31 46 A34 34 0 0 1 49 27' fill='none' stroke='rgba(255,190,160,.4)' stroke-width='2.4' stroke-linecap='round'/%3E%3Cpath d='M89 76 A34 34 0 0 1 72 92' fill='none' stroke='rgba(38,7,3,.5)' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 4px 9px rgba(50, 16, 10, .45));
   transform: rotate(-6deg);
 }
 
+/* a sprig pressed into the wax while it was soft, as on a real seal */
+.tale-wax::before {
+  content: "";
+  position: absolute;
+  inset: 22%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cg stroke='rgba(46,10,5,.65)' stroke-width='2' transform='translate(.7,1)'%3E%3Cpath d='M14 50 C24 40 38 28 50 14'/%3E%3Cpath d='M22 42 C16 42 11 38 10 31 C17 32 21 36 22 42 Z'/%3E%3Cpath d='M30 34 C24 33 20 29 20 22 C27 24 30 28 30 34 Z'/%3E%3Cpath d='M38 26 C33 24 30 20 31 13 C37 16 39 20 38 26 Z'/%3E%3Cpath d='M28 44 C34 45 39 43 42 37 C35 36 30 38 28 44 Z'/%3E%3Cpath d='M36 36 C42 37 47 34 49 28 C42 27 38 30 36 36 Z'/%3E%3C/g%3E%3Cg stroke='rgba(240,200,160,.55)' stroke-width='2'%3E%3Cpath d='M14 50 C24 40 38 28 50 14'/%3E%3Cpath d='M22 42 C16 42 11 38 10 31 C17 32 21 36 22 42 Z'/%3E%3Cpath d='M30 34 C24 33 20 29 20 22 C27 24 30 28 30 34 Z'/%3E%3Cpath d='M38 26 C33 24 30 20 31 13 C37 16 39 20 38 26 Z'/%3E%3Cpath d='M28 44 C34 45 39 43 42 37 C35 36 30 38 28 44 Z'/%3E%3Cpath d='M36 36 C42 37 47 34 49 28 C42 27 38 30 36 36 Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: .9;
+}
+
 .tale-wax b {
+  position: relative;
   color: rgba(255, 214, 190, .82);
   font: 600 clamp(1.05rem, 1.4vw, 1.3rem)/1 var(--caps);
   letter-spacing: .12em;
@@ -2228,7 +2196,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   align-items: center;
   justify-content: center;
   gap: clamp(.6rem, 1.1vw, 1rem);
-  margin: 0 0 clamp(1rem, 1.7vw, 1.5rem);
+  margin: 0 0 clamp(.6rem, 1vw, .9rem);
   color: var(--gilt);
   line-height: 1;
 }
@@ -2241,7 +2209,12 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   padding: clamp(1.3rem, 2vw, 1.8rem) clamp(1rem, 2vw, 2rem) clamp(1.4rem, 2.2vw, 2rem);
   border-top: 2px solid rgba(150, 112, 48, .5);
   border-bottom: 2px solid rgba(150, 112, 48, .5);
-  background: linear-gradient(rgba(255, 248, 226, .5), rgba(255, 245, 214, .16));
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 0)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 6px top 8px / 24px 24px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(40 0) scale(-1 1)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 6px top 8px / 24px 24px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 40) scale(1 -1)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 6px bottom 8px / 24px 24px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)'%3E%3Cg fill='none' stroke='%23a37c33' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23a37c33' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 6px bottom 8px / 24px 24px no-repeat,
+    linear-gradient(rgba(255, 248, 226, .5), rgba(255, 245, 214, .16));
 }
 
 /* the hairlines that sit inside the heavy rules, as on a printed title page */
