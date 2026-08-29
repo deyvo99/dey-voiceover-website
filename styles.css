@@ -546,6 +546,17 @@ main::before {
   background: linear-gradient(90deg, transparent, var(--gilt));
 }
 .tale-name::after { transform: scaleX(-1); }
+/* The epithet is the half people remember, so it carries the ink weight and
+   the italic; the trade below it stays in the quiet Cinzel caps that every
+   other detail line uses. Two devices apart, so neither shouts over the name. */
+.tale-epithet {
+  display: block;
+  margin-top: .5rem;
+  color: var(--rubric);
+  font: italic 600 clamp(1.08rem, 1.36vw, 1.28rem)/1.3 var(--hand);
+  letter-spacing: .015em;
+}
+
 .tale-role {
   display: block;
   margin-top: .55rem;
@@ -1961,3 +1972,5 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   color: var(--sepia-read);
   font: italic 500 clamp(1.16rem, 1.44vw, 1.36rem)/1.45 var(--hand);
 }
+
+.tale-epithet + .tale-role { margin-top: .3rem; }
