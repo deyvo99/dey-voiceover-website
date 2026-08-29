@@ -28,6 +28,7 @@
      page — shows this under gradients of .82 to .95 opacity, so it gets a
      heavily compressed copy: 264KB rather than 680KB, on every page. */
   --curtain: url("assets/images/opening/curtain-veil.jpg");
+  --watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='%236d5028' fill-opacity='.3'%3E%3Cpath d='M50 26 L53.4 46.6 L74 50 L53.4 53.4 L50 74 L46.6 53.4 L26 50 L46.6 46.6 Z'/%3E%3Cpath d='M150 126 L153.4 146.6 L174 150 L153.4 153.4 L150 174 L146.6 153.4 L126 150 L146.6 146.6 Z'/%3E%3Cpath d='M150 40 L151.6 47 L158 48.6 L151.6 50.2 L150 57 L148.4 50.2 L142 48.6 L148.4 47 Z'/%3E%3Cpath d='M50 140 L51.6 147 L58 148.6 L51.6 150.2 L50 157 L48.4 150.2 L42 148.6 L48.4 147 Z'/%3E%3C/g%3E%3C/svg%3E");
   --fiber: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
@@ -272,8 +273,8 @@ main::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: var(--fiber);
-  background-size: 190px 190px;
+  background-image: var(--watermark), var(--fiber);
+  background-size: 210px 210px, 190px 190px;
   mix-blend-mode: multiply;
   opacity: .26;
 }
@@ -2107,12 +2108,22 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 /* --- The question the page exists to ask --------------------------------- */
 /* .tale-voices carries margin-top:auto to balance the two leaves, which left
    a hole under her name. This fills it with the one thing worth saying there. */
+/* The ask was Cormorant italic in rubric — exactly the epithet's costume two
+   lines above it — while COME AND LISTEN wore the role's Cinzel caps. Two
+   pairs of levels dressed alike, which is what collapsed the hierarchy. The
+   ask moves to IM Fell in ink: the name's family, nobody else's on this leaf. */
 .tale-ask {
-  margin: clamp(1.6rem, 2.6vw, 2.4rem) 0 0;
-  color: var(--rubric);
-  font: italic 600 clamp(1.38rem, 1.86vw, 1.74rem)/1.4 var(--hand);
+  margin: clamp(1.5rem, 2.4vw, 2.2rem) 0 0;
+  padding-top: clamp(1.3rem, 2vw, 1.8rem);
+  border-top: 1px solid rgba(150, 112, 48, .3);
+  color: var(--sepia);
+  font: 400 clamp(1.5rem, 2vw, 2.05rem)/1.32 var(--fell);
   text-align: center;
 }
+
+/* .tale-voices carried margin-top:auto to balance the leaves; with the ask in
+   place it only opened a hole between the two. The leaves stretch anyway. */
+.tale-byline-open ~ .tale-voices { margin-top: clamp(1.7rem, 2.8vw, 2.6rem); }
 
 /* --- Wax, pressed while it was still soft -------------------------------- */
 .tale-wax {
@@ -2150,4 +2161,10 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 .tale-versal {
   text-shadow: 0 2px 12px rgba(18, 2, 24, .7), 0 0 3px rgba(242, 210, 140, .5);
+}
+
+/* A four-word opening earns display size in a way a full sentence never did. */
+.tale-opening-solo {
+  font-size: clamp(2.6rem, 4vw, 4.2rem);
+  margin-bottom: clamp(1.4rem, 2.2vw, 2rem);
 }
