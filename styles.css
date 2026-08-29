@@ -1040,6 +1040,25 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   padding-top: clamp(.8rem, 1.3vw, 1.15rem);
   border-top: 1px solid rgba(150, 112, 48, .34);
 }
+
+/* The onward link sat on its own line under the pills, which read as a third
+   option rather than the way forward. It sits beside them now, pushed right,
+   and wraps back underneath when the row runs out of room. */
+.tale-more > span {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.tale-more:has(> .tale-onward) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .7rem clamp(1rem, 2vw, 2rem);
+}
+
+.tale-more:has(> .tale-onward) > p { flex: 1 0 100%; margin: 0; }
+.tale-more:has(> .tale-onward) > .tale-onward { margin-left: auto; }
 .tale-more > p {
   margin: 0 0 .65rem;
   color: var(--sepia-soft);
