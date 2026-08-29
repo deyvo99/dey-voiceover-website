@@ -2020,42 +2020,32 @@ a.tale-card:hover > b i { margin-left: .35rem; }
    name is the h1 now — it is what a visitor and a search engine both want
    first — and the sentence supports it underneath at a size that no longer
    pushes the demos below the fold. */
-/* Set as a book cover, from her references: gold lettering on the deep plum
-   the versals already wear, held in a gilt frame with corner scrolls. The
-   name is the brightest thing on the leaf, which is the point of a cover. */
-/* Set as a book cover, from her references: gold lettering on deep plum
-   cloth. Flat and matte on purpose — a real cover has grain, not a light
-   sweep — so the ground is one colour with the paper's own fibre texture
-   pressed into it, and only the edges darken, the way boards do. */
+/* A bound cover, third and final pass: her references are tooled leather —
+   a full engraved gold frame running the whole way round, grain in the hide,
+   the lettering pressed in. The frame is one drawn tile, corner and chain,
+   stamped four times by rotation and sliced as a border-image. */
 .tale-byline-open {
   position: relative;
   margin: 0 0 clamp(1.4rem, 2.2vw, 2rem);
   text-align: center;
-  padding: clamp(1.5rem, 2.3vw, 2.1rem) clamp(1rem, 2vw, 2rem) clamp(1.6rem, 2.5vw, 2.2rem);
-  border: 1px solid var(--gilt-deep);
-  outline: 1px solid rgba(177, 135, 60, .45);
-  outline-offset: 4px;
-  background-color: #3b1247;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 0)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px top 7px / 24px 24px,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(40 0) scale(-1 1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px top 7px / 24px 24px,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='translate(0 40) scale(1 -1)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") left 7px bottom 7px / 24px 24px,
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cg transform='rotate(180 20 20)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-width='2.1' stroke-linecap='round'%3E%3Cpath d='M5 35 C5 15 15 5 35 5'/%3E%3Cpath d='M35 5 C27 7 22 11 21 17 C21 21 24 23 27 22 C30 21 30 17 27.5 16.5'/%3E%3Cpath d='M5 35 C7 27 11 22 17 21 C21 21 23 24 22 27 C21 30 17 30 16.5 27.5'/%3E%3C/g%3E%3Cpath d='M12 8 L15 12 L12 16 L9 12 Z' fill='%23d9b768' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") right 7px bottom 7px / 24px 24px,
-    var(--fiber);
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
-  background-size: 24px 24px, 24px 24px, 24px 24px, 24px 24px, 190px 190px;
-  background-blend-mode: normal, normal, normal, normal, soft-light;
+  padding: clamp(1.2rem, 1.9vw, 1.7rem) clamp(.8rem, 1.6vw, 1.6rem) clamp(1.3rem, 2vw, 1.8rem);
+  border: 24px solid transparent;
+  border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg transform='rotate(0 60 60)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-linecap='round'%3E%3Cpath d='M5 115 L5 5 L115 5' stroke-width='2.6'/%3E%3Cpath d='M13 115 L13 13 L115 13' stroke-width='1.1'/%3E%3Cpath d='M8 8 C16 10 22 14 26 22' stroke-width='1.6'/%3E%3Cpath d='M8 8 C10 16 14 22 22 26' stroke-width='1.6'/%3E%3Cpath d='M26 22 C28 26 28 30 25 33' stroke-width='1.3'/%3E%3Cpath d='M22 26 C26 28 30 28 33 25' stroke-width='1.3'/%3E%3C/g%3E%3Cg fill='%23d9b768'%3E%3Cpath d='M29 29 L34 24 L39 29 L34 34 Z'/%3E%3Ccircle cx='20' cy='9' r='1.7'/%3E%3Ccircle cx='9' cy='20' r='1.7'/%3E%3Cpath d='M48 9 L51.5 5.5 L55 9 L51.5 12.5 Z'/%3E%3Cpath d='M62 9 L65.5 5.5 L69 9 L65.5 12.5 Z'/%3E%3Cpath d='M76 9 L79.5 5.5 L83 9 L79.5 12.5 Z'/%3E%3Ccircle cx='44' cy='9' r='1.2'/%3E%3Ccircle cx='58.5' cy='9' r='1.2'/%3E%3Ccircle cx='72.5' cy='9' r='1.2'/%3E%3Ccircle cx='87' cy='9' r='1.2'/%3E%3C/g%3E%3C/g%3E%3Cg transform='rotate(90 60 60)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-linecap='round'%3E%3Cpath d='M5 115 L5 5 L115 5' stroke-width='2.6'/%3E%3Cpath d='M13 115 L13 13 L115 13' stroke-width='1.1'/%3E%3Cpath d='M8 8 C16 10 22 14 26 22' stroke-width='1.6'/%3E%3Cpath d='M8 8 C10 16 14 22 22 26' stroke-width='1.6'/%3E%3Cpath d='M26 22 C28 26 28 30 25 33' stroke-width='1.3'/%3E%3Cpath d='M22 26 C26 28 30 28 33 25' stroke-width='1.3'/%3E%3C/g%3E%3Cg fill='%23d9b768'%3E%3Cpath d='M29 29 L34 24 L39 29 L34 34 Z'/%3E%3Ccircle cx='20' cy='9' r='1.7'/%3E%3Ccircle cx='9' cy='20' r='1.7'/%3E%3Cpath d='M48 9 L51.5 5.5 L55 9 L51.5 12.5 Z'/%3E%3Cpath d='M62 9 L65.5 5.5 L69 9 L65.5 12.5 Z'/%3E%3Cpath d='M76 9 L79.5 5.5 L83 9 L79.5 12.5 Z'/%3E%3Ccircle cx='44' cy='9' r='1.2'/%3E%3Ccircle cx='58.5' cy='9' r='1.2'/%3E%3Ccircle cx='72.5' cy='9' r='1.2'/%3E%3Ccircle cx='87' cy='9' r='1.2'/%3E%3C/g%3E%3C/g%3E%3Cg transform='rotate(180 60 60)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-linecap='round'%3E%3Cpath d='M5 115 L5 5 L115 5' stroke-width='2.6'/%3E%3Cpath d='M13 115 L13 13 L115 13' stroke-width='1.1'/%3E%3Cpath d='M8 8 C16 10 22 14 26 22' stroke-width='1.6'/%3E%3Cpath d='M8 8 C10 16 14 22 22 26' stroke-width='1.6'/%3E%3Cpath d='M26 22 C28 26 28 30 25 33' stroke-width='1.3'/%3E%3Cpath d='M22 26 C26 28 30 28 33 25' stroke-width='1.3'/%3E%3C/g%3E%3Cg fill='%23d9b768'%3E%3Cpath d='M29 29 L34 24 L39 29 L34 34 Z'/%3E%3Ccircle cx='20' cy='9' r='1.7'/%3E%3Ccircle cx='9' cy='20' r='1.7'/%3E%3Cpath d='M48 9 L51.5 5.5 L55 9 L51.5 12.5 Z'/%3E%3Cpath d='M62 9 L65.5 5.5 L69 9 L65.5 12.5 Z'/%3E%3Cpath d='M76 9 L79.5 5.5 L83 9 L79.5 12.5 Z'/%3E%3Ccircle cx='44' cy='9' r='1.2'/%3E%3Ccircle cx='58.5' cy='9' r='1.2'/%3E%3Ccircle cx='72.5' cy='9' r='1.2'/%3E%3Ccircle cx='87' cy='9' r='1.2'/%3E%3C/g%3E%3C/g%3E%3Cg transform='rotate(270 60 60)'%3E%3Cg fill='none' stroke='%23d9b768' stroke-linecap='round'%3E%3Cpath d='M5 115 L5 5 L115 5' stroke-width='2.6'/%3E%3Cpath d='M13 115 L13 13 L115 13' stroke-width='1.1'/%3E%3Cpath d='M8 8 C16 10 22 14 26 22' stroke-width='1.6'/%3E%3Cpath d='M8 8 C10 16 14 22 22 26' stroke-width='1.6'/%3E%3Cpath d='M26 22 C28 26 28 30 25 33' stroke-width='1.3'/%3E%3Cpath d='M22 26 C26 28 30 28 33 25' stroke-width='1.3'/%3E%3C/g%3E%3Cg fill='%23d9b768'%3E%3Cpath d='M29 29 L34 24 L39 29 L34 34 Z'/%3E%3Ccircle cx='20' cy='9' r='1.7'/%3E%3Ccircle cx='9' cy='20' r='1.7'/%3E%3Cpath d='M48 9 L51.5 5.5 L55 9 L51.5 12.5 Z'/%3E%3Cpath d='M62 9 L65.5 5.5 L69 9 L65.5 12.5 Z'/%3E%3Cpath d='M76 9 L79.5 5.5 L83 9 L79.5 12.5 Z'/%3E%3Ccircle cx='44' cy='9' r='1.2'/%3E%3Ccircle cx='58.5' cy='9' r='1.2'/%3E%3Ccircle cx='72.5' cy='9' r='1.2'/%3E%3Ccircle cx='87' cy='9' r='1.2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") 38 round;
+  background-color: #381145;
+  background-image: var(--fiber), var(--fiber);
+  background-size: 190px 190px, 89px 89px;
+  background-blend-mode: soft-light, overlay;
+  background-clip: border-box;
   box-shadow:
-    inset 0 0 0 2px rgba(232, 197, 128, .3),
-    inset 0 0 30px rgba(12, 0, 18, .5),
+    inset 0 0 26px rgba(10, 0, 16, .55),
     0 10px 22px rgba(20, 4, 28, .42);
 }
 
 .tale-byline-open .tale-name {
   font-size: clamp(2.4rem, 3.4vw, 3.5rem);
   color: #f2d28c;
-  /* foil sits ON the cloth: one crisp press shadow, no halo */
-  text-shadow: 0 1px 0 rgba(14, 0, 20, .55);
+  /* foil pressed in: a dark press below, a thread of light catching above */
+  text-shadow: 0 1px 1px rgba(10, 0, 16, .65), 0 -1px 0 rgba(255, 238, 190, .22);
 }
 
 .tale-byline-open .tale-epithet {
@@ -2261,19 +2251,7 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 /* (merged into the book-cover block above) */
 
-/* the hairlines that sit inside the heavy rules, as on a printed title page */
-.tale-byline-open::before,
-.tale-byline-open::after {
-  content: "";
-  position: absolute;
-  left: 10px;
-  right: 10px;
-  height: 1px;
-  background: rgba(230, 195, 124, .35);
-}
-
-.tale-byline-open::before { top: 4px; }
-.tale-byline-open::after { bottom: 4px; }
+/* the drawn frame carries its own rules; no extra hairlines needed */
 
 /* --- The letter, set the way a book sets a long page --------------------- */
 /* 400 words in stacked, evenly spaced blocks reads as a web page. Books indent
