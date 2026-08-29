@@ -924,14 +924,21 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   width: clamp(40px, 3.4vw, 48px);
   height: clamp(40px, 3.4vw, 48px);
   border: 1px solid var(--gilt-deep);
-  background: radial-gradient(circle at 30% 26%, #f6e3af, #b1873c 62%, #8a6526);
-  color: #3b1b46;
-  box-shadow: inset 0 0 0 2px rgba(255, 244, 214, .38), 0 5px 12px rgba(60, 34, 14, .3);
+  /* An illuminated initial, the same purple-and-gilt as the versal that opens
+     every page — so it reads as part of the book rather than a stock control,
+     and carries far more contrast against parchment than gold-on-gold did. */
+  border-radius: 2px;
+  border: 1px solid var(--gilt-deep);
+  background:
+    radial-gradient(circle at 26% 20%, rgba(255, 226, 160, .32), transparent 58%),
+    linear-gradient(150deg, #52215f, #2b0d36 58%, #46184f);
+  color: #f2d28c;
+  box-shadow: inset 0 0 0 2px rgba(232, 197, 128, .3), 0 5px 12px rgba(46, 22, 10, .34);
   /* no filter here: this is the control people actually click, and a filter
      transition repaints the button every frame instead of compositing it */
   transition: transform .2s, box-shadow .2s;
 }
-.tale-track .audio-toggle:hover { transform: scale(1.07); background: radial-gradient(circle at 30% 26%, #fff5bd, #bf9241 62%, #956d29); }
+.tale-track .audio-toggle:hover { transform: scale(1.07); box-shadow: inset 0 0 0 2px rgba(240, 210, 140, .52), 0 8px 17px rgba(46, 22, 10, .44); }
 .tale-track .audio-toggle span { font-size: .78rem; }
 .tale-track .audio-info { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .5rem .9rem; }
 .tale-track .audio-info strong { grid-area: 1 / 1; }
@@ -1974,3 +1981,32 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 }
 
 .tale-epithet + .tale-role { margin-top: .3rem; }
+
+/* --- Starlight around the portrait --------------------------------------- */
+/* The arch was a bare gilt frame on a page whose opening screen is full of
+   stars. This picks that thread back up: a small crown over the crest, and
+   sparks scattered wider at the top than the foot, so the eye still lands on
+   her face first. Sits outside the frame, so it never covers the photograph. */
+.tale-arch-stars {
+  position: absolute;
+  inset: -30px -26px -16px;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.arch-spark { opacity: .85; transform-box: fill-box; transform-origin: center; }
+.arch-crown { opacity: .9; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* opacity only, so the compositor carries it and no frame costs layout */
+  .arch-spark { animation: archTwinkle 5.5s ease-in-out infinite; }
+  .arch-spark:nth-child(2n) { animation-duration: 7s; animation-delay: -1.8s; }
+  .arch-spark:nth-child(3n) { animation-duration: 6.2s; animation-delay: -3.4s; }
+  .arch-spark:nth-child(5n) { animation-duration: 8s; animation-delay: -2.6s; }
+}
+
+@keyframes archTwinkle {
+  0%, 100% { opacity: .38; }
+  50% { opacity: 1; }
+}
