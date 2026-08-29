@@ -297,11 +297,13 @@ main::before {
   outline-offset: 6px;
 }
 .tale-leaf-inner::after, .tale-sheet-inner::after {
-  background:
-    radial-gradient(circle at 0 0, var(--gilt) 2.1px, transparent 2.6px),
-    radial-gradient(circle at 100% 0, var(--gilt) 2.1px, transparent 2.6px),
-    radial-gradient(circle at 0 100%, var(--gilt) 2.1px, transparent 2.6px),
-    radial-gradient(circle at 100% 100%, var(--gilt) 2.1px, transparent 2.6px);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1.6 L13.7 10.3 L22.4 12 L13.7 13.7 L12 22.4 L10.3 13.7 L1.6 12 L10.3 10.3 Z' fill='%23b1873c'/%3E%3Ccircle cx='12' cy='12' r='1.5' fill='%23e6c37c'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  background-position: left top, right top, left bottom, right bottom;
+  /* the corners sit on the rule, not inside it */
+  margin: -7.5px;
+  padding: 7.5px;
 }
 
 /* --- The spread ---------------------------------------------------------- */
@@ -2100,4 +2102,52 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 @keyframes markGlint {
   0%, 100% { opacity: .55; text-shadow: 0 0 6px rgba(255, 214, 128, .3); }
   50% { opacity: 1; text-shadow: 0 0 16px rgba(255, 224, 150, .85); }
+}
+
+/* --- The question the page exists to ask --------------------------------- */
+/* .tale-voices carries margin-top:auto to balance the two leaves, which left
+   a hole under her name. This fills it with the one thing worth saying there. */
+.tale-ask {
+  margin: clamp(1.6rem, 2.6vw, 2.4rem) 0 0;
+  color: var(--rubric);
+  font: italic 600 clamp(1.38rem, 1.86vw, 1.74rem)/1.4 var(--hand);
+  text-align: center;
+}
+
+/* --- Wax, pressed while it was still soft -------------------------------- */
+.tale-wax {
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 5.6vw, 82px);
+  height: clamp(64px, 5.6vw, 82px);
+  margin: clamp(1rem, 1.7vw, 1.5rem) 0 0;
+  /* uneven on purpose: wax never lands round */
+  border-radius: 47% 53% 51% 49% / 52% 48% 53% 47%;
+  background: radial-gradient(circle at 34% 28%, #a84835, #7d2b20 56%, #52190f);
+  box-shadow:
+    inset 0 2px 7px rgba(255, 178, 150, .3),
+    inset 0 -4px 10px rgba(38, 7, 3, .62),
+    0 4px 11px rgba(50, 16, 10, .42);
+  transform: rotate(-6deg);
+}
+
+.tale-wax b {
+  color: rgba(255, 214, 190, .82);
+  font: 600 clamp(1.05rem, 1.4vw, 1.3rem)/1 var(--caps);
+  letter-spacing: .12em;
+  /* stamped in, not printed on */
+  text-shadow: 0 1px 0 rgba(255, 200, 175, .3), 0 -1px 1px rgba(50, 12, 6, .75);
+}
+
+/* --- Ink that soaked a little before it dried ---------------------------- */
+/* Only the display sizes. Body text stays crisp — a bleed at reading size is
+   just blur, and this page already asks people to read a lot of it. */
+.tale-opening,
+.tale-chapter-head h2,
+.tale-head {
+  text-shadow: 0 0 1px rgba(59, 42, 32, .34), 0 1px 2px rgba(59, 42, 32, .12);
+}
+
+.tale-versal {
+  text-shadow: 0 2px 12px rgba(18, 2, 24, .7), 0 0 3px rgba(242, 210, 140, .5);
 }
