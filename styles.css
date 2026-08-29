@@ -28,7 +28,7 @@
      page — shows this under gradients of .82 to .95 opacity, so it gets a
      heavily compressed copy: 264KB rather than 680KB, on every page. */
   --curtain: url("assets/images/opening/curtain-veil.jpg");
-  --watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='%236d5028' fill-opacity='.3'%3E%3Cpath d='M50 26 L53.4 46.6 L74 50 L53.4 53.4 L50 74 L46.6 53.4 L26 50 L46.6 46.6 Z'/%3E%3Cpath d='M150 126 L153.4 146.6 L174 150 L153.4 153.4 L150 174 L146.6 153.4 L126 150 L146.6 146.6 Z'/%3E%3Cpath d='M150 40 L151.6 47 L158 48.6 L151.6 50.2 L150 57 L148.4 50.2 L142 48.6 L148.4 47 Z'/%3E%3Cpath d='M50 140 L51.6 147 L58 148.6 L51.6 150.2 L50 157 L48.4 150.2 L42 148.6 L48.4 147 Z'/%3E%3C/g%3E%3C/svg%3E");
+  --watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23fffdf2' stroke-width='1.5' stroke-linejoin='round'%3E%3Cpath d='M60 34 L66 54 L86 60 L66 66 L60 86 L54 66 L34 60 L54 54 Z'/%3E%3Cpath d='M180 154 L186 174 L206 180 L186 186 L180 206 L174 186 L154 180 L174 174 Z'/%3E%3C/g%3E%3Cg fill='%23fffdf2'%3E%3Ccircle cx='180' cy='60' r='2.6'/%3E%3Ccircle cx='60' cy='180' r='2.6'/%3E%3C/g%3E%3C/svg%3E");
   --fiber: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23f)'/%3E%3C/svg%3E");
 }
 
@@ -269,12 +269,25 @@ main::before {
     0 0, 0 0, 0 0, 0 0;
   filter: url(#deckle) drop-shadow(0 18px 30px rgba(14, 2, 20, .55)) drop-shadow(0 0 24px rgba(236, 190, 106, .28));
 }
+/* Light through the sheet, not ink on it. Outlined rather than solid, so the
+   motif never reads as a blot even where two tiles meet. */
+.tale-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: var(--watermark);
+  background-size: 300px 300px;
+  opacity: .16;
+  pointer-events: none;
+}
+
 .tale-paper::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: var(--watermark), var(--fiber);
-  background-size: 210px 210px, 190px 190px;
+  background-image: var(--fiber);
+  background-size: 190px 190px;
   mix-blend-mode: multiply;
   opacity: .26;
 }
@@ -2205,3 +2218,74 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   text-transform: none;
   color: var(--sepia-read);
 }
+
+/* --- The homepage leaf, set as a title page ------------------------------ */
+/* A name centred on a blank sheet is a caption. A title page announces: an
+   ornament above it, rules holding it, and the whole block sitting on its own
+   ground so the eye stops there before it goes anywhere else. */
+.tale-cartouche {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.6rem, 1.1vw, 1rem);
+  margin: 0 0 clamp(1rem, 1.7vw, 1.5rem);
+  color: var(--gilt);
+  line-height: 1;
+}
+
+.tale-cartouche i { font-size: .78rem; font-style: normal; opacity: .8; }
+.tale-cartouche b { color: var(--rubric); font: 400 1.5rem/1 Georgia, serif; }
+
+.tale-byline-open {
+  position: relative;
+  padding: clamp(1.3rem, 2vw, 1.8rem) clamp(1rem, 2vw, 2rem) clamp(1.4rem, 2.2vw, 2rem);
+  border-top: 2px solid rgba(150, 112, 48, .5);
+  border-bottom: 2px solid rgba(150, 112, 48, .5);
+  background: linear-gradient(rgba(255, 248, 226, .5), rgba(255, 245, 214, .16));
+}
+
+/* the hairlines that sit inside the heavy rules, as on a printed title page */
+.tale-byline-open::before,
+.tale-byline-open::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(150, 112, 48, .38);
+}
+
+.tale-byline-open::before { top: 4px; }
+.tale-byline-open::after { bottom: 4px; }
+
+/* --- The letter, set the way a book sets a long page --------------------- */
+/* 400 words in stacked, evenly spaced blocks reads as a web page. Books indent
+   the turn of each paragraph and let the leading do the separating, which is
+   what makes a long column comfortable rather than a wall. */
+.tale-letter-body {
+  font-size: clamp(1.28rem, 1.5vw, 1.44rem);
+  line-height: 1.78;
+  color: var(--sepia-read);
+}
+
+.tale-letter-body p { margin: 0; }
+.tale-letter-body p + p { margin-top: .45em; text-indent: 1.7em; }
+
+/* the opening word carries the eye in, as an initial does in a printed book */
+.tale-letter-body p:first-child::first-letter {
+  float: left;
+  margin: .06em .1em 0 0;
+  color: var(--rubric);
+  font: 400 3.5em/.82 var(--fell);
+  text-shadow: 0 1px 2px rgba(96, 40, 28, .22);
+}
+
+.tale-letter-body p:first-child::first-line {
+  font-variant-caps: small-caps;
+  letter-spacing: .04em;
+}
+
+/* the line she wants read is the one that answers the fear */
+.tale-letter-body strong { color: var(--rubric); font-weight: 600; }
+
+.tale-salutation { color: var(--rubric); }
