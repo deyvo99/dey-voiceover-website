@@ -924,49 +924,15 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   width: clamp(40px, 3.4vw, 48px);
   height: clamp(40px, 3.4vw, 48px);
   border: 1px solid var(--gilt-deep);
-  /* An illuminated initial, the same purple-and-gilt as the versal that opens
-     every page — so it reads as part of the book rather than a stock control,
-     and carries far more contrast against parchment than gold-on-gold did. */
-  /* A little door — the same arch her portrait sits in, so pressing play is
-     opening a door into the story rather than clicking a control.
-     Drawn on the page, not sitting on top of it: the heavy gilt version was
-     the only dimensional object on a flat sheet and read as pasted on. Thin
-     rule and pale fill put it in the same family as the chips and the seal
-     links; the pull comes from the rubric glyph, not from the whole object. */
-  place-items: stretch;
-  padding: 0;
-  border: 1px solid rgba(150, 112, 48, .58);
-  border-radius: 50% 50% 3px 3px / 40% 40% 3px 3px;
-  background: none;
-  color: var(--rubric);
-  box-shadow: none;
+  background: radial-gradient(circle at 30% 26%, #f6e3af, #b1873c 62%, #8a6526);
+  color: #3b1b46;
+  box-shadow: inset 0 0 0 2px rgba(255, 244, 214, .38), 0 5px 12px rgba(60, 34, 14, .3);
   /* no filter here: this is the control people actually click, and a filter
      transition repaints the button every frame instead of compositing it */
   transition: transform .2s, box-shadow .2s;
 }
-/* the same lift the seal links use, so every clickable thing behaves alike */
-.tale-track .audio-toggle:hover {
-  transform: translateY(-2px);
-  border-color: rgba(150, 112, 48, .85);
-}
+.tale-track .audio-toggle:hover { transform: scale(1.07); background: radial-gradient(circle at 30% 26%, #fff5bd, #bf9241 62%, #956d29); }
 
-/* the span is the door face, filling the arch the border draws */
-.tale-track .audio-toggle span {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  padding-left: 2px;
-  border-radius: inherit;
-  background: rgba(255, 247, 224, .42);
-  box-shadow: none;
-  font-size: .78rem;
-}
-
-.tale-track .audio-toggle:hover span { background: rgba(255, 249, 231, .68); }
-
-.audio-player.is-playing .tale-track .audio-toggle span,
-.tale-track .audio-player.is-playing .audio-toggle span { padding-left: 0; }
 .tale-track .audio-toggle span { font-size: .78rem; }
 .tale-track .audio-info { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: .5rem .9rem; }
 .tale-track .audio-info strong { grid-area: 1 / 1; }
@@ -1626,14 +1592,12 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   letter-spacing: .07em;
 }
 .tale-track .audio-track { height: 4px; background: rgba(104, 72, 38, .3); }
-/* A door is taller than it is wide. This block sits after the one above and
-   was making it square again, and re-applying the old gilt inset over the
-   doorway. Sizing lives here; the look lives there. */
 .tale-track .audio-toggle {
-  width: clamp(44px, 3.6vw, 50px);
-  height: clamp(52px, 4.3vw, 60px);
+  width: clamp(46px, 3.9vw, 54px);
+  height: clamp(46px, 3.9vw, 54px);
+  box-shadow: inset 0 0 0 2px rgba(255, 246, 220, .45), 0 5px 14px rgba(60, 34, 14, .38);
 }
-.tale-track .audio-toggle span { font-size: .82rem; }
+.tale-track .audio-toggle span { font-size: .92rem; }
 
 /* on the homepage the track title IS the demo name, so it stays level C */
 .tale-voices .tale-track .audio-info strong {
