@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daeunyoonvoice.com/sitemap.xml
