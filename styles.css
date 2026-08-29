@@ -1835,7 +1835,6 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 .tale-leaf-recto .tale-prose { margin-bottom: 0; }
 .tale-leaf-recto .tale-prose p:last-child { margin-bottom: 0; }
 .page-about .tale-leaf-recto .tale-leaf-inner { justify-content: flex-start; }
-.page-about .tale-leaf-recto .tale-byline { margin-bottom: clamp(1rem, 1.6vw, 1.4rem); }
 
 /* the gallery needs air above it, and a rule so it reads as a new movement */
 .tale-gallery-open {
