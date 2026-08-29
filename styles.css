@@ -59,7 +59,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .page-home { --curtain: url("assets/images/opening/enchanted-watercolor-curtain.jpg"); }
 
 /* --- Header --------------------------------------------------------------- */
-.site-header { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: .8rem max(4vw, 1.25rem); background: linear-gradient(90deg, rgba(29,5,36,.88), rgba(78,27,87,.72), rgba(29,5,36,.88)), var(--curtain) center 42% / cover; border-bottom: 1px solid rgba(231,189,98,.7); color: var(--story-cream); box-shadow: 0 5px 20px rgba(32,7,39,.2), inset 0 0 28px rgba(236,193,103,.08); }
+.site-header { position: relative; z-index: 30; display: flex; align-items: center; justify-content: space-between; min-height: 82px; padding: .8rem max(4vw, 1.25rem); background: linear-gradient(90deg, rgba(18,2,24,.95), rgba(53,16,62,.88), rgba(18,2,24,.95)), var(--curtain) center 42% / cover; border-bottom: 1px solid rgba(231,189,98,.7); color: var(--story-cream); box-shadow: 0 6px 26px rgba(14,1,20,.5), inset 0 0 28px rgba(236,193,103,.08); }
 .brand { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
 .brand span { color: var(--story-cream); font: 400 1.55rem/1 var(--fell); letter-spacing: -.025em; }
 .brand small { margin-top: .35rem; color: var(--story-gold); font: 600 .64rem/1.25 var(--caps); letter-spacing: .08em; text-transform: uppercase; }
