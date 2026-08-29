@@ -337,7 +337,9 @@ if ('IntersectionObserver' in window) {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+  // fire 240px before the element enters, so the sheet's first (expensive)
+// raster and its fade both finish off-screen and it is simply there on arrival
+}, { threshold: 0, rootMargin: '0px 0px 240px 0px' });
   reveals.forEach((element) => observer.observe(element));
 } else {
   reveals.forEach((element) => element.classList.add('is-visible'));
@@ -632,7 +634,7 @@ if (autoplayVideos.length && !window.matchMedia('(prefers-reduced-motion: reduce
           target.pause();
         }
       });
-    }, { threshold: 0.35 });
+    }, { threshold: 0.2 });
     autoplayVideos.forEach((video) => {
       video.addEventListener('pause', () => {
         if (!video.ended && document.visibilityState === 'visible') video.dataset.userPaused = '1';

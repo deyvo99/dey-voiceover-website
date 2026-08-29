@@ -48,10 +48,13 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .skip-link:focus { left: 1rem; }
 :focus-visible { outline: 2px solid var(--story-gold); outline-offset: 3px; }
 
-.motion-ready .reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s ease, transform .75s ease; }
+/* Reveals fire 240px before the viewport (see script.js) and resolve fast,
+   so by the time a sheet scrolls into view it is simply there — no pop-in
+   mid-read. The stagger delays are gone for the same reason: she asked for
+   everything in a view to arrive together. */
+.motion-ready .reveal { opacity: 0; transform: translateY(12px); transition: opacity .4s ease, transform .4s ease; }
 .motion-ready .reveal.is-visible { opacity: 1; transform: none; }
-.motion-ready .delay-1 { transition-delay: .12s; }
-.motion-ready .delay-2 { transition-delay: .24s; }
+.motion-ready .delay-1, .motion-ready .delay-2 { transition-delay: 0s; }
 
 /* Home already downloads the full-quality curtain for the opening dissolve,
    where it is the showpiece and only 20% shaded. Pointing its chrome at the
@@ -206,7 +209,7 @@ main::before {
   text-align: center;
   text-shadow: 0 2px 16px rgba(10, 0, 16, .7);
 }
-.tale-chapter-mark i { color: #d9b262; font-size: .85em; font-style: normal; }
+.tale-chapter-mark i { color: #d9b262; font-size: .85em; font-style: normal; text-shadow: 0 0 10px rgba(255, 220, 140, .55); }
 .tale-chapter-mark::before,
 .tale-chapter-mark::after {
   content: "";
@@ -265,7 +268,7 @@ main::before {
     calc(18% - 32px) calc(33% - 17px),
     calc(78% + 28px) calc(47% - 3px),
     0 0, 0 0, 0 0, 0 0;
-  filter: url(#deckle) drop-shadow(0 18px 30px rgba(14, 2, 20, .55)) drop-shadow(0 0 24px rgba(236, 190, 106, .28));
+  filter: url(#deckle) drop-shadow(0 18px 30px rgba(14, 2, 20, .55));
 }
 
 .tale-paper::after {
@@ -277,7 +280,7 @@ main::before {
   mix-blend-mode: multiply;
   opacity: .26;
 }
-.tale-sheet > .tale-paper { filter: url(#deckle-wide) drop-shadow(0 20px 34px rgba(14, 2, 20, .55)) drop-shadow(0 0 26px rgba(236, 190, 106, .3)); }
+.tale-sheet > .tale-paper { filter: url(#deckle-wide) drop-shadow(0 20px 34px rgba(14, 2, 20, .55)); }
 .tale-leaf-recto > .tale-paper { transform: scaleX(-1); }
 .tale-slip > .tale-paper { transform: scaleY(-1); }
 .tale-sheet > .tale-paper { transform: scale(-1, -1); }
@@ -2113,9 +2116,10 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   .tale-flourish { animation: markGlint 6s ease-in-out infinite; }
 }
 
+/* opacity only — animating text-shadow repainted every frame on every page */
 @keyframes markGlint {
-  0%, 100% { opacity: .55; text-shadow: 0 0 6px rgba(255, 214, 128, .3); }
-  50% { opacity: 1; text-shadow: 0 0 16px rgba(255, 224, 150, .85); }
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
 }
 
 /* --- The question the page exists to ask --------------------------------- */
