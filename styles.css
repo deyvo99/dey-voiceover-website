@@ -1494,18 +1494,20 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 
 /* letter left, ways to begin alongside it — the sheet is far wider than a
    comfortable measure, so the column keeps the reading line honest */
-.tale-letter .tale-sheet-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
-  align-items: start;
-  column-gap: clamp(2rem, 4vw, 4.5rem);
-}
+/* The letter used to sit in a 1.25fr column with the four ways beside it in
+   a .75fr column, aligned to the top. The ways ran out long before the letter
+   did, so the taller the letter grew the larger the hole beside it. It reads
+   as what it is now: a letter on a narrower sheet, with the four doors set
+   two-by-two beneath the signature. */
+.tale-letter { width: min(1040px, 100%); }
+.tale-letter .tale-sheet-inner { display: block; }
 .tale-letter .tale-rubric { grid-column: 1 / -1; }
 .tale-letter-text { min-width: 0; }
 .tale-letter-body { max-width: none; }
 
 .tale-letter-ways {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(.7rem, 1.2vw, 1.1rem);
   margin-top: clamp(1.4rem, 2.2vw, 2rem);
   padding-top: clamp(1.4rem, 2.2vw, 2rem);
