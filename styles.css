@@ -11,9 +11,9 @@
   --leaf: #e8d5ad;          /* parchment body        */
   --leaf-lit: #f5e7c6;      /* where the light falls */
   --sepia: #3b2a20;         /* iron-gall ink         */
-  --sepia-soft: #6d5641;    /* faded ink             */
+  --sepia-soft: #5a4634;    /* faded ink             */
   --sepia-read: #402d20;    /* ink at reading size   */
-  --rubric: #98402f;        /* rubricated red        */
+  --rubric: #7f3223;        /* rubricated red        */
   --gilt: #b1873c;
   --gilt-lit: #e6c37c;
   --gilt-deep: #7f5c22;
@@ -2454,4 +2454,29 @@ a.tale-card:hover > b i { margin-left: .35rem; }
 @media (max-width: 600px) {
   /* thirty-one fixed compositor layers is a lot to hold for a starfield */
   .night-sky i:nth-child(n + 14) { display: none; }
+}
+
+/* --- Small caps that people actually have to read ------------------------
+   The rubricated headings run at 11px uppercase with .22em tracking. On a
+   phone that is small enough that the old red sat at 3.7:1 against the
+   darkest part of the parchment — legible on a desk, not on a train. The
+   colours above carry most of the fix; this gives the letters a little more
+   body to be read at arm's length. Gilt is left alone: every use of it is a
+   flourish, not something anyone has to read.
+   ------------------------------------------------------------------------ */
+@media (max-width: 760px) {
+  .tale-rubric {
+    font-size: .78rem;
+    letter-spacing: .17em;
+  }
+  .ai-protection > span,
+  .site-terms > span {
+    font-size: .68rem;
+    letter-spacing: .14em;
+  }
+  .tale-marginalia span,
+  .tale-shelf b {
+    font-size: .64rem;
+    letter-spacing: .14em;
+  }
 }
