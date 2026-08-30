@@ -2415,3 +2415,43 @@ a.tale-card:hover > b i { margin-left: .35rem; }
   .site-terms { padding: .95rem 1.05rem; }
   .site-terms p { font-size: .86rem; }
 }
+
+/* ==========================================================================
+   MOBILE RENDER BUDGET
+   Every expensive thing on this site was running identically at 375px and
+   2560px: the SVG deckle filter, a fourteen-layer blended parchment, two
+   fixed full-viewport layers. A phone GPU rasterises feTurbulence orders of
+   magnitude slower than a laptop's. Below 760px the page keeps its colour
+   and its ornament and gives up the effects nobody can see at that size.
+   ========================================================================== */
+@media (max-width: 760px) {
+  /* the torn edge costs a full filter pass per sheet; a soft shadow reads
+     almost the same at this width */
+  .tale-paper,
+  .tale-sheet > .tale-paper {
+    filter: drop-shadow(0 10px 18px rgba(14, 2, 20, .45));
+  }
+
+  /* fourteen layers and thirteen blend passes collapse to two */
+  .tale-paper {
+    background-image:
+      radial-gradient(ellipse 58% 42% at 22% 12%, rgba(255, 250, 230, .6), transparent 66%),
+      linear-gradient(150deg, #eeddb4, #e2cda1 40%, #d5bd8c 74%, #e4d2ab);
+    background-blend-mode: soft-light, normal;
+  }
+
+  .tale-paper::after { display: none; }
+  .tale-paper::before { display: none; }
+
+  /* the photograph under an .86 gradient is invisible on a phone and is the
+     classic iOS scroll-repaint cost. The layer stays fixed — the footer
+     shows through it — but it is paint-only now. */
+  main::before {
+    background: linear-gradient(168deg, rgba(34, 10, 44, .88), rgba(84, 42, 100, .7) 44%, rgba(26, 10, 38, .9)), var(--dusk);
+  }
+}
+
+@media (max-width: 600px) {
+  /* thirty-one fixed compositor layers is a lot to hold for a starfield */
+  .night-sky i:nth-child(n + 14) { display: none; }
+}

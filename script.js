@@ -622,8 +622,14 @@ if (ribbon && 'IntersectionObserver' in window) {
 // screen, and stop when they leave. Autoplay is only permitted while muted, so
 // the controls stay put for anyone who wants the sound. Nothing is fetched
 // until the element is in view — this one is 12.7 MB.
+//
+// Phones are excluded: that decode lands on the very frames the visitor is
+// scrolling through, and it spends their data without being asked. They get
+// the poster and the play control instead.
 const autoplayVideos = [...document.querySelectorAll('video[data-autoplay]')];
-if (autoplayVideos.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+const autoplayWelcome = !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  && !window.matchMedia('(max-width: 760px)').matches;
+if (autoplayVideos.length && autoplayWelcome) {
   if ('IntersectionObserver' in window) {
     const watcher = new IntersectionObserver((entries) => {
       entries.forEach(({ target, isIntersecting }) => {
