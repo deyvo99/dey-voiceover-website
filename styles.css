@@ -2480,3 +2480,37 @@ a.tale-card:hover > b i { margin-left: .35rem; }
     letter-spacing: .14em;
   }
 }
+
+/* --- About, on a phone: the film before the story ------------------------
+   Side by side, the story reads left and the film sits beside it. Stacked,
+   that puts six paragraphs between a visitor and the one thing on the page
+   that shows her. The leaf holding the film comes first instead, so the
+   order is: the film, where the voice travelled, then the long story for
+   whoever wants it. The DOM keeps the story first, which is the order a
+   screen reader should hear it in.
+   ------------------------------------------------------------------------ */
+@media (max-width: 760px) {
+  .page-about .tale-spread .tale-leaf-recto { order: -1; }
+}
+
+/* --- Grids that actually collapse ---------------------------------------
+   Seven of these grids carry their column count as an inline style/attribute
+   — style="--cols: 4" and the like — written onto the element in the HTML.
+   An inline declaration outranks any stylesheet rule, so the --cols: 1 this
+   file has always set for phones never once applied: a four-column grid was
+   still four columns at 375px, about eighty pixels a column.
+
+   Setting grid-template-columns outright sidesteps it. Nothing inline sets
+   that property, so this wins, whatever --cols happens to say.
+   ------------------------------------------------------------------------ */
+@media (min-width: 761px) and (max-width: 980px) {
+  .tale-cards, .tale-columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tale-dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .tale-cards,
+  .tale-columns,
+  .tale-dl { grid-template-columns: minmax(0, 1fr); }
+  .tale-scraps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
