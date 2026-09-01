@@ -253,18 +253,49 @@ if (opening) {
     if (stopButton) stopButton.hidden = true;
   });
 
+  // The buttons are wired whether or not the opening is showing, because the
+  // cover can be reopened from the footer at any point in the visit.
+  const releaseScroll = () => { document.body.style.overflow = ''; };
+  openButton?.addEventListener('click', () => { openCurtain(true, openButton); releaseScroll(); });
+  skipButton?.addEventListener('click', () => { openCurtain(false, skipButton); releaseScroll(); });
+
+  // Put the cover back. Everything openCurtain does is undone in reverse, so
+  // the second showing is the same as the first rather than a half-state.
+  const closeCurtain = () => {
+    stopOpeningAudio();
+    sessionStorage.removeItem('dey-opening-seen');
+    opening.classList.remove('is-open', 'is-gone');
+    document.body.classList.add('has-opening');
+    document.body.style.overflow = 'hidden';
+    if (sparkleLayer) sparkleLayer.textContent = '';
+    buildInkVeil(inkVeil);
+    window.scrollTo(0, 0);
+  };
+
+  document.querySelectorAll('[data-replay-opening]').forEach((button) => {
+    button.addEventListener('click', closeCurtain);
+  });
+
   if (hasSeenOpening) {
     opening.classList.add('is-open', 'is-gone');
     document.body.classList.remove('has-opening');
   } else {
     document.body.style.overflow = 'hidden';
-    const releaseScroll = () => { document.body.style.overflow = ''; };
-    openButton?.addEventListener('click', () => { openCurtain(true, openButton); releaseScroll(); });
-    skipButton?.addEventListener('click', () => { openCurtain(false, skipButton); releaseScroll(); });
     // Build one frame after the opening has painted: early enough that no
     // human can beat it, late enough not to delay first paint.
     window.requestAnimationFrame(() => window.requestAnimationFrame(() => buildInkVeil(inkVeil)));
   }
+}
+
+// Every other page has the same footer control, but no cover of its own to
+// reopen — so it clears the flag and sends the visitor to the one that has.
+if (!document.querySelector('[data-opening]')) {
+  document.querySelectorAll('[data-replay-opening]').forEach((button) => {
+    button.addEventListener('click', () => {
+      sessionStorage.removeItem('dey-opening-seen');
+      window.location.href = 'index.html';
+    });
+  });
 }
 
 // Custom audio players
